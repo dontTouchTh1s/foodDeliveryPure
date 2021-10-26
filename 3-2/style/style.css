@@ -1,0 +1,11 @@
+body{
+    margin: 7% 4%;
+    direction: rtl;
+    text-align: right;
+    background-color: rgb(29, 118, 219);
+    color: white;
+}
+.container{
+    border: dashed;
+    padding: 3%;
+}
