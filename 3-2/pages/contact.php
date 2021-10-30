@@ -1,3 +1,4 @@
+<?php include("../php/contact_process.php") ?>
 <!DOCTYPE html>
 <html lang = "fa">
     <head>
@@ -13,7 +14,7 @@
         <div class="container border border-white">
             <h1>تماس با ما</h1>
             <p>پس از تکمیل اطلاعات خود، متن پیام خود را نوشته و از دکمه ارسال استفاده کنید.</p>
-            <form class="form-horizontal" action="http://localhost/3-2/contact.php">
+            <form class="form-horizontal" method="post" action=<?= $_SERVER["PHP_SELF"]?>>
               <div class="form-group">
                 <label class="control-label col-sm-2" for="title">موضوع پیام</label>
                 <div class="col-sm-10">
@@ -28,19 +29,19 @@
               <div class="form-group">
                 <label class="control-label col-sm-2" for="fname">نام</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="fname" placeholder="نام و نام خانوادگی">
+                  <input type="text" class="form-control" name = "fname" id="fname" placeholder="نام و نام خانوادگی">
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label col-sm-2" for="email">ایمیل</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" id="email" placeholder="example@xyz.com">
+                  <input type="email" class="form-control" name = "email" id="email" placeholder="example@xyz.com">
                 </div>
               </div>
               <div class="form-group">
                   <label class="control-label col-sm-2" for="message">متن پیام</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" id="message" rows="3"></textarea>
+                    <textarea class="form-control" name = "message" id="message" rows="3"></textarea>
                   </div>
                 </div>
               <div class="form-group">
@@ -55,6 +56,7 @@
                   <button type="submit" class="btn btn-light ">ارسال</button>
                 </div>
               </div>
+                <span><?= $messageError ?></span>
             </form>
         </div>
     </body>
