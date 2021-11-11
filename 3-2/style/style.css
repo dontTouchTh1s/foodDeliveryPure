@@ -1,11 +1,209 @@
-body{
-    margin: 7% 4%;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
+@import url('components.css');
+:root{
     direction: rtl;
+    margin: 0;
+}
+body{
+    margin: 0;
     text-align: right;
-    background-color: rgb(29, 118, 219);
+    background-color: rgb(239, 239, 239);
     color: white;
 }
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+input, select{
+    outline: none;
+    border: none;
+    padding: 0;
+}
 .container{
-    border: dashed;
-    padding: 3%;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.right-pizza{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url("../img/halfpizza.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    width: 35%;
+    height: 100%;
+}
+.content{
+    padding:25px;
+    background-color: #1d2124;
+    width: 100%;
+    height: 70%;
+
+}
+.form-container{
+    height: 100%;
+    width: 35%;
+    margin-right: 35%;
+}
+.form-group{
+    text-align: right;
+    position: relative;
+    display: flex;
+    height: 56px;
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+    align-items: center;
+}
+.form-control{
+    text-align: right;
+    transition: 400ms;
+    background-color: #f5f5f5;
+    font-family: "Raleway Medium", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 28px 16px 6px;
+}
+.form-control:active{
+    border-bottom: 1px solid #d56d00;
+}
+.form-control:focus ~ .form-control-border{
+    height: 3px;
+    background-color: #d56d00;
+}
+.placeholder, .select-placeholder{
+    color: #939393;
+    transition: 400ms;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    right: 16px;
+    pointer-events: none;
+}
+.form-control-border{
+    transition: 400ms;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    height: 1px;
+}
+.form-control-input:focus + .placeholder, :not(input[value=""]) + .placeholder{
+    background-color: transparent;
+    width: fit-content;
+    transform: translateY(0%);
+    top: 0;
+    margin-top: 4px;
+    font-size: 14px;
+}
+.form-control-input:focus + .placeholder{
+    color: #d56d00;
+}
+.form-control-select:focus + .select-placeholder, :not(select[selected-value=""]) + .select-placeholder{
+    background-color: transparent;
+    width: fit-content;
+    transform: translateY(0%);
+    top: 0;
+    margin-top: 4px;
+    font-size: 14px;
+}
+.form-control-select:focus + .select-placeholder{
+    color: #d56d00;
+}
+option{
+    transition: 400ms;
+    height: 48px;
+    border: none;
+    width: 100%;
+}
+.checkbox-parent{
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+.form-control-checkbox{
+    cursor: pointer;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+.form-control-checkbox:hover:not(:active):not(:focus) ~ .checkbox-ripple{
+    opacity:5%;
+    width: 100%;
+    height: 100%;
+}
+.form-control-checkbox:checked ~ .checkbox-background{
+    background-color: rgb(255, 100, 0);
+    border-color: rgb(255, 100, 0);
+    color: white;
+}
+.form-control-checkbox:active ~ .checkbox-ripple{
+    opacity:30%;
+    width: 100%;
+    height: 100%;
+}
+.form-control-checkbox:focus ~ .checkbox-ripple{
+    opacity:15%;
+    width: 100%;
+    height: 100%;
+}
+.checkbox-background{
+    transition: 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+    box-sizing: border-box;
+    pointer-events: none;
+    position: absolute;
+    top:10px;
+    left:10px;
+    width: 20px;
+    height: 20px;
+    border: 2px #8a8a8a solid;
+    border-radius: 4px;
+    background-color: transparent;
+    color: transparent;
+}
+.checkbox-background i{
+    box-sizing: border-box;
+    color: inherit;
+    position: absolute;
+    top:0;
+    left:0 ;
+    width: 17px;
+    height: 17px;
+}
+.checkbox-ripple{
+    transition: 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+    background-color: rgba(255, 100, 0);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5%;
+    height: 5%;
+    opacity: 0;
+    border-radius: 50%;
+}
+.checkbox-label{
+    margin-left: 12px;
+}
+.h-1{
+    height: 40px;
+}
+.h-2{
+    height: 48px;
+}
+.m-1{
+    margin: 0 0 8px 8px;
+}
+.h-auto{
+    height: auto;
 }
