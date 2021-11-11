@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+:root{
+    /* Light primary colors */
+    --lightPrimeryColor: 103, 80, 164;
+    --lightPrimeryOnColor: 255, 255, 255;
+    --lightPrimeryContainerOnColor: 33, 0, 94;
+
+    /* Light secondary colors */
+    --lightSecondaryContainerColor: 232, 222, 248;
+    --lightSecondaryContainerOnColor: 30, 25, 43;
+
+    /* Light surface colors */
+    --lightSurfaceColor: 255, 251, 254;
+    --lightSurfaceOnColor: 28, 27, 31;
+
+    --lightOutlineColor: 121, 116, 126;
+
+}
+a[class*="btn"]{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+.btn{
+    font-family: 'Roboto Medium', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    line-height: 40px;
+    transition: all 400ms;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0;
+    width: fit-content;
+    height: 40px;
+    font-weight: 500;
+    min-width: 64px;
+    min-height: 40px;
+    border-radius: 3em;
+}
+.btn span i{
+    vertical-align: middle;
+}
+.btn i:first-child{
+    margin: 0 8px 0 -8px;
+}
+.btn i:last-child{
+    margin: 0 -8px 0 8px;
+}
+.btn:active{
+    transition: all 100ms;
+}
+
+.btn-elevated{
+    padding: 0 24px;
+    border: none;
+    color: rgba(var(--lightPrimeryColor));
+    background-color: rgba(var(--lightSurfaceColor));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);                       /* Custom elevation lvl 1 */
+}
+.btn-elevated:disabled{
+    background-color: rgba(var(--lightSurfaceOnColor), 12%);
+    color: rgba(var(--lightSurfaceOnColor), 38%);
+    box-shadow: none;
+}
+.btn-elevated:not(:active):enabled:hover, a.elevated:not(:active):hover{
+    /* Not specified in M3 */
+    filter: brightness(85%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);                       /* Custom elevation lvl 2 */
+}
+.btn-elevated:focus{
+    /* Not specified in M3 */
+}
+.btn-elevated:active{
+    background-color: rgba(var(--lightSurfaceColor));
+    /* Not specified in M3 */
+}
+
+.btn-filled{
+    background-color: rgba(var(--lightPrimeryColor));
+    color: rgba(var(--lightPrimeryOnColor));
+    padding: 0 24px;
+    border: none;
+}
+.btn-filled:disabled{
+    background-color: rgba(var(--lightSurfaceOnColor), 12%);
+    color: rgba(var(--lightSurfaceOnColor), 38%);
+}
+.btn-filled:not(:active):enabled:hover, a.filled:not(:active):hover{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);                       /* Custom elevation lvl 1 */
+}
+.btn-filled:focus{
+    box-shadow: none;                                               /* Elevation lvl 0
+    /* Not specified in M3 */
+
+}
+.btn-filled:active{
+    box-shadow: none;
+    /* Not specified in M3 */
+}
+
+.btn-filled-tonal{
+    padding: 0 24px;
+    border: none;
+    background-color: rgba(var(--lightSecondaryContainerColor));
+    color: rgb(var(--lightSecondaryContainerOnColor));
+}
+.btn-filled-tonal:disabled{
+    background-color: rgba(var(--lightSurfaceOnColor), 12%);
+    color: rgba(var(--lightSurfaceOnColor), 38%);
+}
+.btn-filled-tonal:not(:active):enabled:hover, a.filled-tonal:not(:active):hover{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);                       /* Custom elevation lvl 1 */
+    /* Not specified in M3 */
+}
+.btn-filled-tonal:focus{
+    /* Not specified in M3 */
+}
+.btn-filled-tonal:active{
+    /* Not specified in M3 */
+}
+
+.btn-outlined{
+    padding: 0 24px;
+    color: rgba(var(--lightPrimeryColor));
+    border: 1px solid rgba(var(--lightOutlineColor));
+    background-color: rgba(0,0,0,0%);
+}
+.btn-outlined:disabled{
+    color: rgba(var(--lightSurfaceOnColor), 38%);
+    border: 1px solid rgba(var(--lightOutlineColor), 12%);
+}
+.btn-outlined:not(:active):enabled:hover, a.outlined:not(:active):hover{
+    background-color: rgba(var(--lightPrimeryColor), 12%);
+    /* Not specified in M3 */
+}
+.btn-outlined:focus{
+    /* Not specified in M3 */
+}
+.btn-outlined:active{
+    /* Not specified in M3 */
+}
+
+.btn-text{
+    color: rgba(var(--lightPrimeryColor));
+    padding: 0 12px;
+    border: none;
+    background-color: rgba(0,0,0,0%);
+}
+.btn-text i:first-child{
+    margin: 0 8px 0 0;
+}
+.btn-text span:last-child{
+    margin-right: 4px;
+}
+.btn-text i:last-child{
+    margin: 0 0 0 8px;
+}
+.btn-text span:first-child{
+    margin-left: 4px;
+}
+.btn-text:disabled{
+    color: rgba(var(--lightSurfaceOnColor), 38%);
+}
+.btn-text:enabled:hover, a.text:hover{
+    /* Not specified in M3 */
+    background-color: rgba(var(--lightPrimeryColor), 26%);
+}
+.btn-text:focus{
+    /* Not specified in M3 */
+}
+.btn-text:active{
+    /* Not specified in M3 */
+}
+
+span.ripple {
+    filter: brightness(150%);
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 800ms linear;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
