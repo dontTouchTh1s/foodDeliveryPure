@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 :root{
     /* Light primary colors */
-    --lightPrimeryColor: 103, 80, 164;
+    --lightPrimeryColor: 213, 109, 0;
     --lightPrimeryOnColor: 255, 255, 255;
     --lightPrimeryContainerOnColor: 33, 0, 94;
 
@@ -172,6 +172,179 @@ a[class*="btn"]{
 }
 .btn-text:active{
     /* Not specified in M3 */
+}
+
+.form-group{
+    background-color: inherit;
+    text-align: right;
+    position: relative;
+    display: flex;
+    height: 56px;
+    align-items: center;
+}
+.form-control{
+    text-align: right;
+    transition: 400ms;
+    font-family: "Raleway Medium", sans-serif;
+    font-size: 16px;
+    width: 100%;
+    min-height: 56px;
+    height: 100%;
+}
+.control-outlined{
+    color: #f5f5f5;
+    background-color: inherit;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 20px 16px 6px;
+}
+.control-outlined:focus{
+    border-color: rgba(var(--lightPrimeryColor));
+    border-width: 2px;
+}
+.control-filled{
+    padding: 28px 16px 6px;
+    border-radius: 4px 4px 0 0;
+    background-color: #f5f5f5;
+}
+.control-filled:focus ~ .form-control-border{
+    height: 3px;
+    background-color: #d56d00;
+}
+.form-control-select{
+    padding-right: 12px;
+}
+.form-control-textarea{
+    line-height: 26px;
+    max-height: 140px;
+    padding: 30px 16px 6px;
+    height: 94px;
+}
+.textarea-hidden-overflow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 28px;
+    background-color: #f5f5f5;
+}
+.placeholder{
+    z-index: 1;
+    color: #939393;
+    background-color: inherit;
+    transition: 400ms;
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 4px;
+    pointer-events: none;
+}
+.form-control-border{
+    transition: 400ms;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    height: 1px;
+}
+.control-filled:focus + .placeholder, :not(.form-control[value=""]) + .placeholder{
+    background-color: inherit;
+    top: 0;
+    margin-top: 4px;
+    font-size: 14px;
+}
+.control-outlined:focus + .placeholder, :not(.form-control[value=""]):not(.control-filled) + .placeholder{
+
+    background-color: #1d2124 ;
+    top: 0;
+    transform: translateY(-50%);
+    margin-top: 0;
+    font-size: 14px;
+}
+.form-control:focus + .placeholder{
+    color: rgba(var(--lightPrimeryColor));
+}
+option{
+    transition: 400ms;
+    height: 48px;
+    border: none;
+    width: 100%;
+}
+.checkbox-parent{
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+.form-control-checkbox{
+    cursor: pointer;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+.form-control-checkbox:hover:not(:active):not(:focus) ~ .checkbox-ripple{
+    opacity:5%;
+    width: 100%;
+    height: 100%;
+}
+.form-control-checkbox:checked ~ .checkbox-background{
+    background-color: rgba(var(--lightPrimeryColor));
+    border-color: rgba(var(--lightPrimeryColor));
+    color: white;
+}
+.form-control-checkbox:active ~ .checkbox-ripple{
+    opacity:30%;
+    width: 100%;
+    height: 100%;
+}
+.form-control-checkbox:focus ~ .checkbox-ripple{
+    opacity:15%;
+    width: 100%;
+    height: 100%;
+}
+.checkbox-background{
+    transition: 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+    box-sizing: border-box;
+    pointer-events: none;
+    position: absolute;
+    top:10px;
+    left:10px;
+    width: 20px;
+    height: 20px;
+    border: 2px #8a8a8a solid;
+    border-radius: 4px;
+    background-color: transparent;
+    color: transparent;
+}
+.checkbox-background i{
+    box-sizing: border-box;
+    color: inherit;
+    position: absolute;
+    top:0;
+    left:-1px;
+    width: 17px;
+    height: 17px;
+}
+.checkbox-ripple{
+    transition: 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1),transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+    background-color: rgba(var(--lightPrimeryColor));
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5%;
+    height: 5%;
+    opacity: 0;
+    border-radius: 50%;
+}
+.checkbox-label{
+    margin-left: 10px;
 }
 
 span.ripple {
