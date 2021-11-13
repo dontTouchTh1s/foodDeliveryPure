@@ -1,6 +1,6 @@
 <?php
 $messageError = "";
-//include("../php_actions/contant_action.php")
+include("../php_actions/contact_process.php")
 ?>
 <!DOCTYPE html>
 <html lang = "fa">
@@ -20,7 +20,7 @@ $messageError = "";
     <div class="content">
         <div class="form-container">
             <h1>ویرایش مشخصات</h1>
-            <p>پس از ویرایش مشخصات، روی کمه تایید کلیک کنید.</p>
+            <p>برای ورود، مشخصات اکانت خود را وارد و روی دکمه ورود کلیک کنید.</p>
             <form class="form-vertical" method="post" action=<?= $_SERVER["PHP_SELF"]?>>
 
                 <div class="form-group m-1">

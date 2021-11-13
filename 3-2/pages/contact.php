@@ -1,6 +1,6 @@
 <?php
 $messageError = "";
-//include("../php_actions/contant_action.php");
+include("../php/contact_process.php")
 ?>
 <!DOCTYPE html>
 <html lang = "fa">
@@ -16,41 +16,37 @@ $messageError = "";
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="container">
-    <div class ="right-pizza"></div>
+    <div class = "right-pizza"></div>
     <div class="content">
         <div class="form-container">
             <h1>تماس با ما</h1>
             <p>پس از تکمیل اطلاعات خود، متن پیام خود را نوشته و از دکمه ارسال استفاده کنید.</p>
             <form class="form-vertical" method="post" action=<?= $_SERVER["PHP_SELF"]?>>
                 <div class="form-group m-1">
-                    <select class="form-control form-control-select control-filled"  value="" name="message-title" id="message-title">
+                    <select class="form-control form-control-select" selected-value="xcvxcv" name="title" id="title">
+                        <option style="display: none" value="" selected></option>
                         <option value="1">شکایات</option>
                         <option value="2">کنترل کیفی</option>
                         <option value="3">انتقادات و پیشنهادات</option>
                     </select>
-                    <label class="placeholder" for="message-title">موضوع پیام</label>
+                    <label class="select-placeholder" for="title">موضوع پیام</label>
                     <div class ="form-control-border"></div>
                 </div>
-
                 <div class="form-group m-1">
-                    <input type="text" class="form-control form-control-input control-filled" value="" name="name" id="name" aria-labelledby="name-placeholder">
-                    <label class="placeholder" for="name" id ="name-placeholder" >نام</label>
+                    <input type="text" class="form-control form-control-input" value="" name = "fname" id="fname" aria-labelledby="placeholder-fname">
+                    <label class="placeholder" for="fname" id ="placeholder-fname" >نام</label>
                     <div class ="form-control-border"></div>
                 </div>
-
                 <div class="form-group m-1">
-                    <input type="email" class="form-control form-control-input control-filled" value="" name="email" id="email" aria-labelledby="email-placeholder">
-                    <label class="placeholder" for="email" id ="email-placeholder" >ایمیل</label>
+                    <input type="text" class="form-control form-control-input" value="" name = "fname" id="fname" aria-labelledby="placeholder-fname">
+                    <label class="placeholder" for="fname" id ="placeholder-fname" >نام</label>
                     <div class ="form-control-border"></div>
                 </div>
-
                 <div class="form-group m-1">
-                    <textarea class="form-control form-control-textarea control-filled" value="" name="message" id="message" aria-labelledby="message-placeholder"></textarea>
-                    <label class="placeholder" for="message" id ="message-placeholder" >متن پیام</label>
-                    <span class="textarea-hidden-overflow"></span>
+                    <input type="text" class="form-control form-control-input" value="" name = "fname" id="fname" aria-labelledby="placeholder-fname">
+                    <label class="placeholder" for="fname" id ="placeholder-fname" >نام</label>
                     <div class ="form-control-border"></div>
                 </div>
-
                 <div class="form-group h-1">
                     <label for="remember-me" class="checkbox-label">مرا به خاطر داشته باش</label>
                     <div class="checkbox-parent">
@@ -61,7 +57,6 @@ $messageError = "";
                         <div class="checkbox-ripple"></div>
                     </div>
                 </div>
-
                 <div class="form-group h-auto">
                     <button type="submit" class="btn btn-filled">ارسال</button>
                 </div>
@@ -70,7 +65,7 @@ $messageError = "";
         </div>
     </div>
 </div>
+</body>
 <script src="../js/form_controls.js" type="text/javascript"></script>
 <script src="../js/ripple_effect.js" type="text/javascript"></script>
-</body>
 </html>

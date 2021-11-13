@@ -1,6 +1,6 @@
 <?php
 $messageError = "";
-include("../php_actions/contant_action.php")
+include("../php_actions/contact_process.php")
 ?>
 <!DOCTYPE html>
 <html lang = "fa">
