@@ -1,0 +1,105 @@
+@import url('colors.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import url('components/components.css');
+
+:root{
+    direction: rtl;
+    margin: 0;
+}
+body{
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    text-align: right;
+    background-color: rgb(239, 239, 239);
+    color: white;
+}
+h1{
+    font-weight: 800;
+}
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+input, select, textarea, button{
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-weight: 400;
+    resize: vertical;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: 800px;
+    margin: 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.right-pizza{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url("../img/halfpizza.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    width: 350px;
+    max-width: 35%;
+    height: 100%;
+
+}
+.content{
+    padding:0;
+    background-color: #1d2124;
+    width: 100%;
+    height: 700px;
+
+}
+.form-container{
+    height: 100%;
+    width: 80%;
+    margin-right: 10%;
+}
+.form-user{
+    width: 40%;
+    margin-right: 35%;
+    height: 550px;
+}
+.form-vertical{
+    display: flex;
+    flex-wrap: wrap;
+}
+.h-1{
+    min-height: 40px;
+    height: 40px;
+}
+.h-2{
+    min-height: 56px;
+    height: 56px;
+}
+.h-auto{
+    min-height: 56px;
+    height: auto;
+}
+.m-1{
+    margin: 0 0 4px 8px;
+}
+.flex-50{
+    flex-basis: 48%;
+    flex-grow: 2;
+}
+.flex-100{
+    flex-basis: 100%;
+    flex-grow: 2;
+}
+.flex-33{
+    flex-basis: 31%;
+    flex-grow: 2;
+}
+.flex-25{
+    flex-basis: 23%;
+    flex-grow: 2;
+}

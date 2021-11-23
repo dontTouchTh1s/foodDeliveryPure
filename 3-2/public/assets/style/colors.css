@@ -1,0 +1,34 @@
+:root {
+    /* Light primary colors */
+    --lightPrimeryColor: rgb(213, 109, 0);
+    --lightPrimeryColor38: rgba(213, 109, 0, 38%);
+    --lightPrimeryColor12: rgba(213, 109, 0, 12%);
+    --lightPrimeryOnColor: rgb(255, 255, 255);
+    --lightPrimeryContainerOnColor: rgb(33, 0, 94);
+
+    /* Light secondary container colors */
+    --lightSecondaryContainerColor: rgb(232, 222, 248);
+    --lightSecondaryContainerOnColor: rgb(30, 25, 43);
+
+    /* Light surface colors */
+    --lightSurfaceColor: rgb(255, 251, 254);
+    --lightSurfaceOnColor: rgb(28, 27, 31);
+    --lightSurfaceOnColor38: rgba(28, 27, 31, 38%);
+    --lightSurfaceOnColor12: rgba(28, 27, 31, 12%);
+
+    --lightOutlineColor: rgb(121, 116, 126);
+
+    /* light error colors */
+    --lightErrorOnColor: rgb(194, 0, 0);
+
+    /* dark primary container colors */
+    --darkPrimaryContainerColor: rgb(29, 33, 36);
+    --darkPrimaryContainerOnColor: rgb(255, 255, 255);
+
+    /* dark secondary container colors */
+    --darkSecondaryContainerColor: rgb(43, 47, 51);
+    --darkSecondaryContainerOnColor: rgb(197, 197, 197);
+
+    /* dark error colors */
+    --darkErrorOnColor: rgb(255, 58, 58);
+}
