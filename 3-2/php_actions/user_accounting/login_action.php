@@ -1,8 +1,7 @@
 <?php
+//Include data base files
 include(INCLUDES_PATH . "/setting.php");
 
-$name = $fullName = $gender = $email = $password = $rePassword = "";
-$emptyField = false;
 if (isset($_POST['email']) and ($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -12,7 +11,7 @@ if (isset($_POST['email']) and ($_POST['password'])) {
     return;
 }
 
-//connecting to database
+// Connecting to database
 $mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
 if ($mysql->connect_errno) {
     $error = "در هنگام اتصال به سرور مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";

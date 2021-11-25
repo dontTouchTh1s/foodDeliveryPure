@@ -6,7 +6,6 @@ a[class*="btn"] {
 }
 
 .btn {
-    font-family: 'Roboto Medium', sans-serif;
     font-size: 14px;
     line-height: 32px;
     transition: all 400ms;
@@ -47,8 +46,8 @@ a[class*="btn"] {
 }
 
 .btn-elevated:disabled {
-    background-color: var(--lightSurfaceOnColor); /*12%);*/
-    color: var(--lightSurfaceOnColor); /*38%);*/
+    background-color: var(--lightSurfaceOnColor12);
+    color: var(--lightSurfaceOnColor38);
     box-shadow: none;
 }
 
@@ -75,8 +74,8 @@ a[class*="btn"] {
 }
 
 .btn-filled:disabled {
-    background-color: var(--lightSurfaceOnColor); /*12%);*/
-    color: var(--lightSurfaceOnColor); /*38%;*/
+    background-color: var(--lightSurfaceOnColor12);
+    color: var(--lightSurfaceOnColor38);
 }
 
 .btn-filled:not(:active):enabled:hover, a.filled:not(:active):hover {

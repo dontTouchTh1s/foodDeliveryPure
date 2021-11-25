@@ -24,6 +24,7 @@
     /* dark primary container colors */
     --darkPrimaryContainerColor: rgb(29, 33, 36);
     --darkPrimaryContainerOnColor: rgb(255, 255, 255);
+    --darkPrimaryContainerOnColor38: rgba(255, 255, 255, 0.38);
 
     /* dark secondary container colors */
     --darkSecondaryContainerColor: rgb(43, 47, 51);

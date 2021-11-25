@@ -1,0 +1,178 @@
+
+.form-control-file {
+    height: auto;
+    padding: 0;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.file-label {
+    display: block;
+    position: absolute;
+    width: 84%;
+    right: 8%;
+    height: 300px;
+    cursor: pointer;
+}
+
+.arrow {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 45%;
+    cursor: pointer;
+}
+
+.arrow[aria-disabled=true] {
+    pointer-events: none;
+    color: var(--darkPrimaryContainerOnColor38);
+}
+
+.arrow[aria-disabled=false] {
+    pointer-events: auto;
+    color: var(--darkPrimaryContainerOnColor);
+}
+
+.arrow:hover i {
+    transition: 250ms;
+    color: var(--lightPrimeryColor);
+    text-shadow: 0 0 3px black;
+}
+
+.arrow#next-arrow {
+    right: 20px;
+}
+
+.arrow#pre-arrow {
+    left: 20px;
+}
+
+.file-placeholder {
+    transition: 250ms;
+    pointer-events: none;
+    position: absolute;
+    font-size: 24px;
+    font-weight: 600;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    padding: 4px;
+    z-index: 12;
+    text-align: center;
+}
+
+.file-label:hover ~ .file-placeholder {
+    top: 45%;
+}
+
+.file-label:hover ~ .file-placeholder i {
+    color: var(--lightPrimeryColor);
+}
+
+.form-control-file:not([value=""]) .file-placeholder {
+    font-size: 16px;
+    padding-top: 0;
+    background-color: var(--darkPrimaryContainerColor);
+    top: 0;
+}
+
+.file-placeholder div {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.form-control-file:not([value=""]) .file-placeholder * {
+    display: none;
+}
+
+.file-placeholder i {
+    display: inline-block;
+    font-size: 70px;
+
+}
+
+.file-description {
+    direction: ltr;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+
+.circle-counter {
+    cursor: pointer;
+    color: var(--lightPrimeryColor38);
+    margin: 4px;
+}
+
+.circle-counter[aria-selected="true"] {
+    color: var(--lightPrimeryColor);
+}
+
+.form-control-file .file-name {
+    padding-left: 16px;
+    text-align: left;
+}
+
+.picture-preview {
+    display: flex;
+    pointer-events: none;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    overflow: hidden;
+    margin: 20px auto auto;
+    width: 84%;
+}
+
+.picture-preview .background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../img/bg.png");
+    background-size: 100%;
+    opacity: 12%;
+}
+
+.picture {
+    max-height: 250px;
+    transition: 500ms;
+    pointer-events: none;
+    display: block;
+    position: absolute;
+}
+
+
+.picture-out-right {
+    transition: 500ms;
+    filter: brightness(50%);
+    transform: translateX(380px) scale(0.4);
+}
+
+.picture-out-left {
+    transition: 500ms;
+    filter: brightness(40%);
+    transform: translateX(-380px) scale(0.4);
+}
+
+.picture-out-right-fast {
+    transition: 250ms;
+    filter: brightness(50%);
+    transform: translateX(380px) scale(0.4);
+}
+
+.picture-out-left-fast {
+    transition: 250ms;
+    filter: brightness(40%);
+    transform: translateX(-380px) scale(0.4);
+}
+
+.picture-gone {
+    width: 250px;
+    transition: 500ms;
+    transform: translateX(0) scale(0.4);
+    display: none;
+}

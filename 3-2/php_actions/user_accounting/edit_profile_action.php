@@ -1,4 +1,5 @@
 <?php
+//Include data base files
 include(INCLUDES_PATH . "/setting.php");
 
 if (isset($_SESSION['id'])) {
@@ -7,7 +8,7 @@ if (isset($_SESSION['id'])) {
     return;
 }
 
-//connecting to database
+// Connecting to database
 $mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
 if ($mysql->connect_errno) {
     $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";

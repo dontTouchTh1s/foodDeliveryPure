@@ -1,6 +1,8 @@
 <?php
+//Include data base files
 include(INCLUDES_PATH . "/setting.php");
 
+// Check for POST data, if they are right insert them to DB
 $name = $fullName = $gender = $email = $password = $rePassword = "";
 $emptyField = false;
 if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email']) and
@@ -22,10 +24,11 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
     if ($password != $rePassword)
         $passError = "رمز عبور به درستی تکرار نشده است";
 } else {
+    // If any of POST data is wrong, stop compiling this file and return to form with errors
     return;
 }
 
-//connecting to database
+// Connecting to database
 $mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
 if ($mysql->connect_errno) {
     $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";
