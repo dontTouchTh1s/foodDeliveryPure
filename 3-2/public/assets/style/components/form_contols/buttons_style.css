@@ -40,7 +40,7 @@ a[class*="btn"] {
 .btn-elevated {
     padding: 0 24px;
     border: none;
-    color: var(--lightPrimeryColor);
+    color: var(--lightPrimaryColor);
     background-color: var(--lightSurfaceColor);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Custom elevation lvl 1 */
 }
@@ -67,8 +67,8 @@ a[class*="btn"] {
 }
 
 .btn-filled {
-    background-color: var(--lightPrimeryColor);
-    color: var(--lightPrimeryOnColor);
+    background-color: var(--lightPrimaryColor);
+    color: var(--lightPrimaryOnColor);
     padding: 0 24px;
     border: none;
 }
@@ -121,7 +121,7 @@ a[class*="btn"] {
 
 .btn-outlined {
     padding: 0 24px;
-    color: var(--lightPrimeryColor);
+    color: var(--lightPrimaryColor);
     border: 1px solid var(--lightOutlineColor);
     background-color: rgba(0, 0, 0, 0%);
 }
@@ -132,7 +132,7 @@ a[class*="btn"] {
 }
 
 .btn-outlined:not(:active):enabled:hover, a.btn-outlined:not(:active):hover {
-    background-color: var(--lightPrimeryColor12);
+    background-color: var(--lightPrimaryColor12);
     /* Not specified in M3 */
 }
 
@@ -173,7 +173,7 @@ a[class*="btn"] {
 
 .btn-text:enabled:hover, a.text:hover {
     /* Not specified in M3 */
-    background-color: var(--lightPrimeryColor38);
+    background-color: var(--lightPrimaryColor38);
 }
 
 .btn-text:focus {

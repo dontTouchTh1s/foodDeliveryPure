@@ -1,5 +1,13 @@
+let timeOut;
+
 function createRipple(event) {
     const button = event.currentTarget;
+    if (button.className === "card-body") {
+        if (typeof timeOut !== 'undefined') clearTimeout(timeOut);
+        const surface = button.querySelector(".body-surface")
+        surface.style.opacity = "0";
+        timeOut = setTimeout(() => back_opacity(surface), 900);
+    }
     const circle = document.createElement('span');
     const size = Math.max(button.clientWidth, button.clientHeight);
     const radius = size / 2;
@@ -27,4 +35,12 @@ for (const button of buttons) {
 const anchors = document.getElementsByTagName('a');
 for (const anchor of anchors) {
     anchor.addEventListener("click", createRipple);
+}
+const cards = document.getElementsByClassName('card-body');
+for (const card of cards) {
+    card.addEventListener("click", createRipple);
+}
+
+function back_opacity(surface) {
+    surface.style.opacity = "";
 }

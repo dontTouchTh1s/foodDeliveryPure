@@ -25,15 +25,15 @@
 }
 
 .control-outlined {
-    color: #f5f5f5;
+    color: var(--lightPrimaryContainerOnColor);
     background-color: inherit;
-    border: 1px solid white;
+    border: 1px solid var(--lightPrimaryColor);
     border-radius: 4px;
     padding: 6px 16px 0;
 }
 
 .control-outlined:focus {
-    border-color: var(--lightPrimeryColor);
+    border-color: var(--lightPrimaryColor);
     border-width: 2px;
 }
 
@@ -44,6 +44,7 @@
 
 .control-filled {
     background-color: var(--lightSurfaceColor);
+    color: var(--lightPrimaryContainerOnColor);
     padding: 20px 16px 0;
     border-radius: 4px 4px 0 0;
     border-bottom: 1px solid white;
@@ -51,7 +52,7 @@
 
 .control-filled:focus {
     border-width: 3px;
-    border-color: var(--lightPrimeryColor);
+    border-color: var(--lightPrimaryColor);
 }
 
 .control-filled[error = "true"] {
@@ -114,11 +115,11 @@
 }
 
 .control-filled ~ .placeholder {
-    color: var(--lightSurfaceOnColor38);
+    color: var(--lightPrimaryContainerOnColor38);
 }
 
 .control-outlined:focus + .placeholder, :not(.form-control[value=""]):not(.control-filled) + .placeholder {
-    background-color: #1d2124;
+    background-color: var(--lightBackgroundColor);
     top: 0;
     transform: translateY(-50%);
     margin-top: 0;
@@ -126,11 +127,11 @@
 }
 
 .control-outlined ~ .placeholder {
-    color: white;
+    color: var(--lightPrimaryContainerOnColor);
 }
 
 .form-control:focus ~ .placeholder {
-    color: var(--lightPrimeryColor);
+    color: var(--lightPrimaryColor);
 }
 
 .form-control[error="true"] ~ .placeholder {
@@ -183,7 +184,7 @@
 }
 
 .check-group-parent {
-    background-color: var(--lightSurfaceColor);
+
     overflow: hidden;
     text-align: right;
     position: relative;
@@ -197,7 +198,7 @@
 .check-group-label {
     color: #383838;
     padding: 8px 16px;
-    background-color: #c0c0c0;
+    background-color: var(--lightPrimaryContainerColor);
 }
 
 .check-group {
@@ -270,8 +271,8 @@
 }
 
 .form-control-check:checked ~ .checkbox i {
-    background-color: var(--lightPrimeryColor);
-    border-color: var(--lightPrimeryColor);
+    background-color: var(--lightPrimaryColor);
+    border-color: var(--lightPrimaryColor);
     font-size: 16px;
     position: absolute;
     width: 16px;
@@ -299,12 +300,12 @@
     width: 20px;
     height: 20px;
     background-color: transparent;
-    color: var(--lightPrimeryColor);
+    color: var(--lightPrimaryColor);
 }
 
 .check-ripple {
     transition: 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1), transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
-    background-color: var(--lightPrimeryColor);
+    background-color: var(--lightPrimaryColor);
     transform: translate(-50%, -50%);
     pointer-events: none;
     position: absolute;

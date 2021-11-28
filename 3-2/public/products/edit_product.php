@@ -10,12 +10,14 @@ include(ACTIONS_PATH . "/products/edit_action.php");
     <meta name="description" content="contact us">
     <meta name="author" content="AliM">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href=<?= STYLE_URL . '/style.css' ?>>
+    <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
     <title>ایجاد حساب کاربری</title>
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<?php include("../header.php"); ?>
 <div class="container">
     <div class="content">
         <div class="form-container">

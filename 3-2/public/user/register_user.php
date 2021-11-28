@@ -17,7 +17,7 @@ include(ACTIONS_PATH . "/user_accounting/register_action.php");
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?= include("../header.php"); ?>;
+<?php include("../header.php"); ?>
 <div class="container">
     <div class="right-pizza"></div>
     <div class="content">

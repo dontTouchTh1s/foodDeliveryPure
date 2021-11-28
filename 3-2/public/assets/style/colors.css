@@ -1,35 +1,61 @@
 :root {
     /* Light primary colors */
-    --lightPrimeryColor: rgb(213, 109, 0);
-    --lightPrimeryColor38: rgba(213, 109, 0, 38%);
-    --lightPrimeryColor12: rgba(213, 109, 0, 12%);
-    --lightPrimeryOnColor: rgb(255, 255, 255);
-    --lightPrimeryContainerOnColor: rgb(33, 0, 94);
+    --lightPrimaryColor: #d06409;
+    --lightPrimaryColor38: rgba(208, 100, 9, 0.38);
+    --lightPrimaryColor12: rgb(208, 100, 9);
+    --lightPrimaryOnColor: rgb(255, 255, 255);
+
+
+    /* Light primary container color */
+    --lightPrimaryContainerColor: rgb(224, 174, 131);
+    --lightPrimaryContainerOnColor: rgb(30, 17, 2);
+    --lightPrimaryContainerOnColor38: rgba(26, 16, 1, 0.38);
+    --lightPrimaryContainerOnColor12: rgba(33, 19, 2, 0.12);
+
+    /* Light secondary colors */
+    --lightSecondaryColor: #66bb6a;
+    --lightSecondaryOnColor: #171616;
 
     /* Light secondary container colors */
-    --lightSecondaryContainerColor: rgb(232, 222, 248);
-    --lightSecondaryContainerOnColor: rgb(30, 25, 43);
+    --lightSecondaryContainerColor: rgb(164, 225, 164);
+    --lightSecondaryContainerOnColor: rgb(1, 24, 3);
 
     /* Light surface colors */
-    --lightSurfaceColor: rgb(255, 251, 254);
-    --lightSurfaceOnColor: rgb(28, 27, 31);
-    --lightSurfaceOnColor38: rgba(28, 27, 31, 38%);
-    --lightSurfaceOnColor12: rgba(28, 27, 31, 12%);
+    --lightSurfaceColor: rgb(241, 228, 223);
+    --lightSurfaceOnColor: rgb(23, 23, 22);
+    --lightSurfaceOnColor38: rgba(23, 23, 22, 0.38);
+    --lightSurfaceOnColor12: rgba(23, 23, 22, 0.12);
 
-    --lightOutlineColor: rgb(121, 116, 126);
+    --lightSurfaceVariantColor: rgb(255, 211, 186);
+    --lightSurfaceVariantOnColor: rgb(23, 23, 22);
+    --lightSurfaceVariantOnColor38: rgba(23, 23, 22, 0.38);
+    --lightSurfaceVariantOnColor12: rgba(23, 23, 22, 0.12);
 
-    /* light error colors */
+    /* Light background colors */
+    --lightBackgroundColor: rgb(255, 251, 251);
+
+    /* Light outline color */
+    --lightOutlineColor: rgb(122, 106, 106);
+
+    /* Light error colors */
     --lightErrorOnColor: rgb(194, 0, 0);
 
-    /* dark primary container colors */
+    /* Dark primary container colors */
     --darkPrimaryContainerColor: rgb(29, 33, 36);
     --darkPrimaryContainerOnColor: rgb(255, 255, 255);
     --darkPrimaryContainerOnColor38: rgba(255, 255, 255, 0.38);
 
-    /* dark secondary container colors */
+    /* Dark secondary container colors */
     --darkSecondaryContainerColor: rgb(43, 47, 51);
     --darkSecondaryContainerOnColor: rgb(197, 197, 197);
 
-    /* dark error colors */
+    /* Dark background color */
+    --darkBackgroundColor: rgb(31, 27, 27);
+
+    /* Dark outline color */
+    --darkOutlineColor: rgb(213, 213, 213);
+
+    /* Dark error colors */
     --darkErrorOnColor: rgb(255, 58, 58);
+
 }

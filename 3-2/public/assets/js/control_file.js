@@ -49,11 +49,12 @@ function picture_preview() {
 }
 
 function change_picture(state) {
-
-    list[showing][1].setAttribute("aria-selected", "false");
     let step = (Math.abs(state) / state);
     state -= step;
     showing += step;
+
+    list[showing][1].setAttribute("aria-selected", "false");
+
     for (let pic of list) {
         pic = pic[0];
         pic.classList.add("picture-gone");
@@ -112,4 +113,3 @@ function convertFileSize(size) {
     }
     return size;
 }
-

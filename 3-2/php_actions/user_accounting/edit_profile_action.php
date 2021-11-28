@@ -11,7 +11,7 @@ if (isset($_SESSION['id'])) {
 // Connecting to database
 $mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
 if ($mysql->connect_errno) {
-    $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";
+    $error = "در هنگام اتصال به سرور مشکلی پیش آمده است. لظفا بعدا تلاش کنید.";
     return ($mysql->connect_error);
 }
 

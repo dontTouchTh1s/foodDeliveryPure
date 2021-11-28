@@ -10,8 +10,12 @@ const PUBLIC_URL = ROOT_URL . "/public";
 const USER_URL = PUBLIC_URL . "/user";
 const ASSETS_URL = PUBLIC_URL . "/assets";
 const IMAGES_URL = ASSETS_URL . "/img";
+const UPLOAD_URL = IMAGES_URL . "/upload";
 const JS_URL = ASSETS_URL . "/js";
 const STYLE_URL = ASSETS_URL . "/style";
 const FONTS_URL = ASSETS_URL . "/fonts";
 
 const PUBLIC_PATH = ROOT_PATH . "/public";
+const ASSETS_PATH = PUBLIC_PATH . "/assets";
+const IMAGE_PATH = ASSETS_PATH . "/img";
+const UPLOAD_PATH = IMAGE_PATH . "/upload";

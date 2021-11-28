@@ -6,7 +6,6 @@ userLogo.addEventListener("click", change_manage_state);
 let userManage = document.getElementById("user-manage");
 let userEmail = document.getElementById("user-email");
 if (userEmail.innerText !== "") {
-    userManage.style.pointerEvents = "auto";
     userLogo.style.cursor = "pointer";
     logeIn = true
 }
