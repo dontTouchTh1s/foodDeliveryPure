@@ -1,7 +1,9 @@
 <?php
 include("__PATH__.php");
+$access = new check_access();
+$access->check_roll(ROLL_ADMIN);
 $typeError = $stateError = $nameError = $priceError = $descriptionError = $pictureError = $error = "";
-include(ACTIONS_PATH . "/products/add_action.php");
+include(ACTIONS_PATH . "/admins/products/add-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -16,7 +18,7 @@ include(ACTIONS_PATH . "/products/add_action.php");
     <title>ایجاد حساب کاربری</title>
 </head>
 <body>
-<?php include("../header.php"); ?>
+<?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
     <div class="right-pizza"></div>
     <div class="content">

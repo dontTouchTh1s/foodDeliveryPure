@@ -35,6 +35,7 @@
 }
 
 .card-picture {
+    background-color: inherit;
     z-index: 1;
     overflow: hidden;
     border-radius: 20px;

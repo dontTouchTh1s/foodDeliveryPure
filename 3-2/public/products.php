@@ -3,7 +3,7 @@ session_start();
 include("__PATH__.php");
 $error = "";
 $productsList = [];
-include(ACTIONS_PATH . "/products/view_action.php");
+include(ACTIONS_PATH . "/view-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -20,7 +20,7 @@ include(ACTIONS_PATH . "/products/view_action.php");
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include("../header.php"); ?>
+<?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
     <div class="right-pizza"></div>
     <div class="content">
@@ -40,7 +40,6 @@ include(ACTIONS_PATH . "/products/view_action.php");
                         </div>
                     </div>                                            
                 ");
-
             }
             ?>
         </div>

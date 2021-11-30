@@ -1,7 +1,7 @@
 <?php
 include("__PATH__.php");
 $nameError = $fullNameError = $genderError = $emailError = $repPasswordError = $passwordError = $error = "";
-include(ACTIONS_PATH . "/user_accounting/register_action.php");
+include(ACTIONS_PATH . "/users/register-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -87,7 +87,7 @@ include(ACTIONS_PATH . "/user_accounting/register_action.php");
                            name="password" id="password" aria-labelledby="password-placeholder">
                     <label class="placeholder" for="password" id="password-placeholder">رمز عبور</label>
                     <div class="input-icon icon-password" id="icon-password" state="hide">
-                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        <i class="fa fa-eye"></i>
                     </div>
                     <div class="error-message" id="password-error"
                          helper-text="حداقل 8 کاراکتر"><?= $passwordError ?></div>
@@ -103,7 +103,7 @@ include(ACTIONS_PATH . "/user_accounting/register_action.php");
                     <button type="submit" class="btn btn-filled" id="submit-button">ثبت نام</button>
                 </div>
                 <div class="form-group h-2 flex-50">
-                    <a href="login_user.php" class="btn btn-outlined">
+                    <a href="login.php" class="btn btn-outlined">
                         ورود
                     </a>
                 </div>

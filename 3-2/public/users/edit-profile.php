@@ -2,7 +2,7 @@
 session_start();
 include("__PATH__.php");
 $name = $fullName = $gender = $email = $password = $rePassword = $error = "";
-include(ACTIONS_PATH . "/user_accounting/edit_profile_action.php");
+include(ACTIONS_PATH . "/users/edit-profile-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">

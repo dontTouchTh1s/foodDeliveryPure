@@ -2,7 +2,7 @@
 session_start();
 include("__PATH__.php");
 $emailError = $error = "";
-include(ACTIONS_PATH . "/user_accounting/login_action.php");
+include(ACTIONS_PATH . "/admins/login-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -18,7 +18,7 @@ include(ACTIONS_PATH . "/user_accounting/login_action.php");
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include("../header.php"); ?>
+<?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
 
     <div class="right-pizza"></div>
@@ -39,7 +39,7 @@ include(ACTIONS_PATH . "/user_accounting/login_action.php");
                            name="password" id="password" aria-labelledby="password-placeholder">
                     <label class="placeholder" for="password" id="password-placeholder">رمز عبور</label>
                     <div class="input-icon icon-password" id="icon-password" state="hide">
-                        <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                        <i class="fa fa-eye-slash"></i>
                     </div>
                     <div class="error-message flex-100" id="password-error"></div>
                 </div>

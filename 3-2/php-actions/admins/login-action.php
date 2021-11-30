@@ -17,7 +17,7 @@ if ($mysql->connect_errno) {
     $error = "در هنگام اتصال به سرور مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
 }
 
-$query = "SELECT * FROM user_information WHERE email='$email' AND password='$password'";
+$query = "SELECT * FROM admins WHERE email='$email' AND password='$password'";
 $result = $mysql->query($query);
 if ($mysql->query($query))
     if ($result->num_rows > 0) {
@@ -27,7 +27,8 @@ if ($mysql->query($query))
         $_SESSION['full-name'] = $row['full-name'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['gender'] = $row['gender'];
-        header("location: " . USER_URL . "/edit_profile_user.php");
+        $_SESSION['roll'] = 10;
+        new redirect(USER_URL . "/edit-profile.php");
     } else {
         $error = "نام کاربری یا رمز عبور صحیح نیست.";
     }

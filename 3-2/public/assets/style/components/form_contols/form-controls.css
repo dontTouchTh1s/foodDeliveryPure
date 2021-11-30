@@ -1,3 +1,7 @@
+input::-ms-reveal, input::-ms-clear {
+    display: none;
+}
+
 .form-group {
     z-index: 10;
     background-color: inherit;
@@ -148,15 +152,17 @@
 }
 
 .control-outlined ~ .input-icon {
-    color: white;
+    color: black;
 }
+
 
 .control-filled ~ .input-icon {
     color: black;
 }
 
 .input-icon i {
-    position: absolute;
+    pointer-events: none;
+    display: block;
 }
 
 .error-message {

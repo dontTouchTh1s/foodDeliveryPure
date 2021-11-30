@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/fornt-project.iml" filepath="$PROJECT_DIR$/.idea/fornt-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/front-project.iml" filepath="$PROJECT_DIR$/.idea/front-project.iml" />
     </modules>
   </component>
 </project>

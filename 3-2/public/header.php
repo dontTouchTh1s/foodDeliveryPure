@@ -16,7 +16,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
             <a href="/"> بلاگ </a>
         </li>
     </ul>
-    <a href="<?= PUBLIC_URL . '/user/register_user.php' ?>" class="user-register">
+    <a href="<?= PUBLIC_URL . '/users/register.php' ?>" class="user-register">
         <span><?= $name ?></span>
     </a>
     <i class="user-logo" id="user-logo"></i>
@@ -26,7 +26,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
             <p class="flex-100" id="user-email"><?= $email ?></p>
         </div>
         <div class="flex-100">
-            <a href="<?= ACTIONS_URL . '/user_accounting/exit_action.php' ?>" class="btn btn-outlined flex-100">خروج</a>
+            <a href="<?= ACTIONS_URL . '/users/exit-action.php' ?>" class="btn btn-outlined flex-100">خروج</a>
         </div>
     </div>
 </header>

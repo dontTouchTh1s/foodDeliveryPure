@@ -15,8 +15,8 @@ if ($mysql->connect_errno) {
     return ($mysql->connect_error);
 }
 
-//Get user information from db and show in the form
-$query = "SELECT * FROM user_information WHERE id='$id'";
+//Get users information from db and show in the form
+$query = "SELECT * FROM users WHERE id='$id'";
 $result = $mysql->query($query);
 if ($result) {
     if ($result->num_rows > 0) {
@@ -49,7 +49,7 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
     return;
 }
 
-$query = "UPDATE user_information
+$query = "UPDATE users
           SET name='$name', `full-name`='$fullName', email='$email', password='$password'
           WHERE id='$id'";
 if ($mysql->query($query))
