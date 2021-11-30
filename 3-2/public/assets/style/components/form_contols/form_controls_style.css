@@ -1,0 +1,328 @@
+.form-group {
+    z-index: 10;
+    background-color: inherit;
+    text-align: right;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-group * {
+    z-index: 11;
+}
+
+.form-control {
+    text-align: right;
+    transition: 250ms;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+}
+
+.form-control[error = "true"] {
+    color: var(--lightErrorOnColor);
+}
+
+.control-outlined {
+    color: var(--lightPrimaryContainerOnColor);
+    background-color: inherit;
+    border: 1px solid var(--lightPrimaryColor);
+    border-radius: 4px;
+    padding: 6px 16px 0;
+}
+
+.control-outlined:focus {
+    border-color: var(--lightPrimaryColor);
+    border-width: 2px;
+}
+
+.control-outlined[error = "true"] {
+    border-color: var(--lightErrorOnColor);
+    border-width: 2px;
+}
+
+.control-filled {
+    background-color: var(--lightSurfaceColor);
+    color: var(--lightPrimaryContainerOnColor);
+    padding: 20px 16px 0;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 1px solid white;
+}
+
+.control-filled:focus {
+    border-width: 3px;
+    border-color: var(--lightPrimaryColor);
+}
+
+.control-filled[error = "true"] {
+    border-width: 3px;
+    border-color: var(--lightErrorOnColor);
+}
+
+.form-control-select {
+    padding: 12px 12px 0 0;
+}
+
+.control-outlined.form-control-select {
+    padding: 0 12px 0 0;
+}
+
+.form-control-textarea {
+    line-height: 26px;
+    max-height: 200px;
+    padding: 30px 16px 6px;
+    height: 94px;
+}
+
+.control-outlined.form-control-textarea {
+    padding: 12px 16px 6px;
+}
+
+.textarea-hidden-overflow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 16px;
+    background-color: var(--lightSurfaceColor);
+}
+
+.control-outlined ~ .textarea-hidden-overflow {
+    background-color: inherit;
+}
+
+.placeholder {
+    font-weight: 400;
+    z-index: 12;
+    background-color: inherit;
+    transition: 400ms;
+    position: absolute;
+    top: 28px;
+    transform: translateY(-50%);
+    right: 12px;
+    padding: 0 4px;
+    height: 16px;
+    line-height: 16px;
+    pointer-events: none;
+}
+
+.control-filled:focus + .placeholder, :not(.form-control[value=""]) + .placeholder {
+    transform: translateY(0);
+    top: 8px;
+    background-color: inherit;
+    font-size: 12px;
+}
+
+.control-filled ~ .placeholder {
+    color: var(--lightPrimaryContainerOnColor38);
+}
+
+.control-outlined:focus + .placeholder, :not(.form-control[value=""]):not(.control-filled) + .placeholder {
+    background-color: var(--lightBackgroundColor);
+    top: 0;
+    transform: translateY(-50%);
+    margin-top: 0;
+    font-size: 12px;
+}
+
+.control-outlined ~ .placeholder {
+    color: var(--lightPrimaryContainerOnColor);
+}
+
+.form-control:focus ~ .placeholder {
+    color: var(--lightPrimaryColor);
+}
+
+.form-control[error="true"] ~ .placeholder {
+    color: var(--lightErrorOnColor);
+}
+
+.input-icon {
+    position: absolute;
+    cursor: pointer;
+    height: 16px;
+    width: 22px;
+    left: 12px;
+    margin-top: -16px;
+}
+
+.control-outlined ~ .input-icon {
+    color: white;
+}
+
+.control-filled ~ .input-icon {
+    color: black;
+}
+
+.input-icon i {
+    position: absolute;
+}
+
+.error-message {
+    z-index: 9;
+    transition: 250ms;
+    height: 35px;
+    width: 100%;
+    font-size: 12px;
+    margin-top: -15px;
+    padding-right: 16px;
+    color: var(--darkSecondaryContainerOnColor);
+}
+
+.error-message[error="true"], .error-message[helper-text] {
+    z-index: 10;
+    height: 20px;
+    margin-top: 0;
+}
+
+.error-message[error="true"] {
+    color: var(--darkErrorOnColor);
+}
+
+.error-message[helper-text] {
+}
+
+.check-group-parent {
+
+    overflow: hidden;
+    text-align: right;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    color: var(--lightSecondaryContainerOnColor);
+}
+
+.check-group-label {
+    color: #383838;
+    padding: 8px 16px;
+    background-color: var(--lightPrimaryContainerColor);
+}
+
+.check-group {
+    text-align: right;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 4px 16px;
+}
+
+.check-parent {
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 40px;
+    margin-left: 12px;
+}
+
+.form-control-check {
+    cursor: pointer;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+}
+
+.form-control-check:hover:not(:active):not(:focus) ~ .check-ripple {
+    opacity: 5%;
+    width: 100%;
+    height: 100%;
+}
+
+.form-control-check:active ~ .check-ripple {
+    opacity: 30%;
+    width: 100%;
+    height: 100%;
+}
+
+.form-control-check:focus ~ .check-ripple {
+    opacity: 15%;
+    width: 100%;
+    height: 100%;
+}
+
+.check-background {
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    transition: 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1), transform 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+    box-sizing: border-box;
+    pointer-events: none;
+    position: absolute;
+}
+
+.checkbox {
+    border: 2px #8a8a8a solid;
+    border-radius: 4px;
+    background-color: transparent;
+    color: transparent;
+}
+
+.form-control-check:not(:checked) ~ .checkbox i {
+    font-size: 16px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+}
+
+.form-control-check:checked ~ .checkbox i {
+    background-color: var(--lightPrimaryColor);
+    border-color: var(--lightPrimaryColor);
+    font-size: 16px;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    color: white;
+    opacity: 100%;
+}
+
+.radio {
+    border: none;
+    background-color: transparent;
+}
+
+.form-control-check:not(:checked) ~ .radio i {
+    font-size: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: black;
+}
+
+.form-control-check:checked ~ .radio i {
+    font-size: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    color: var(--lightPrimaryColor);
+}
+
+.check-ripple {
+    transition: 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1), transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
+    background-color: var(--lightPrimaryColor);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5%;
+    height: 5%;
+    opacity: 0;
+    border-radius: 50%;
+}
+
+.check-label {
+    margin-left: 2px;
+}
+
+#email {
+    direction: ltr;
+    text-align: left;
+}
+

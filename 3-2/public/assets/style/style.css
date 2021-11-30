@@ -1,0 +1,126 @@
+@import url('colors.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import url('components/components.css');
+
+:root {
+    direction: rtl;
+    margin: 0;
+}
+
+body {
+    font-family: 'Noto Sans Arabic', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    text-align: right;
+    background-color: var(--lightBackgroundColor);
+}
+
+h1 {
+    font-weight: 800;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+input, select, textarea, button {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-weight: 400;
+    resize: vertical;
+    outline: none;
+    border: none;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    min-height: 800px;
+    margin: 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.right-pizza {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url("../img/halfpizza.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    width: 350px;
+    max-width: 35%;
+    height: 100%;
+
+}
+
+.content {
+    padding: 25px;
+    background-color: inherit;
+    color: var(--lightPrimaryContainerOnColor);
+    width: 100%;
+    height: 100%;
+
+}
+
+.form-container {
+    padding: 40px;
+    height: auto;
+    width: 75%;
+    margin-right: 25%;
+    border-radius: 26px;
+    background-color: var(--lightBackgroundColor);
+    box-shadow: 0 0 8px black;
+}
+
+.form-user {
+    width: 60%;
+    margin-right: 35%;
+}
+
+.form-vertical {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.h-1 {
+    min-height: 40px;
+    height: 40px;
+}
+
+.h-2 {
+    min-height: 56px;
+    height: 56px;
+}
+
+.h-auto {
+    min-height: 56px;
+    height: auto;
+}
+
+.m-1 {
+    margin: 0 0 4px 8px;
+}
+
+.flex-50 {
+    flex-basis: 48%;
+    flex-grow: 2;
+}
+
+.flex-100 {
+    flex-basis: 100%;
+    flex-grow: 2;
+}
+
+.flex-33 {
+    flex-basis: 31%;
+    flex-grow: 2;
+}
+
+.flex-25 {
+    flex-basis: 23%;
+    flex-grow: 2;
+}
