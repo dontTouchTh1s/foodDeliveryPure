@@ -4,6 +4,7 @@ const ACTIONS_PATH = ROOT_PATH . "/php-actions";
 const INCLUDES_PATH = ACTIONS_PATH . "/includes";
 const ADMINS_PATH = ACTIONS_PATH . "/admins";
 const CLASS_PATH = ACTIONS_PATH . "/classes";
+const COMP_PATH = ACTIONS_PATH . "/components";
 
 const PUBLIC_PATH = ROOT_PATH . "/public";
 const ASSETS_PATH = PUBLIC_PATH . "/assets";
@@ -15,6 +16,7 @@ const ACTIONS_URL = ROOT_URL . "/php-actions";
 
 const PUBLIC_URL = ROOT_URL . "/public";
 const USER_URL = PUBLIC_URL . "/users";
+const ADMIN_URL = PUBLIC_URL . "/admins";
 const ASSETS_URL = PUBLIC_URL . "/assets";
 const IMAGES_URL = ASSETS_URL . "/img";
 const UPLOAD_URL = IMAGES_URL . "/upload";
@@ -23,9 +25,12 @@ const STYLE_URL = ASSETS_URL . "/style";
 const FONTS_URL = ASSETS_URL . "/fonts";
 
 spl_autoload_register(function ($class) {
-    $class = CLASS_PATH . "/" . $class . ".php";
-    if (!is_file($class)) {
-        throw new LogicException ("Class $class not found");
+    $classPath = CLASS_PATH . "/" . $class . ".php";
+    if (!is_file($classPath)) {
+        $classPath = COMP_PATH . "/" . $class . ".php";
+        if (!is_file($classPath)) {
+            throw new LogicException ("Class $class not found");
+        }
     }
-    require($class);
+    require($classPath);
 });

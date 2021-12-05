@@ -1,6 +1,6 @@
 <?php
 const ROLL_ADMIN = 10;
-const ROLL_CUSTOMER = 10;
+const ROLL_CUSTOMER = 0;
 class check_access
 {
     public int $user_roll;
@@ -18,7 +18,10 @@ class check_access
                 new redirect("");
             }
         } else {
-            new redirect(USER_URL . "/login.php");
+            if ($roll_required == ROLL_ADMIN)
+                new redirect(ADMIN_URL . "/login.php");
+            else
+                new redirect(USER_URL . "/login.php");
         }
     }
 }

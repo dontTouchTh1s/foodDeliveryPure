@@ -30,22 +30,11 @@ include(ACTIONS_PATH . "/view-action.php");
             <!-- Slides -->
             <?php
             foreach ($productsList as $product) {
-                if ($product[6] !== null)
-                    $imageURL = UPLOAD_URL . "/products/" . $product[6];
-                else
-                    $imageURL = "";
-                echo("
-                <div class='swiper-slide'>
-                    <div class='card card-filled'>
-                        <div class='card-picture'><img src='$imageURL'></div>
-                        <div class='card-body'>
-                            <div class='card-title'>" . $product['3'] . "</div>
-                            $product[5]
-                            <div class='body-surface'></div>
-                        </div>
-                    </div>
-                    </div>                                            
-                ");
+                echo("<div class='swiper-slide'>");
+                $card = new card($product[3], $product[5], "card-filled");
+                $card->card_picture($product[6]);
+                $card->card_add();
+                echo("</div>");
             }
             ?>
 

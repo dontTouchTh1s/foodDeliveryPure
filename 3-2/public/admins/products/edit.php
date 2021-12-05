@@ -1,6 +1,9 @@
 <?php
 include("__PATH__.php");
+$access = new check_access();
+$access->check_roll(ROLL_ADMIN);
 $typeError = $stateError = $nameError = $priceError = $descriptionError = $pictureError = $error = "";
+$type = $state = $name = $price = $description = $pictures = $id = "";
 include(ACTIONS_PATH . "/admins/products/edit-action.php");
 ?>
 <!DOCTYPE html>
@@ -26,7 +29,8 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
             <form class="form-vertical" method="post" action=<?= $_SERVER["PHP_SELF"] ?>>
 
                 <div class="form-group m-1 h-auto flex-50">
-                    <select class="form-control form-control-select control-outlined h-2" value="" name="type"
+                    <select class="form-control form-control-select control-outlined h-2" value="<?= $type ?>"
+                            name="type"
                             id="type">
                         <option value="1">غذا</option>
                         <option value="2">پیش غذا</option>
@@ -37,7 +41,8 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
                 </div>
 
                 <div class="form-group m-1 h-auto flex-50">
-                    <select class="form-control form-control-select control-outlined h-2" value="" name="state"
+                    <select class="form-control form-control-select control-outlined h-2" value="<?= $state ?>"
+                            name="state"
                             id="state">
                         <option value="1">موجود</option>
                         <option value="2">ناموجود</option>
@@ -46,7 +51,8 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
                     <div class="error-message"></div>
                 </div>
                 <div class="form-group m-1 h-auto flex-50">
-                    <input type="text" class="form-control form-control-input control-outlined h-2" value="" name="name"
+                    <input type="text" class="form-control form-control-input control-outlined h-2" value="<?= $name ?>"
+                           name="name"
                            id="name" aria-labelledby="name-placeholder">
                     <label class="placeholder" for="name" id="name-placeholder">نام محصول</label>
                     <div class="error-message" id="name-error"><?= $nameError ?></div>
@@ -54,7 +60,8 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
 
 
                 <div class="form-group m-1 h-auto flex-50">
-                    <input type="text" step="any" class="form-control form-control-input control-outlined h-2" value=""
+                    <input type="text" step="any" class="form-control form-control-input control-outlined h-2"
+                           value="<?= $price ?>"
                            name="price" id="price" aria-labelledby="price-placeholder">
                     <label class="placeholder" for="price" id="price-placeholder">قیمت</label>
                     <div class="error-message" id="price-error"><?= $nameError ?></div>
@@ -62,7 +69,8 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
 
                 <div class="form-group m-1 h-auto flex-100">
                     <textarea class="form-control form-control-textarea control-outlined h-auto" value=""
-                              name="description" id="description" aria-labelledby="description-placeholder"></textarea>
+                              name="description" id="description"
+                              aria-labelledby="description-placeholder"><?= $description ?></textarea>
                     <label class="placeholder" for="description" id="description-placeholder">توضیحات محصول</label>
                     <span class="textarea-hidden-overflow"></span>
                     <div class="error-message" id="description-error"><?= $nameError ?></div>
@@ -71,7 +79,8 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
                 <div class="form-group m-1 h-auto flex-100">
                     <input type="file" style="display: none" value="" name="picture" multiple
                            id="picture" aria-labelledby="picture-placeholder">
-                    <div class="form-control form-control-file control-outlined" value="" id="file-view">
+                    <div class="form-control form-control-file control-outlined" value="<?= $pictures ?>"
+                         id="file-view">
                         <label class="file-label" for="picture" id="picture-placeholder"></label>
                         <div class="arrow" id="next-arrow" aria-disabled="true">
                             <i class="fas fa-chevron-right"></i>

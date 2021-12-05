@@ -4,9 +4,8 @@ include(INCLUDES_PATH . "/setting.php");
 
 if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
-} else {
+} else
     return;
-}
 
 // Connecting to database
 $mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
@@ -34,6 +33,7 @@ if ($result) {
     echo($mysql->error);
 }
 
+// Check if user filled inputs and submit, update table
 if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email']) and isset($_POST['password'])) {
     $name = $_POST['name'];
     $fullName = $_POST['full-name'];
@@ -41,22 +41,23 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
     $password = $_POST['password'];
     if (!preg_match("/^[\p{L} ]+$/u", $name))
         $nameError = "لطفا یک نام واقعی وارد کنید.";
-    if (!preg_match("/^[\p{L} ]+$/u", $name))
+    else if (!preg_match("/^[\p{L} ]+$/u", $name))
         $fullNameError = "لطفا یک نام واقعی وارد کنید.";
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+    else if (!filter_var($email, FILTER_VALIDATE_EMAIL))
         $emailError = "ایمیل وارد شده نا معتبر است.";
-} else {
-    return;
-}
-
-$query = "UPDATE users
+    else {
+        $query = "UPDATE users
           SET name='$name', `full-name`='$fullName', email='$email', password='$password'
           WHERE id='$id'";
-if ($mysql->query($query))
-    $error = "اطلاعات بروزرسانی شد";
-else {
-    $error = "در هنگام ثبت اطلاعات خطایی رخ داده است، لطفا بعدا تلاش کنید.";
-    echo($mysql->error);
+        if ($mysql->query($query))
+            $error = "اطلاعات بروزرسانی شد";
+        else {
+            $error = "در هنگام ثبت اطلاعات خطایی رخ داده است، لطفا بعدا تلاش کنید.";
+            echo($mysql->error);
+        }
+    }
+} else {
+    return;
 }
 
 

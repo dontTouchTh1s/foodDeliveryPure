@@ -1,5 +1,5 @@
 <?php
-$name = "ورود/ثبت نام";
+$name = "";
 $email = "";
 if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
     $id = $_SESSION['id'];
@@ -19,6 +19,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
     <a href="<?= PUBLIC_URL . '/users/register.php' ?>" class="user-register">
         <span><?= $name ?></span>
     </a>
+
     <i class="user-logo" id="user-logo"></i>
     <div class="user-manage" aria-hidden="true" id="user-manage">
         <div class="flex-100">
