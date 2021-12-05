@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="cd11ff3f-750b-4621-856f-d35c64256913" name="php" url="http://localhost:8080/front-project">
+        <fileTransfer mountedRoot="F:\university\front\font-project" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
