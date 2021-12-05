@@ -3,7 +3,6 @@ include(INCLUDES_PATH . "/setting.php");
 
 $type = $state = $name = $price = $description = "";
 $pictures = [];
-$emptyField = false;
 if (isset($_POST['type']) and isset($_POST['state']) and isset($_POST['name'])
     and isset($_POST['price']) and isset($_POST['description']) and isset($_FILES['picture'])) {
     $type = $_POST['type'];
@@ -18,13 +17,14 @@ if (isset($_POST['type']) and isset($_POST['state']) and isset($_POST['name'])
     return;
 }
 $pictureNames = "";
-$uploads_dir = ASSETS_PATH . '/img/upload/products';
+$uploads_path = ASSETS_PATH . '/img/upload/products';
+$uploads_url = IMAGES_URL . '/uploads/products';
 foreach ($_FILES['picture']['error'] as $key => $error) {
     if ($error == UPLOAD_ERR_OK) {
         $tmp_name = $_FILES['picture']["tmp_name"][$key];
         $name = basename($_FILES['picture']["name"][$key]);
-        move_uploaded_file($tmp_name, "$uploads_dir/$name");
-        $pictureNames .= $name . ":";
+        move_uploaded_file($tmp_name, "$uploads_path/$name");
+        $pictureNames .= "$uploads_url/$name" . ":";
     }
 }
 

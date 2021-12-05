@@ -11,12 +11,9 @@
     position: relative;
     transition: 170ms;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: auto 1fr;
     border-radius: 20px;
-}
-
-.card * {
 }
 
 .card-outlined {
@@ -35,6 +32,7 @@
 }
 
 .card-picture {
+    width: 100%;
     background-color: inherit;
     z-index: 1;
     overflow: hidden;
@@ -57,11 +55,11 @@
     padding: 8px;
     font-size: 16px;
     font-weight: 400;
-    width: 100%;
+    word-wrap: break-word;
     height: 100%;
 }
 
-.card-body .body-surface {
+.body-surface {
     transition: 120ms;
     width: 100%;
     height: calc(100% + 20px);
@@ -77,8 +75,17 @@
 }
 
 .card-title {
-    font-size: 20px;
+    line-height: 1.3em;
+    font-size: 22px;
     font-weight: 700;
+}
+
+.card-subhead {
+    line-height: 1.3em;
+    font-size: 18px;
+    color: var(--lightSurfaceOnColor38);
+    margin-bottom: 16px;
+    font-weight: 500;
 }
 
 span.ripple {

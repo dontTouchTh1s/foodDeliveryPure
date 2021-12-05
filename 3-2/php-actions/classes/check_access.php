@@ -1,6 +1,6 @@
 <?php
 const ROLL_ADMIN = 10;
-const ROLL_CUSTOMER = 10;
+const ROLL_CUSTOMER = 0;
 class check_access
 {
     public int $user_roll;

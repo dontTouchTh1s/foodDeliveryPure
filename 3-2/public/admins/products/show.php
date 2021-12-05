@@ -1,9 +1,9 @@
 <?php
 session_start();
 include("__PATH__.php");
-$error = "";
+$id = $type = $state = $name = $price = $description = $picture = "";
 $productsList = [];
-include(ACTIONS_PATH . "/view-action.php");
+include(ACTIONS_PATH . "/admins/products/show-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -14,23 +14,23 @@ include(ACTIONS_PATH . "/view-action.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/components/card.css' ?>">
+    <link rel="stylesheet" href="<?= STYLE_URL . '/components/data-table.css' ?>">
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
-    <title>ورود</title>
+    <title>کالا ها</title>
 </head>
 <body>
+<?php include(PUBLIC_PATH . "/header.php"); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
-    <div class="right-pizza"></div>
     <div class="content">
-        <div class="card-container">
+        <div class="table-data">
             <?php
-            foreach ($productsList as $product) {
-                $card = new card($product[3], $product[5], "card-filled");
-                $card->card_picture($product[6]);
-                $card->card_add();
-            }
+            $tableData = new data_table($productsList);
+            $tableData->head(['ردیف', 'دسته بندی', 'وضعیت', 'نام', 'قیمت', 'توضیحات', 'تصویر']);
+            $tableData->check("انتخاب");
+            $tableData->action("حذف", REMOVE);
+            $tableData->action("ویرایش", EDIT);
+            $tableData->add();
             ?>
         </div>
     </div>
