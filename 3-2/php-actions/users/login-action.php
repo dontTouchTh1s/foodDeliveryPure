@@ -29,10 +29,14 @@ if ($mysql->query($query))
         $_SESSION['gender'] = $row['gender'];
         header("location: " . USER_URL . "/edit-profile.php");
     } else {
-        $error = "نام کاربری یا رمز عبور صحیح نیست.";
+        $error = "نام کاربری یا رمز عبور اشتباه است.";
+        $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
     }
 else {
-    $error = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+    $error = "عدم اتصال";
+    $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+    $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+    end($mbList)->description($errorDes);
 }
 
 

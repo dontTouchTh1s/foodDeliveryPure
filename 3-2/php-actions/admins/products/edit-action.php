@@ -49,7 +49,7 @@ if (isset($_POST['type']) and isset($_POST['state']) and isset($_POST['name'])
     // Get uploaded picture
     $pictureNames = "";
     $uploads_dir = ASSETS_PATH . '/img/upload/products';
-    $uploads_url = IMAGES_URL . '/uploads/products';
+    $uploads_url = IMAGES_URL . '/upload/products';
     foreach ($_FILES['picture']['error'] as $key => $error) {
         if ($error == UPLOAD_ERR_OK) {
             $tmp_name = $_FILES['picture']["tmp_name"][$key];

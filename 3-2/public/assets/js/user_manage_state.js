@@ -1,5 +1,7 @@
 let logeIn = false;
 let state = true;
+
+window.addEventListener("click", hide_panel)
 userLogo = document.getElementById("user-logo");
 userLogo.addEventListener("click", change_manage_state);
 
@@ -15,5 +17,14 @@ function change_manage_state(event) {
     if (logeIn) {
         state = !state;
         userManage.setAttribute("aria-hidden", state);
+    }
+}
+
+function hide_panel(event) {
+    if (!(userManage.contains(event.target)) && !(userLogo.contains(event.target))) {
+        if ((logeIn) && (state === false)) {
+            state = true;
+            userManage.setAttribute("aria-hidden", state)
+        }
     }
 }

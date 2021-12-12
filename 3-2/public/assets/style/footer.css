@@ -1,0 +1,35 @@
+footer {
+    padding: 16px;
+    display: grid;
+    background-color: var(--lightPrimaryContainerColor);
+    color: var(--lightPrimaryContainerOnColor);
+
+    grid-template-columns: auto auto;
+}
+
+.about-us {
+    text-align: justify-all;
+    padding: 16px;
+    font-size: 0.84rem;
+}
+
+.about-us .title {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.related-pages ul {
+}
+
+.related-pages .title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.related-pages ul li {
+    font-size: 0.84rem;
+    font-weight: 400;
+    list-style: none;
+    border-bottom: 2px var(--lightPrimaryContainerOnColor) solid;
+    color: var(--lightPrimaryContainerOnColor);
+}

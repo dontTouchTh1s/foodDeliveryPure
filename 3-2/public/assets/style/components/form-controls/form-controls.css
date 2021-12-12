@@ -19,7 +19,7 @@ input::-ms-reveal, input::-ms-clear {
 .form-control {
     text-align: right;
     transition: 250ms;
-    font-size: 16px;
+    font-size: 1rem;
     height: 100%;
     width: 100%;
 }
@@ -115,7 +115,7 @@ input::-ms-reveal, input::-ms-clear {
     transform: translateY(0);
     top: 8px;
     background-color: inherit;
-    font-size: 12px;
+    font-size: 0.83rem;
 }
 
 .control-filled ~ .placeholder {
@@ -127,7 +127,7 @@ input::-ms-reveal, input::-ms-clear {
     top: 0;
     transform: translateY(-50%);
     margin-top: 0;
-    font-size: 12px;
+    font-size: 0.83rem;
 }
 
 .control-outlined ~ .placeholder {
@@ -170,7 +170,7 @@ input::-ms-reveal, input::-ms-clear {
     transition: 250ms;
     height: 35px;
     width: 100%;
-    font-size: 12px;
+    font-size: 0.83rem;
     margin-top: -15px;
     padding-right: 16px;
     color: var(--darkSecondaryContainerOnColor);
@@ -269,7 +269,7 @@ input::-ms-reveal, input::-ms-clear {
 }
 
 .form-control-check:not(:checked) ~ .checkbox i {
-    font-size: 16px;
+    font-size: 1rem;
     position: absolute;
     width: 16px;
     height: 16px;
@@ -279,7 +279,7 @@ input::-ms-reveal, input::-ms-clear {
 .form-control-check:checked ~ .checkbox i {
     background-color: var(--lightPrimaryColor);
     border-color: var(--lightPrimaryColor);
-    font-size: 16px;
+    font-size: 1rem;
     position: absolute;
     width: 16px;
     height: 16px;
@@ -293,7 +293,7 @@ input::-ms-reveal, input::-ms-clear {
 }
 
 .form-control-check:not(:checked) ~ .radio i {
-    font-size: 20px;
+    font-size: 1.5rem;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -301,7 +301,7 @@ input::-ms-reveal, input::-ms-clear {
 }
 
 .form-control-check:checked ~ .radio i {
-    font-size: 20px;
+    font-size: 1.5rem;
     position: absolute;
     width: 20px;
     height: 20px;

@@ -1,15 +1,21 @@
-table {
-    border-collapse: collapse;
+.table-data {
     border-radius: 8px;
     border: 1px solid var(--lightOutlineColor);
-    overflow: hidden;
+    overflow-x: auto;
+}
 
+table {
+    border-collapse: collapse;
 }
 
 tr {
     background-color: var(--lightSurfaceColor);
     position: relative;
-    border: 1px solid var(--lightOutlineColor);
+    border-top: 1px solid var(--lightOutlineColor);
+}
+
+table thead tr {
+    border: none;
 }
 
 tr:hover {

@@ -1,7 +1,10 @@
 <?php
 session_start();
 include("__PATH__.php");
-$emailError = $error = "";
+$emailError = $error = $errorDes = "";
+$mbList = [];
+global $mbList;
+
 include(ACTIONS_PATH . "/users/login-action.php");
 ?>
 <!DOCTYPE html>
@@ -59,13 +62,18 @@ include(ACTIONS_PATH . "/users/login-action.php");
                 <div class="form-group h-2 flex-100">
                     <button type="submit" class="btn btn-filled">ورود</button>
                 </div>
-                <span><?= $error ?></span>
             </form>
         </div>
+        <?php
+        foreach ($mbList as $ms)
+            $ms->add();
+        ?>
+
     </div>
 </div>
 <script src="<?= JS_URL . '/form_controls.js' ?>" type="text/javascript"></script>
 <script src="<?= JS_URL . '/ripple_effect.js' ?>" type="text/javascript"></script>
 <script src="<?= JS_URL . '/form_validate.js' ?>" type="text/javascript"></script>
+<script src="<?= JS_URL . '/messagebox.js' ?>" type="text/javascript"></script>
 </body>
 </html>

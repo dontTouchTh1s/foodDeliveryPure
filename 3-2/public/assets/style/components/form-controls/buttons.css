@@ -1,13 +1,15 @@
 a[class*="btn"] {
     display: inline-block;
+    overflow: hidden;
     text-align: center;
     text-decoration: none;
     box-sizing: border-box;
 }
 
 .btn {
-    font-size: 14px;
-    line-height: 32px;
+    resize: none;
+    font-size: 0.9rem;
+    line-height: 40px;
     transition: all 400ms;
     position: relative;
     overflow: hidden;

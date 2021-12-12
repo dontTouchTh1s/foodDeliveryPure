@@ -82,12 +82,12 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
                     <div class="form-control form-control-file control-outlined" value="<?= $pictures ?>"
                          id="file-view">
                         <label class="file-label" for="picture" id="picture-placeholder"></label>
-                        <div class="arrow" id="next-arrow" aria-disabled="true">
+                        <button class="arrow" id="next-arrow" aria-disabled="true">
                             <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="arrow" id="pre-arrow" aria-disabled="true">
+                        </button>
+                        <button class="arrow" id="pre-arrow" aria-disabled="true">
                             <i class="fas fa-chevron-left"></i>
-                        </div>
+                        </button>
                         <div class="file-placeholder">تصویر غذا
                             <div>برای آپلود کلیک کنید یا تصویر را به اینجا بکشید.</div>
                             <i class="fas fa-cloud-upload-alt"></i>

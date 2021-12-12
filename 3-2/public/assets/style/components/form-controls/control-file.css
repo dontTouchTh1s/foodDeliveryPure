@@ -20,10 +20,11 @@
 }
 
 .arrow {
-    font-size: 18px;
+    font-size: 1.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0);
     position: absolute;
     width: 40px;
     height: 40px;
@@ -69,7 +70,7 @@
     transition: 250ms;
     pointer-events: none;
     position: absolute;
-    font-size: 24px;
+    font-size: 2rem;
     font-weight: 600;
     top: 50%;
     right: 50%;
@@ -88,14 +89,14 @@
 }
 
 .control-outlined.form-control-file:not([value=""]) .file-placeholder {
-    font-size: 16px;
+    font-size: 1rem;
     padding-top: 0;
     background-color: var(--lightBackgroundColor);
     top: 0;
 }
 
 .control-filled.form-control-file:not([value=""]) .file-placeholder {
-    font-size: 16px;
+    font-size: 1rem;
     padding-top: 0;
     background-color: var(--lightPrimaryContainerOnColor);
     top: 20px;
@@ -103,7 +104,7 @@
 
 .file-placeholder div {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .form-control-file:not([value=""]) .file-placeholder * {
@@ -112,8 +113,7 @@
 
 .file-placeholder i {
     display: inline-block;
-    font-size: 70px;
-
+    font-size: 4.5rem;
 }
 
 .file-description {

@@ -1,13 +1,12 @@
 <?php
-const RADIO = 0;
-const CHECKBOX = 1;
-const REMOVE = 0;
-const EDIT = 1;
-const SHOW = 3;
+const TABLE_RADIO = 0;
+const TABLE_CHECKBOX = 1;
+const TABLE_REMOVE = 0;
+const TABLE_EDIT = 1;
+const TABLE_SHOW = 3;
 class data_table
 {
     public array $tableRows;
-    public array $tableData;
     public array $tableHead = [];
     public array $tableBody = [];
     public int $columnCount = 0;
@@ -36,24 +35,31 @@ class data_table
         $this->tableHead[] = "</thead>";
     }
 
-    public function check($title, $type = CHECKBOX)
+    public function check($title, $type = TABLE_CHECKBOX)
     {
         // Insert new table data to $tableHeader for checkbox column
         array_splice($this->tableHead, $this->columnCount + 1, 0, "<td>$title</td>");
 
         switch ($type) {
-            case CHECKBOX:
+            case TABLE_CHECKBOX:
             {
                 $icon = 'fas fa-check';
                 $class = 'checkbox';
                 break;
             }
 
-            case RADIO:
+            case TABLE_RADIO:
             {
                 $icon = 'fas fa-dot-circle';
                 $class = 'radio';
                 break;
+            }
+            default:
+            {
+                $ms = new message_box(MESSAGEBOX_TYPE_ERROR, "Invalid argument");
+                $ms->description("Please enter a valid argument table check (TABLE_CHECKBOX, TABLE_RADIO");
+                $ms->add();
+                return;
             }
         }
 
@@ -74,29 +80,34 @@ class data_table
         $this->columnCount++;
     }
 
-    public
-    function action($title, $type)
+    public function action($title, $type)
     {
-        array_splice($this->tableHead, $this->columnCount + 1, 0, "<td>$title</td>");
-
         switch ($type) {
-            case REMOVE:
+            case TABLE_REMOVE:
             {
                 $icon = 'fas fa-trash-alt';
                 break;
             }
-            case EDIT:
+            case TABLE_EDIT:
             {
                 $icon = 'fas fa-edit';
                 break;
             }
-            case SHOW:
+            case TABLE_SHOW:
             {
                 $icon = 'far fa-eye';
                 break;
             }
+            default:
+            {
+                $ms = new message_box(MESSAGEBOX_TYPE_ERROR, "Invalid argument");
+                $ms->description("Please enter a valid argument for table action type (TABLE_REMOVE, TABLE_EDIT, TABLE_SHOW)");
+                $ms->add();
+                return;
+            }
         }
 
+        array_splice($this->tableHead, $this->columnCount + 1, 0, "<td>$title</td>");
         for ($c = 0; $c < count($this->tableBody); $c++) {
             $check = "
             <td>

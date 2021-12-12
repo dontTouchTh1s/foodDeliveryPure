@@ -38,7 +38,16 @@
     --lightOutlineColor: rgb(122, 106, 106);
 
     /* Light error colors */
+    --lightErrorColor: rgb(201, 37, 37);
     --lightErrorOnColor: rgb(194, 0, 0);
+
+    /* Light success colors */
+    --lightSuccessColor: rgb(69, 147, 36);
+    --lightSuccessOnColor: rgb(24, 105, 9);
+
+    /* Light alert colors */
+    --lightAlertColor: rgb(255, 211, 42);
+    --lightAlertOnColor: rgb(255, 174, 0);
 
     /* Dark primary container colors */
     --darkPrimaryContainerColor: rgb(29, 33, 36);

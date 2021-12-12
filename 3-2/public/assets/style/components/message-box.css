@@ -1,0 +1,101 @@
+.message-box {
+    z-index: 12;
+    width: 300px;
+    box-shadow: -2px 2px 4px black;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    animation: fade 8s ease-in;
+}
+
+.box-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 100%;
+
+}
+
+.message-box:hover {
+    transition: 150ms;
+    opacity: 100%;
+    animation: none;
+}
+
+.box-success .box-background {
+    background-color: var(--lightSuccessColor);
+}
+
+.box-error .box-background {
+    background-color: var(--lightErrorColor);
+}
+
+.box-alert .box-background {
+    background-color: var(--lightAlertColor);
+}
+
+.box-body {
+    color: var(--lightSurfaceOnColor);
+    font-weight: 600;
+    width: 100%;
+    position: relative;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.box-description {
+    transition: max-height 750ms ease-in-out;
+    position: relative;
+    overflow: hidden;
+    font-weight: 400;
+    line-height: 16px;
+    max-height: 16px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.box-description[aria-hidden="false"] {
+    transition: max-height 750ms ease-in-out;
+    max-height: 500px;
+}
+
+.box-description p {
+    word-break: break-all;
+}
+
+.box-description span {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.box-show-more {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    top: 12px;
+    left: 12px;
+    width: 12px;
+    height: 12px;
+}
+
+.box-show-more i {
+    display: block;
+}
+
+
+@keyframes fade {
+    0% {
+        opacity: 100%;
+    }
+    40% {
+        opacity: 100%;
+    }
+    85% {
+        opacity: 40%;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

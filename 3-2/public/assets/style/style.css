@@ -1,19 +1,25 @@
 @import url('colors.css');
+@import url("components/components.css");
+@import url("page-layout.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
-@import url('components/components.css');
 
 :root {
+    font-size: calc(12px + (1vw * 0.4));
     direction: rtl;
     margin: 0;
 }
 
 body {
+    margin-top: 72px;
     font-family: 'Noto Sans Arabic', sans-serif;
     font-weight: 400;
-    margin: 0;
     text-align: right;
     background-color: var(--lightBackgroundColor);
+}
+
+p {
+    font-size: 1rem;
 }
 
 h1 {
@@ -59,7 +65,7 @@ input, select, textarea, button {
 }
 
 .content {
-    padding: 25px;
+    padding: 24px;
     background-color: inherit;
     color: var(--lightPrimaryContainerOnColor);
     width: 100%;
@@ -69,8 +75,7 @@ input, select, textarea, button {
 .form-container {
     padding: 40px;
     height: auto;
-    width: 75%;
-    margin-right: 25%;
+    width: 100%;
     border-radius: 26px;
     background-color: var(--lightBackgroundColor);
     box-shadow: 0 0 8px black;

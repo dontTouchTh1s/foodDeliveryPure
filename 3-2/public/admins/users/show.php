@@ -28,8 +28,8 @@ include(ACTIONS_PATH . "/admins/users/show-action.php");
             $tableData = new data_table($productsList);
             $tableData->head(['ردیف', 'نام', 'نام کامل', 'ایمیل', 'رمز عبور', 'جنسیت', 'سطح دسترسی']);
             $tableData->check("انتخاب");
-            $tableData->action("حذف", REMOVE);
-            $tableData->action("ویرایش", EDIT);
+            $tableData->action("حذف", TABLE_REMOVE);
+            $tableData->action("ویرایش", TABLE_EDIT);
             $tableData->add();
             ?>
         </div>
