@@ -11,7 +11,6 @@ include(ACTIONS_PATH . "/users/register-action.php");
     <meta name="author" content="AliM">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
     <title>ایجاد حساب کاربری</title>
 </head>
@@ -24,18 +23,18 @@ include(ACTIONS_PATH . "/users/register-action.php");
         <div class="form-container form-user">
             <h1 class="flex-100">ثبت نام</h1>
             <p class="flex-100">برای ایجاد حساب کاربری اطلاعات زیر را تکمیل و ثپس روی تکمه ثبت نام کلیک کنید.</p>
-            <form class="form-vertical flex-50" method="post" action=<?= $_SERVER["PHP_SELF"] ?>>
+            <form class="form-vertical flex-50" method="post" action="<?= $_SERVER["PHP_SELF"] ?>" novalidate>
 
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="text" class="form-control form-control-input control-filled h-2" value="" name="name"
-                           id="name" aria-labelledby="name-placeholder">
+                           id="name" aria-labelledby="name-placeholder" required>
                     <label class="placeholder" for="name" id="name-placeholder">نام</label>
                     <div class="error-message" id="name-error"><?= $nameError ?></div>
                 </div>
 
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="text" class="form-control form-control-input control-filled h-2" value=""
-                           name="full-name" id="full-name" aria-labelledby="full-name-placeholder">
+                           name="full-name" id="full-name" aria-labelledby="full-name-placeholder" required>
                     <label class="placeholder" for="full-name" id="full-name-placeholder">نام خانادگی</label>
                     <div class="error-message" id="full-name-error"><?= $fullNameError ?></div>
                 </div>
@@ -77,14 +76,14 @@ include(ACTIONS_PATH . "/users/register-action.php");
 
                 <div class="form-group m-1 h-auto flex-100">
                     <input type="email" class="form-control form-control-input control-filled h-2" value="" name="email"
-                           id="email" aria-labelledby="email-placeholder">
+                           id="email" aria-labelledby="email-placeholder" required>
                     <label class="placeholder" for="email" id="email-placeholder">ایمیل</label>
                     <div class="error-message" id="email-error"><?= $emailError ?></div>
                 </div>
 
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="password" class="form-control form-control-input control-filled h-2" value=""
-                           name="password" id="password" aria-labelledby="password-placeholder">
+                           name="password" id="password" aria-labelledby="password-placeholder" required>
                     <label class="placeholder" for="password" id="password-placeholder">رمز عبور</label>
                     <div class="input-icon icon-password" id="icon-password" state="hide">
                         <i class="fa fa-eye"></i>
@@ -94,13 +93,14 @@ include(ACTIONS_PATH . "/users/register-action.php");
                 </div>
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="password" class="form-control form-control-input control-filled h-2" value=""
-                           name="re-password" id="re-password" aria-labelledby="re-password-placeholder">
-                    <label class="placeholder" for="re-password" id="re-password-placeholder">تکرار رمز عبور</label>
+                           name="re-password" id="re-password" aria-labelledby="re-password-placeholder" required>
+                    <label class="placeholder" for="re-password" id="re-password-placeholder">تکرار رمز
+                        عبور</label>
                     <div class="error-message " id="re-password-error"><?= $repPasswordError ?></div>
                 </div>
 
                 <div class="form-group h-2 flex-50">
-                    <button type="submit" class="btn btn-filled" id="submit-button">ثبت نام</button>
+                    <button type="button" class="btn btn-filled" id="submit-button">ثبت نام</button>
                 </div>
                 <div class="form-group h-2 flex-50">
                     <a href="login.php" class="btn btn-outlined">

@@ -8,9 +8,11 @@ class card
     public string $cardPicture = "";
     public string $cardButton = "";
     public string $cardBody = "";
+    public string $cardTitle;
 
     public function __construct($title, $description, $class = "card-outlined")
     {
+        $this->cardTitle = $title;
         $this->cardHead = "<div class='card $class'>";
         $this->cardBody = "
         <div class='body-surface'></div>
@@ -26,7 +28,7 @@ class card
         $filename = basename($imageURL);
         if (!file_exists(dirname($filename)))
             return;
-        $this->cardPicture = "<div class='card-picture'><img src='$imageURL'></div>";
+        $this->cardPicture = "<div class='card-picture'><img src='$imageURL' alt=$this->cardTitle></div>";
     }
 
     public function button($text, $type = CARD_BTN_FILLED)

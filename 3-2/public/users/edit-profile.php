@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 include("__PATH__.php");
+check_access::check_roll(ROLL_USER);
 $name = $fullName = $gender = $email = $password = $rePassword = $error = "";
 include(ACTIONS_PATH . "/users/edit-profile-action.php");
 ?>
@@ -12,7 +13,6 @@ include(ACTIONS_PATH . "/users/edit-profile-action.php");
     <meta name="author" content="AliM">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
     <title>ویرایش مشخصات</title>
 </head>
@@ -29,14 +29,14 @@ include(ACTIONS_PATH . "/users/edit-profile-action.php");
 
                 <div class="form-group m-1 h-auto flex-100">
                     <input type="email" class="form-control form-control-input control-outlined h-2"
-                           value="<?= $email ?>" name="email" id="email" aria-labelledby="email-placeholder">
+                           value="<?= $email ?>" name="email" id="email" aria-labelledby="email-placeholder" required>
                     <label class="placeholder" for="email" id="email-placeholder">ایمیل</label>
                     <div class="error-message" id="email-error"></div>
                 </div>
 
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="text" class="form-control form-control-input control-outlined h-2" value="<?= $name ?>"
-                           name="name" id="name" aria-labelledby="name-placeholder">
+                           name="name" id="name" aria-labelledby="name-placeholder" required>
                     <label class="placeholder" for="name" id="name-placeholder">نام</label>
                     <div class="error-message" id="name-error"></div>
                 </div>
@@ -44,7 +44,7 @@ include(ACTIONS_PATH . "/users/edit-profile-action.php");
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="text" class="form-control form-control-input control-outlined h-2"
                            value="<?= $fullName ?>" name="full-name" id="full-name"
-                           aria-labelledby="full-name-placeholder">
+                           aria-labelledby="full-name-placeholder" required>
                     <label class="placeholder" for="full-name" id="full-name-placeholder">نام خانادگی</label>
                     <div class="error-message" id="full-name-error"></div>
                 </div>
@@ -52,7 +52,7 @@ include(ACTIONS_PATH . "/users/edit-profile-action.php");
                 <div class="form-group m-1 h-auto flex-100">
                     <input type="password" class="form-control form-control-input control-outlined h-2"
                            value="<?= $password ?>"
-                           name="password" id="password" aria-labelledby="password-placeholder">
+                           name="password" id="password" aria-labelledby="password-placeholder" required>
                     <label class="placeholder" for="password" id="password-placeholder">رمز عبور</label>
                     <div class="input-icon icon-password" id="icon-password" state="hide">
                         <i class="fa fa-eye-slash" aria-hidden="true"></i>
@@ -60,7 +60,7 @@ include(ACTIONS_PATH . "/users/edit-profile-action.php");
                     <div class="error-message" id="password-error"></div>
                 </div>
                 <div class="form-group h-auto flex-100 h-2">
-                    <button type="submit" class="btn btn-filled">ارسال</button>
+                    <button type="button" class="btn btn-filled" id="submit-button">ارسال</button>
                 </div>
                 <span><?= $error ?></span>
             </form>

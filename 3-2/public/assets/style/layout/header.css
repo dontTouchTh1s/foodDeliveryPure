@@ -52,7 +52,7 @@ header ul li {
 .user-logo {
     width: 32px;
     height: 32px;
-    background-image: url("../img/userlogo.png");
+    background-image: url("../../img/userlogo.png");
     background-size: 100% auto;
 }
 

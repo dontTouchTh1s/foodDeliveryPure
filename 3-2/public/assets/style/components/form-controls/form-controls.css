@@ -49,7 +49,7 @@ input::-ms-reveal, input::-ms-clear {
 .control-filled {
     background-color: var(--lightSurfaceColor);
     color: var(--lightPrimaryContainerOnColor);
-    padding: 20px 16px 0;
+    padding: 24px 16px 0;
     border-radius: 4px 4px 0 0;
     border-bottom: 1px solid white;
 }
@@ -113,7 +113,7 @@ input::-ms-reveal, input::-ms-clear {
 
 .control-filled:focus + .placeholder, :not(.form-control[value=""]) + .placeholder {
     transform: translateY(0);
-    top: 8px;
+    top: 6px;
     background-color: inherit;
     font-size: 0.83rem;
 }
@@ -179,6 +179,7 @@ input::-ms-reveal, input::-ms-clear {
 .error-message[error="true"], .error-message[helper-text] {
     z-index: 10;
     height: 20px;
+    line-height: 20px;
     margin-top: 0;
 }
 
@@ -186,8 +187,6 @@ input::-ms-reveal, input::-ms-clear {
     color: var(--darkErrorOnColor);
 }
 
-.error-message[helper-text] {
-}
 
 .check-group-parent {
 
@@ -219,6 +218,7 @@ input::-ms-reveal, input::-ms-clear {
 .check-parent {
     display: flex;
     position: relative;
+    justify-content: center;
     align-items: center;
     width: 40px;
     margin-left: 12px;
@@ -232,33 +232,16 @@ input::-ms-reveal, input::-ms-clear {
     margin: auto;
 }
 
-.form-control-check:hover:not(:active):not(:focus) ~ .check-ripple {
-    opacity: 5%;
-    width: 100%;
-    height: 100%;
-}
-
-.form-control-check:active ~ .check-ripple {
-    opacity: 30%;
-    width: 100%;
-    height: 100%;
-}
-
-.form-control-check:focus ~ .check-ripple {
-    opacity: 15%;
-    width: 100%;
-    height: 100%;
-}
-
 .check-background {
-    top: 10px;
-    left: 10px;
-    width: 20px;
-    height: 20px;
     transition: 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1), transform 100ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
     box-sizing: border-box;
     pointer-events: none;
+    width: fit-content;
     position: absolute;
+}
+
+.check-background i {
+    display: block;
 }
 
 .checkbox {
@@ -269,8 +252,7 @@ input::-ms-reveal, input::-ms-clear {
 }
 
 .form-control-check:not(:checked) ~ .checkbox i {
-    font-size: 1rem;
-    position: absolute;
+    font-size: 0.83rem;
     width: 16px;
     height: 16px;
     opacity: 0;
@@ -279,8 +261,7 @@ input::-ms-reveal, input::-ms-clear {
 .form-control-check:checked ~ .checkbox i {
     background-color: var(--lightPrimaryColor);
     border-color: var(--lightPrimaryColor);
-    font-size: 1rem;
-    position: absolute;
+    font-size: 0.83rem;
     width: 16px;
     height: 16px;
     color: white;
@@ -293,35 +274,39 @@ input::-ms-reveal, input::-ms-clear {
 }
 
 .form-control-check:not(:checked) ~ .radio i {
-    font-size: 1.5rem;
-    position: absolute;
-    width: 20px;
-    height: 20px;
+    font-size: 20px;
     color: black;
 }
 
 .form-control-check:checked ~ .radio i {
-    font-size: 1.5rem;
-    position: absolute;
-    width: 20px;
-    height: 20px;
+    font-size: 20px;
     background-color: transparent;
     color: var(--lightPrimaryColor);
 }
 
 .check-ripple {
+    position: absolute;
     transition: 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1), transform 90ms 0ms cubic-bezier(0.4, 0, 0.6, 1);
     background-color: var(--lightPrimaryColor);
-    transform: translate(-50%, -50%);
     pointer-events: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 5%;
-    height: 5%;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     border-radius: 50%;
 }
+
+.form-control-check:hover:not(:active):not(:focus) ~ .check-ripple {
+    opacity: 5%;
+}
+
+.form-control-check:active ~ .check-ripple {
+    opacity: 30%;
+}
+
+.form-control-check:focus ~ .check-ripple {
+    opacity: 15%;
+}
+
 
 .check-label {
     margin-left: 2px;

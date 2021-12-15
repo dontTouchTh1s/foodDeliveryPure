@@ -39,27 +39,27 @@ include("../php-actions/contact_action.php");
 
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="text" class="form-control form-control-input control-filled h-2" value="" name="name"
-                           id="name" aria-labelledby="name-placeholder">
+                           id="name" aria-labelledby="name-placeholder" required>
                     <label class="placeholder" for="name" id="name-placeholder">نام</label>
                     <div class="error-message" id="name-error"><?= $nameError ?></div>
                 </div>
 
                 <div class="form-group m-1 h-auto flex-50">
                     <input type="email" class="form-control form-control-input control-filled h-2" value="" name="email"
-                           id="email" aria-labelledby="email-placeholder">
+                           id="email" aria-labelledby="email-placeholder" required>
                     <label class="placeholder" for="email" id="email-placeholder">ایمیل</label>
                     <div class="error-message" id="email-error"><?= $emailError ?></div>
                 </div>
 
                 <div class="form-group m-1 h-auto flex-100">
                     <textarea class="form-control form-control-textarea control-filled h-auto" value="" name="message"
-                              id="message" aria-labelledby="message-placeholder"></textarea>
+                              id="message" aria-labelledby="message-placeholder" required></textarea>
                     <label class="placeholder" for="message" id="message-placeholder">متن پیام</label>
                     <span class="textarea-hidden-overflow"></span>
                 </div>
 
                 <div class="form-group h-2 flex-100">
-                    <button type="submit" class="btn btn-filled">ارسال</button>
+                    <button type="button" class="btn btn-filled" id="submit-button">ارسال</button>
                 </div>
                 <div class="error-message"><?= $error ?></div>
             </form>

@@ -29,14 +29,14 @@ include(ACTIONS_PATH . "/admins/login-action.php");
             <form class="form-vertical" method="post" action=<?= $_SERVER["PHP_SELF"] ?>>
                 <div class="form-group m-1 h-auto flex-100">
                     <input type="email" class="form-control form-control-input control-filled h-2" value="" name="email"
-                           id="email" aria-labelledby="email-placeholder">
+                           id="email" aria-labelledby="email-placeholder" required>
                     <label class="placeholder" for="email" id="email-placeholder">ایمیل</label>
                     <div class="error-message flex-100" id="email-error"><?= $emailError ?></div>
                 </div>
 
                 <div class="form-group m-1 h-auto flex-100">
                     <input type="password" class="form-control form-control-input control-filled h-2" value=""
-                           name="password" id="password" aria-labelledby="password-placeholder">
+                           name="password" id="password" aria-labelledby="password-placeholder" required>
                     <label class="placeholder" for="password" id="password-placeholder">رمز عبور</label>
                     <div class="input-icon icon-password" id="icon-password" state="hide">
                         <i class="fa fa-eye-slash"></i>
@@ -48,7 +48,7 @@ include(ACTIONS_PATH . "/admins/login-action.php");
                 <div class="form-group h-auto flex-100">
                     <label for="remember-me" class="check-label">مرا به خاطر داشته باش</label>
                     <div class="check-parent h-1">
-                        <input id="remember-me" type="checkbox" class="form-control form-control-check">
+                        <input id="remember-me" type="checkbox" class="form-control form-control-check" required>
                         <div class="check-background checkbox">
                             <i class="fas fa-check"></i>
                         </div>
@@ -57,7 +57,7 @@ include(ACTIONS_PATH . "/admins/login-action.php");
                 </div>
 
                 <div class="form-group h-2 flex-100">
-                    <button type="submit" class="btn btn-filled">ورود</button>
+                    <button type="button" class="btn btn-filled" id="submit-button">ورود</button>
                 </div>
                 <span><?= $error ?></span>
             </form>

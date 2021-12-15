@@ -1,24 +1,27 @@
 <?php
-$name = "";
+$logeIn = "false";
 $email = "";
+$name = "";
 if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
+    $logeIn = "true";
     $id = $_SESSION['id'];
     $name = $_SESSION['name'] . " " . $_SESSION['full-name'];
     $email = $_SESSION['email'];
 }
 ?>
-<header>
-    <ul>
-        <li>
-            <a href="contact.php"> تماس با ما </a>
-        </li>
-        <li>
-            <a href="/"> بلاگ </a>
-        </li>
-    </ul>
-    <a href="<?= PUBLIC_URL . '/users/register.php' ?>" class="user-register">
-        <span><?= $name ?></span>
-    </a>
+<header login="<?= $logeIn ?>">
+    <nav>
+        <ul>
+            <li>
+                <a href="contact.php"> تماس با ما </a>
+            </li>
+            <li>
+                <a href="/"> بلاگ </a>
+            </li>
+        </ul>
+    </nav>
+    <a id="user-name" href="<?= PUBLIC_URL . '/users/edit-profile.php' ?>" class="user-register"><?= $name ?></a>
+    <a id="login" href="<?= PUBLIC_URL . '/users/login.php' ?>" class="user-register">ورود به حساب</a>
 
     <i class="user-logo" id="user-logo"></i>
     <div class="user-manage" aria-hidden="true" id="user-manage">

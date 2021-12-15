@@ -10,7 +10,7 @@
             شود
             و در عین تنوع آنها حفظ شود.</p>
     </div>
-    <div class="related-pages">
+    <nav class="related-pages">
         <p class="title">صفحات سایت</p>
         <ul>
             <li>
@@ -20,5 +20,5 @@
                 <a href= <?= USER_URL . "/login.php" ?>>ورود</a>
             </li>
         </ul>
-    </div>
+    </nav>
 </footer>

@@ -32,8 +32,8 @@ include(ACTIONS_PATH . "/view-action.php");
             foreach ($productsList as $product) {
                 echo("<div class='swiper-slide'>");
                 $card = new card($product[3], $product[5], "card-filled");
-                $card->card_picture($product[6]);
-                $card->card_add();
+                $card->picture($product[6]);
+                $card->add();
                 echo("</div>");
             }
             ?>

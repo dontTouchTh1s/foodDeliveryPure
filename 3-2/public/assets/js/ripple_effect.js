@@ -33,10 +33,6 @@ const buttons = document.querySelectorAll('.btn');
 for (const button of buttons) {
     button.addEventListener("click", createRipple);
 }
-const anchors = document.getElementsByTagName('a');
-for (const anchor of anchors) {
-    anchor.addEventListener("click", createRipple);
-}
 const cards = document.getElementsByClassName('card');
 for (const card of cards) {
     card.addEventListener("click", createRipple);
