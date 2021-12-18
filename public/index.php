@@ -21,6 +21,7 @@ include(ACTIONS_PATH . "/view-action.php");
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
     <title>ارتباط با ما</title>
 </head>
+<body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
