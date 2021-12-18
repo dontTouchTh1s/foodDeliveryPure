@@ -1,0 +1,44 @@
+.nav-drawer {
+    padding: 28px;
+    width: 350px;
+    text-align: right;
+    height: 100%;
+    background-color: var(--lightSurfaceVariantColor);
+}
+
+.nav-drawer .title {
+    font-size: 1.23rem;
+    font-weight: 700;
+}
+
+.nav-body section {
+    width: 100%;
+}
+
+.nav-body section::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--lightOutlineColor);
+}
+
+.nav-body section .section-title {
+    font-weight: 350;
+    opacity: 80%;
+}
+
+.nav-body section .btn {
+    background-color: inherit;
+    height: 56px;
+    width: 100%;
+    margin: 0 -16px 0 0;
+}
+
+.nav-body section .btn[focused] {
+    background-color: var(--lightSurfaceColor);
+}
+
+.nav-body section .btn i {
+    font-size: 22px;
+}
