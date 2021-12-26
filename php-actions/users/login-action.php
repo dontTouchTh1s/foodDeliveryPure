@@ -19,7 +19,7 @@ if ($mysql->connect_errno) {
 
 $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
 $result = $mysql->query($query);
-if ($mysql->query($query))
+if ($result)
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $_SESSION['id'] = $row['id'];
@@ -27,6 +27,7 @@ if ($mysql->query($query))
         $_SESSION['full-name'] = $row['full-name'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['gender'] = $row['gender'];
+        $_SESSION['roll'] = 0;
         header("location: " . USER_URL . "/edit-profile.php");
     } else {
         $error = "نام کاربری یا رمز عبور اشتباه است.";

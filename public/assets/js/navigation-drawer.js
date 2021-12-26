@@ -1,12 +1,9 @@
-let currentURL = document.location.href;
-let position = currentURL.search("front-project");
-currentURL = currentURL.substring(position, position.length);
-let navDrawer = document.querySelector(".nav-drawer");
-let links = navDrawer.querySelectorAll(".btn");
-for (let link of links) {
-    let href = link.getAttribute("href");
-    if (href === currentURL) {
-        link.setAttribute("focused");
-        link.setAttribute("aria-selected", "true");
-    }
+let navContainer = document.querySelector(".nav-drawer-container");
+let navController = document.querySelector(".navigation-controller");
+let navScrim = navContainer.querySelector(".scrim");
+navController.addEventListener("click", navigationDrawer_toggle);
+navScrim.addEventListener("click", navigationDrawer_toggle);
+
+function navigationDrawer_toggle(event) {
+    navContainer.toggleAttribute("open");
 }

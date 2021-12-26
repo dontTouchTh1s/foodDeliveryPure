@@ -18,6 +18,39 @@ header {
     color: var(--lightPrimaryContainerOnColor);
 }
 
+.navigation-controller {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    line-height: 24px;
+    cursor: pointer;
+    z-index: 1;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.navigation-controller span {
+    pointer-events: none;
+}
+
+.navigation-controller .background {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--lightPrimaryColor);
+    opacity: 0;
+}
+
+.navigation-controller:hover .background {
+    opacity: 24%;
+}
+
 header ul {
     display: flex;
     height: 100%;

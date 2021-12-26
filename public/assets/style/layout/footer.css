@@ -3,7 +3,6 @@ footer {
     display: grid;
     background-color: var(--lightPrimaryContainerColor);
     color: var(--lightPrimaryContainerOnColor);
-
     grid-template-columns: auto auto;
 }
 

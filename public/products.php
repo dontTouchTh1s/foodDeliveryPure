@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include("__PATH__.php");
 $error = "";
@@ -18,48 +19,12 @@ include(ACTIONS_PATH . "/view-action.php");
     <title>ورود</title>
 </head>
 <body class="layout">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include(PUBLIC_PATH . '/header.php'); ?>
-
-<div class="nav-drawer">
-    <p class="title">منو</p>
-    <div class="nav-body">
-        <section>
-            <span class="section-title">صفحات سایت</span>
-            <a href="<?= PUBLIC_URL . '/index.php' ?>" title="خانه" class="btn btn-filled-tonal btn-over-width">
-                <i class="fas fa-home"></i>
-                <span>خانه</span>
-
-            </a>
-            <a href="<?= PUBLIC_URL . '/products.php' ?>" title="محصولات" class="btn btn-filled-tonal btn-over-width">
-                <i class="fas fa-home"></i>
-                <span>محصولات</span>
-
-            </a>
-            <a href="" title="" class="btn btn-filled-tonal">
-                <i class="fas fa-home"></i>
-                <span>اخبار</span>
-
-            </a>
-        </section>
-        <section>
-            <span class="section-title">حساب کاربری</span>
-            <a href="<?= USER_URL . '/login.php' ?>" title="" class="btn btn-filled-tonal btn-over-width">
-                <i class="fas fa-home"></i>
-                <span>ورود</span>
-            </a>
-            <a href="<?= USER_URL . '/edit-profile.php' ?>" title="" class="btn btn-filled-tonal btn-over-width">
-                <i class="fas fa-home"></i>
-                <span>ویرایش پروفایل</span>
-
-            </a>
-            <a href="" title="" class="btn btn-filled-tonal">
-                <i class="fas fa-home"></i>
-                <span>خروج</span>
-            </a>
-        </section>
-    </div>
-</div>
+<?php
+include(PUBLIC_PATH . '/header.php');
+include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
+?>
 <aside>
     <div class="content content-aside">
     </div>
@@ -69,20 +34,21 @@ include(ACTIONS_PATH . "/view-action.php");
         <div class="card-container">
             <?php
             foreach ($productsList as $product) {
-                $card = new card($product[3], $product[5], "card-filled");
+                $card = new card(CARD_FILLED, $product[0]);
+                $card->title($product[3]);
+                $card->subhead("subhead");
+                $card->description($product[5]);
                 $card->picture($product[6]);
-                $card->button("سفارش دهید");
+                $card->button("سفارش دهید", CARD_BTN_OUTLINED);
+                $card->action(CARD_ACTION_LIKE);
+                $card->action(CARD_ACTION_BOOKMARK);
                 $card->add();
             }
             ?>
         </div>
     </div>
 </div>
-
 <?php include(PUBLIC_PATH . '/footer.php'); ?>
-<script src="<?= JS_URL . '/form_controls.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/ripple_effect.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/form_validate.js' ?>" type="module"></script>
-<script src="<?= JS_URL . '/navigation-drawer.js' ?>" type="text/javascript"></script>
+<script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

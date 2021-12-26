@@ -4,6 +4,7 @@ include("__PATH__.php");
 $error = "";
 $productsList = [];
 include(ACTIONS_PATH . "/view-action.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -23,7 +24,10 @@ include(ACTIONS_PATH . "/view-action.php");
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include(PUBLIC_PATH . '/header.php'); ?>
+<?php
+include(PUBLIC_PATH . '/header.php');
+include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
+?>
 <div class="container">
     <div class="swiper">
         <!-- Additional required wrapper -->
@@ -51,7 +55,7 @@ include(ACTIONS_PATH . "/view-action.php");
         <!-- If we need scrollbar -->
         <div class="swiper-scrollbar"></div>
     </div>
-    <script src="<?= JS_URL . '/swiper.js' ?>" type="text/javascript"></script>
+    <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </div>
 </body>
 </html>

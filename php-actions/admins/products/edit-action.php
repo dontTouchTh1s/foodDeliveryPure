@@ -58,7 +58,7 @@ if (isset($_POST['type']) and isset($_POST['state']) and isset($_POST['name'])
             $pictureNames .= "$uploads_url/$name" . ":";
         }
     }
-
+    $basketList = [0, 0, 0, 0,];
     if (!is_numeric($price))
         $priceError = "قیمت محصول به درستی وارد نشده است.";
     else {

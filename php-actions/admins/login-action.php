@@ -19,7 +19,7 @@ if ($mysql->connect_errno) {
 
 $query = "SELECT * FROM admins WHERE email='$email' AND password='$password'";
 $result = $mysql->query($query);
-if ($mysql->query($query))
+if ($result)
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         $_SESSION['id'] = $row['id'];
@@ -28,12 +28,16 @@ if ($mysql->query($query))
         $_SESSION['email'] = $row['email'];
         $_SESSION['gender'] = $row['gender'];
         $_SESSION['roll'] = 10;
-        new redirect(USER_URL . "/edit-profile.php");
+        redirect::request(USER_URL . "/edit-profile.php");
     } else {
         $error = "نام کاربری یا رمز عبور صحیح نیست.";
+        $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
     }
 else {
-    $error = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+    $error = "عدم اتصال";
+    $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+    $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+    end($mbList)->description($errorDes);
 }
 
 

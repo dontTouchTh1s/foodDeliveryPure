@@ -1,4 +1,4 @@
-import Validate, {ALPHABET_REGEX, EMAIL_REGEX, FormValidate, NUMBER_REGEX} from "/public/assets/js/classes/validate.js"
+import Validate, {ALPHABET_REGEX, EMAIL_REGEX, FormValidate, NUMBER_REGEX} from "/public/assets/js/form/validate.js"
 
 let controls = document.getElementsByClassName("form-control");
 let form = document.querySelector("form");

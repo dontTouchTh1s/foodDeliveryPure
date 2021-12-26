@@ -1,7 +1,6 @@
 <?php
-
 include("__PATH__.php");
-check_access::check_roll(ROLL_USER);
+Authentication::check_roll(ROLL_USER);
 $name = $fullName = $gender = $email = $password = $rePassword = $error = "";
 include(ACTIONS_PATH . "/users/edit-profile-action.php");
 ?>
@@ -67,8 +66,6 @@ include(ACTIONS_PATH . "/users/edit-profile-action.php");
         </div>
     </div>
 </div>
-<script src="<?= JS_URL . '/form_controls.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/ripple_effect.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/form_validate.js' ?>" type="module"></script>
+<script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

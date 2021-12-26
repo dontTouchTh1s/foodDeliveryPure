@@ -2,7 +2,7 @@
 
 class redirect
 {
-    public function __construct($dest)
+    static public function request($dest)
     {
         header("Location: " . $dest);
     }

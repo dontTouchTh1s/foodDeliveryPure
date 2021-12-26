@@ -80,7 +80,7 @@ class data_table
         $this->columnCount++;
     }
 
-    public function action($title, $type)
+    public function action($title, $type, $action = "")
     {
         switch ($type) {
             case TABLE_REMOVE:
@@ -111,7 +111,7 @@ class data_table
         for ($c = 0; $c < count($this->tableBody); $c++) {
             $check = "
             <td>
-                 <a href='login.php'>
+                 <a href='{$action}?id={$this->tableRows[$c][0]}'>
                     <i class='$icon'></i>
                  </a>
             </td>";
@@ -119,8 +119,7 @@ class data_table
         }
     }
 
-    public
-    function add()
+    public function add()
     {
         $body = "";
         foreach ($this->tableBody as $row) {

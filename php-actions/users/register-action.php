@@ -35,7 +35,7 @@ if ($mysql->connect_errno) {
     return ($mysql->connect_error);
 }
 
-$query = "INSERT INTO users (name, `full-name`, email, password, gender)
+$query = "INSERT INTO users (name, full_name, email, password, gender)
           VALUES ('$name', '$fullName', '$email', '$password', '$gender')";
 if ($mysql->query($query))
     $error = "اکانت شما با موفقت ساخته شد";

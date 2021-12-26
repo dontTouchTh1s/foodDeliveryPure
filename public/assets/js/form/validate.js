@@ -2,16 +2,19 @@ export const EMAIL_REGEX = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/
 export const ALPHABET_REGEX = /^[\p{L} ]+$/u;
 export const NUMBER_REGEX = /^\d+$/;
 
-export const ERROR_NUMBER_STEP = 0;
-export const ERROR_NUMBER_MIN = 1;
-export const ERROR_NUMBER_MAX = 2;
-export const ERROR_REGEX = 4;
-export const ERROR_REQUIRED = 5;
-export const ERROR_EQUAL_WITH = 6;
-export const ERROR_MIN = 7;
-export const ERROR_MAX = 8;
-export const ERROR_LENGTH = 9;
 
+class errorType {
+    static NUMBER_STEP = {type: 0, text: "step number error"};
+    static NUMBER_MIN = {type: 1, text: "min number error"};
+    static NUMBER_MAX = {type: 2, text: "max number error"};
+    static REGEX = {type: 3, text: "regex error"};
+    static REQUIRED = {type: 4, text: "required error"};
+    static EQUAL_WITH = {type: 5, text: "equal with number error"};
+    static MIN = {type: 6, text: "min error"};
+    static MAX = {type: 7, text: "max error"};
+    static LENGTH = {type: 8, text: "length error"};
+
+}
 
 export default class Validate {
     stepErrorText = "";
@@ -133,9 +136,9 @@ export default class Validate {
 
     #regex_validate(event, regex, errorText) {
         if (regex.test(this.control.value)) {
-            this.#set_validity(this.control, "false", ERROR_REGEX);
+            this.#set_validity(this.control, "false", errorType.REGEX);
         } else {
-            this.#set_validity(this.control, "true", ERROR_REGEX);
+            this.#set_validity(this.control, "true", errorType.REGEX);
             this.errorElement.innerText = errorText;
         }
     }
@@ -143,57 +146,57 @@ export default class Validate {
     #length_validation(event, min, max, errorText) {
         if (this.control.value.length < min) {
             this.errorElement.innerText = errorText;
-            this.#set_validity(this.control, "true", ERROR_LENGTH);
+            this.#set_validity(this.control, "true", errorType.LENGTH);
         } else if (this.control.value.length > max) {
             this.errorElement.innerText = errorText;
-            this.#set_validity(this.control, "true", ERROR_LENGTH);
+            this.#set_validity(this.control, "true", errorType.LENGTH);
         } else {
-            this.#set_validity(this.control, "false", ERROR_LENGTH);
+            this.#set_validity(this.control, "false", errorType.LENGTH);
         }
     }
 
     #min_validation(event, min, errorText) {
         if (this.control.value < min) {
             this.errorElement.innerText = errorText;
-            this.#set_validity(this.control, "true", ERROR_NUMBER_MIN);
+            this.#set_validity(this.control, "true", errorType.NUMBER_MIN);
         } else {
-            this.#set_validity(this.control, "false", ERROR_NUMBER_MIN);
+            this.#set_validity(this.control, "false", errorType.NUMBER_MIN);
         }
     }
 
     #max_validation(event, max, errorText) {
         if (this.control.value > max) {
             this.errorElement.innerText = errorText;
-            this.#set_validity(this.control, "true", ERROR_NUMBER_MAX);
+            this.#set_validity(this.control, "true", errorType.NUMBER_MAX);
         } else {
-            this.#set_validity(this.control, "false", ERROR_NUMBER_MAX);
+            this.#set_validity(this.control, "false", errorType.MAX);
         }
     }
 
     #step_validation(event, step, errorText) {
         if (this.control.value % step !== 0) {
             this.errorElement.innerText = errorText;
-            this.#set_validity(this.control, "true", ERROR_NUMBER_STEP);
+            this.#set_validity(this.control, "true", errorType.NUMBER_STEP);
         } else {
-            this.#set_validity(this.control, "false", ERROR_NUMBER_STEP);
+            this.#set_validity(this.control, "false", errorType.NUMBER_STEP);
         }
     }
 
     #equal_with_validation(event, equalWith, errorText) {
         if (this.control.value === equalWith.content) {
-            this.#set_validity(this.control, "false", ERROR_EQUAL_WITH);
+            this.#set_validity(this.control, "false", errorType.EQUAL_WITH);
         } else {
-            this.#set_validity(this.control, "true", ERROR_EQUAL_WITH);
+            this.#set_validity(this.control, "true", errorType.EQUAL_WITH);
             this.errorElement.innerText = errorText;
         }
     }
 
     #required_validation(event) {
         if (this.control.value === "") {
-            this.#set_validity(this.control, "true", ERROR_REQUIRED);
+            this.#set_validity(this.control, "true", errorType.REQUIRED);
             this.errorElement.innerText = "لطفا این فیلد را پر کنید.";
         } else {
-            this.#set_validity(this.control, "false", ERROR_REQUIRED);
+            this.#set_validity(this.control, "false", errorType.REQUIRED);
         }
     }
 

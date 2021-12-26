@@ -21,7 +21,7 @@ if ($result) {
     if ($result->num_rows > 0) {
         $row = ($result->fetch_assoc());
         $name = $row['name'];
-        $fullName = $row['full-name'];
+        $fullName = $row['full_name'];
         $email = $row['email'];
         $gender = $row['gender'];
         $password = $row['password'];
@@ -47,7 +47,7 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
         $emailError = "ایمیل وارد شده نا معتبر است.";
     else {
         $query = "UPDATE users
-          SET name='$name', `full-name`='$fullName', email='$email', password='$password'
+          SET name='$name', full_name='$fullName', email='$email', password='$password'
           WHERE id='$id'";
         if ($mysql->query($query))
             $error = "اطلاعات بروزرسانی شد";

@@ -1,9 +1,39 @@
+.nav-drawer-container {
+    position: fixed;
+    margin: 8px 8px;
+    overflow: hidden;
+    border: 4px solid #664c3c;
+    border-radius: 16px;
+    z-index: 15;
+    height: 100%;
+    transition: 400ms;
+    width: 0;
+    right: -400px;
+}
+
+.nav-drawer-container[open] {
+    right: 0;
+    width: 355px;
+}
+
+.nav-drawer-container[close] {
+    width: 355px;
+}
+
 .nav-drawer {
+    position: relative;
     padding: 28px;
-    width: 350px;
     text-align: right;
     height: 100%;
-    background-color: var(--lightSurfaceVariantColor);
+    background-color: var(--lightSurfaceColor);
+}
+
+.nav-drawer[open] {
+    padding: 28px;
+    width: 354px;
+    text-align: right;
+    height: 100%;
+    background-color: var(--lightSurfaceColor);
 }
 
 .nav-drawer .title {
@@ -19,6 +49,7 @@
     content: "";
     display: block;
     width: 100%;
+    margin-top: 8px;
     height: 1px;
     background-color: var(--lightOutlineColor);
 }
@@ -29,16 +60,64 @@
 }
 
 .nav-body section .btn {
-    background-color: inherit;
+    z-index: 1;
+    background-color: rgb(0, 0, 0, 0);
     height: 56px;
     width: 100%;
-    margin: 0 -16px 0 0;
-}
-
-.nav-body section .btn[focused] {
-    background-color: var(--lightSurfaceColor);
+    margin: 0 -16px 8px 0;
 }
 
 .nav-body section .btn i {
     font-size: 22px;
+}
+
+
+.nav-body section .btn .background {
+    background-color: var(--lightSecondaryContainerColor);
+    right: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+}
+
+.nav-body section .btn[focused] .background {
+    opacity: 48%;
+}
+
+.nav-body section .btn:hover .background {
+    opacity: 32%;
+}
+
+.nav-body section .btn:active .background {
+    opacity: 40%;
+}
+
+.nav-drawer-container .scrim {
+    z-index: -2;
+    top: 72px;
+    left: 0;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 40%;
+}
+
+.nav-drawer-container[open] .scrim {
+    display: block;
+    opacity: 40%;
+}
+
+
+@keyframes hide {
+    from {
+        right: -400px;
+    }
+    to {
+
+    }
 }

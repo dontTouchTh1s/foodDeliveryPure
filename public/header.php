@@ -10,6 +10,10 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
 }
 ?>
 <header login="<?= $logeIn ?>">
+    <div class="navigation-controller">
+        <div class="background"></div>
+        <span>منو</span>
+    </div>
     <nav>
         <ul>
             <li>
@@ -34,4 +38,4 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
         </div>
     </div>
 </header>
-<script src="<?= JS_URL . '/user_manage_state.js' ?>" type="text/javascript"></script>
+<script src="<?= JS_URL . '/user-manage-state.js' ?>" type="text/javascript"></script>

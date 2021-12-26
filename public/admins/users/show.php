@@ -1,6 +1,6 @@
 <?php
 include("__PATH__.php");
-check_access::check_roll(ROLL_ADMIN);
+Authentication::check_roll(ROLL_ADMIN);
 $productsList = [];
 include(ACTIONS_PATH . "/admins/users/show-action.php");
 ?>
@@ -27,15 +27,13 @@ include(ACTIONS_PATH . "/admins/users/show-action.php");
             $tableData = new data_table($productsList);
             $tableData->head(['ردیف', 'نام', 'نام کامل', 'ایمیل', 'رمز عبور', 'جنسیت', 'سطح دسترسی']);
             $tableData->check("انتخاب");
-            $tableData->action("حذف", TABLE_REMOVE);
+            $tableData->action("حذف", TABLE_REMOVE, ACTION_ADMINS_URL . "/users/remove-action.php");
             $tableData->action("ویرایش", TABLE_EDIT);
             $tableData->add();
             ?>
         </div>
     </div>
 </div>
-<script src="<?= JS_URL . '/form_controls.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/ripple_effect.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/form_validate.js' ?>" type="module"></script>
+<script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

@@ -1,33 +1,33 @@
 :root {
     /* Light primary colors */
-    --lightPrimaryColor: #d06409;
-    --lightPrimaryColor38: rgba(208, 100, 9, 0.38);
-    --lightPrimaryColor12: rgb(208, 100, 9);
+    --lightPrimaryColor: #9b4600;
+    --lightPrimaryColor38: rgba(155, 70, 0, 0.38);
+    --lightPrimaryColor12: rgba(155, 70, 0, 0.12);
     --lightPrimaryOnColor: rgb(255, 255, 255);
 
 
     /* Light primary container color */
-    --lightPrimaryContainerColor: rgb(224, 174, 131);
-    --lightPrimaryContainerOnColor: rgb(30, 17, 2);
-    --lightPrimaryContainerOnColor38: rgba(26, 16, 1, 0.38);
-    --lightPrimaryContainerOnColor12: rgba(33, 19, 2, 0.12);
+    --lightPrimaryContainerColor: #ffdbc6;
+    --lightPrimaryContainerOnColor: #331200;
+    --lightPrimaryContainerOnColor38: rgba(255, 219, 198, 0.36);
+    --lightPrimaryContainerOnColor12: rgba(255, 219, 198, 0.12);
 
     /* Light secondary colors */
-    --lightSecondaryColor: #66bb6a;
+    --lightSecondaryColor: rgb(117, 88, 71);
     --lightSecondaryOnColor: #171616;
 
     /* Light secondary container colors */
-    --lightSecondaryContainerColor: rgb(164, 225, 164);
-    --lightSecondaryContainerOnColor: rgb(1, 24, 3);
+    --lightSecondaryContainerColor: #ffdbc6;
+    --lightSecondaryContainerOnColor: #2b170a;
 
     /* Light surface colors */
-    --lightSurfaceColor: rgb(241, 228, 223);
-    --lightSurfaceOnColor: rgb(23, 23, 22);
+    --lightSurfaceColor: #fcfcfc;
+    --lightSurfaceOnColor: #201a17;
     --lightSurfaceOnColor38: rgba(23, 23, 22, 0.38);
     --lightSurfaceOnColor12: rgba(23, 23, 22, 0.12);
 
-    --lightSurfaceVariantColor: rgb(255, 211, 186);
-    --lightSurfaceVariantOnColor: rgb(23, 23, 22);
+    --lightSurfaceVariantColor: #f4ded3;
+    --lightSurfaceVariantOnColor: #52443c;
     --lightSurfaceVariantOnColor38: rgba(23, 23, 22, 0.38);
     --lightSurfaceVariantOnColor12: rgba(23, 23, 22, 0.12);
 
@@ -35,7 +35,7 @@
     --lightBackgroundColor: rgb(255, 251, 251);
 
     /* Light outline color */
-    --lightOutlineColor: rgb(122, 106, 106);
+    --lightOutlineColor: #85746b;
 
     /* Light error colors */
     --lightErrorColor: rgb(201, 37, 37);

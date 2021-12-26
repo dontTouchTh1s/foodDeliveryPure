@@ -66,8 +66,6 @@ include("../php-actions/contact_action.php");
         </div>
     </div>
 </div>
-<script src="<?= JS_URL . '/form_controls.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/ripple_effect.js' ?>" type="text/javascript"></script>
-<script src="<?= JS_URL . '/form_validate.js' ?>" type="module"></script>
+<script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>
