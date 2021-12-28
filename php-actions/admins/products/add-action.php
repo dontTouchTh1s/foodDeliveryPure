@@ -1,4 +1,5 @@
 <?php
+
 include(INCLUDES_PATH . "/setting.php");
 
 $type = $state = $name = $price = $description = "";

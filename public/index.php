@@ -14,8 +14,6 @@ include(ACTIONS_PATH . "/view-action.php");
     <meta name="author" content="AliM">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/components/card.css' ?>">
     <link rel="stylesheet" href="<?= STYLE_URL . '/components/swiper.css' ?>">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

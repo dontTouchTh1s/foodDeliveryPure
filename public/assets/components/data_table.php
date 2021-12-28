@@ -26,7 +26,9 @@ class data_table
         }
     }
 
-    public function head(array $head)
+
+    public
+    function head(array $head)
     {
         $this->tableHead[] = "<thead>";
         foreach ($head as $td) {
@@ -35,7 +37,8 @@ class data_table
         $this->tableHead[] = "</thead>";
     }
 
-    public function check($title, $type = TABLE_CHECKBOX)
+    public
+    function check($title, $type = TABLE_CHECKBOX)
     {
         // Insert new table data to $tableHeader for checkbox column
         array_splice($this->tableHead, $this->columnCount + 1, 0, "<td>$title</td>");
@@ -80,7 +83,8 @@ class data_table
         $this->columnCount++;
     }
 
-    public function action($title, $type, $action = "")
+    public
+    function action($title, $type, $action = "")
     {
         switch ($type) {
             case TABLE_REMOVE:
@@ -119,7 +123,8 @@ class data_table
         }
     }
 
-    public function add()
+    public
+    function add()
     {
         $body = "";
         foreach ($this->tableBody as $row) {
