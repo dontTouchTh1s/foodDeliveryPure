@@ -1,6 +1,6 @@
 <?php
 include("__PATH__.php");
-Authentication::check_roll(ROLL_USER);
+Authorisation::check_roll(ROLL_USER);
 $name = $fullName = $gender = $email = $password = $rePassword = $error = "";
 include(ACTIONS_PATH . "/users/edit-profile-action.php");
 ?>

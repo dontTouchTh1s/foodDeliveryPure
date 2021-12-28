@@ -12,7 +12,7 @@ if ($connectType == "application/json") {
     $resultData = ["liked" => null, "isLogeIn" => null];
     if (isset($data["id"])) {
         $pid = $data['id'];
-        $uid = Authorisation::get_id();
+        $uid = Authentication::get_id();
         if (!$uid) {
             $resultData["isLogeIn"] = false;
             echo json_encode($resultData);

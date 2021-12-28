@@ -1,6 +1,6 @@
 <?php
 include("__PATH__.php");
-Authentication::check_roll(ROLL_ADMIN);
+Authorisation::check_roll(ROLL_ADMIN);
 $typeError = $stateError = $nameError = $priceError = $descriptionError = $pictureError = $error = "";
 include(ACTIONS_PATH . "/admins/products/add-action.php");
 ?>

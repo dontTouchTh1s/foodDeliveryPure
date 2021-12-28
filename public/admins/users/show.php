@@ -1,6 +1,6 @@
 <?php
 include("__PATH__.php");
-Authentication::check_roll(ROLL_ADMIN);
+Authorisation::check_roll(ROLL_ADMIN);
 $productsList = [];
 include(ACTIONS_PATH . "/admins/users/show-action.php");
 ?>
