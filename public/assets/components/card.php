@@ -58,7 +58,7 @@ class card
     public function button($text, $type = CARD_BTN_FILLED)
     {
 
-        $button = "<a href = '' class='btn $type' ><span> $text</span></a> ";
+        $button = "<button type='button' class='btn $type' ><span> $text</span></button> ";
         array_splice($this->cardButton, 1, 0, $button);
     }
 
