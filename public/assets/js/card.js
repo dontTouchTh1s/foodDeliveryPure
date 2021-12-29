@@ -1,21 +1,18 @@
-let anchor = document.getElementsByTagName("a");
-for (let a of anchor) {
-    console.log(a.href);
-}
 let cardList = document.querySelectorAll(".card");
+
 for (let card of cardList) {
     let id = card.getAttribute('product-id');
     let picture = card.querySelector(".card-picture");
-    let addToBasketButton = card.querySelector(".card-button a");
+    let addToBasketButton = card.querySelector(".card-button button");
     let likeButton = card.querySelector(".fa-heart");
     let bookMarkButton = card.querySelector(".fa-bookmark");
-    likeButton.addEventListener("click", () => toggle_action(event, id, "addTo-productBasket-action.php"));
+    addToBasketButton.addEventListener("click", () => toggle_action(event, id, "addTo-productBasket-action.php"));
     likeButton.addEventListener("click", () => toggle_action(event, id, "like-product-action.php"));
     bookMarkButton.addEventListener("click", () => toggle_action(event, id, "bookmark-product-action.php"));
 
     (async function () {
         let postData = JSON.stringify({id: id, select: ""});
-        let result = await AJAX_request(ACTION_USER_URL + "/like-product-action.php", "POST", postData);
+        let result = await AJAX_request(ACTION_USER_URL + "/products/like-product-action.php", "POST", postData);
         if (result["liked"]) {
             // Product liked before
             likeButton.classList.remove("far");
@@ -28,7 +25,7 @@ for (let card of cardList) {
     })();
     (async function () {
         let postData = JSON.stringify({id: id, select: ""});
-        let result = await AJAX_request(ACTION_USER_URL + "/bookmark-product-action.php", "POST", postData);
+        let result = await AJAX_request(ACTION_USER_URL + "/products/bookmark-product-action.php", "POST", postData);
         if (result["liked"]) {
             bookMarkButton.classList.remove("far");
             bookMarkButton.classList.add("fas");
@@ -44,7 +41,7 @@ async function toggle_action(event, id, file) {
     event.stopPropagation();
     const likeButton = event.currentTarget;
     let postData = JSON.stringify({id: id});
-    let result = await AJAX_request(ACTION_USER_URL + "/" + file, "POST", postData);
+    let result = await AJAX_request(ACTION_USER_URL + "/products/" + file, "POST", postData);
     if (result["liked"]) {
         likeButton.classList.remove("far");
         likeButton.classList.add("fas");
