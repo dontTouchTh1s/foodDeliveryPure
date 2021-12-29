@@ -28,9 +28,10 @@ if ($mysql->connect_errno) {
     $error = "عدم اتصال";
     $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
     $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+    return;
 }
 
-$query = "SELECT * FROM bookmarkedproducts WHERE user_id = ? AND product_id = ?";
+$query = "SELECT * FROM likedProducts WHERE user_id = ? AND product_id = ?";
 $sth = $mysql->prepare($query);
 $sth->bind_param('ii', $uid, $pid);
 
@@ -39,11 +40,11 @@ if ($sth->execute()) {
     if ($result->num_rows > 0) {
         // Product liked before
         $resultData["liked"] = true;
-        $query = "DELETE FROM bookmarkedproducts WHERE user_id = ? AND product_id = ?";
+        $query = "DELETE FROM likedProducts WHERE user_id = ? AND product_id = ?";
     } else {
         // Product doesn't like before
         $resultData["liked"] = false;
-        $query = "INSERT INTO bookmarkedproducts (user_id, product_id)
+        $query = "INSERT INTO likedproducts (user_id, product_id)
         VALUES (?, ?)";
 
     }
