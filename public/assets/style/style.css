@@ -33,7 +33,7 @@ h1 {
 }
 
 input, select, textarea, button {
-    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    font-family: 'Noto Sans Arabic', sans-serif;
     font-weight: 400;
     resize: vertical;
     outline: none;
