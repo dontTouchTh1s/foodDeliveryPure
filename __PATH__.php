@@ -2,24 +2,27 @@
 
 const ROOT_PATH = __DIR__;
 
-// Actions
+// Actions Path
 const ACTIONS_PATH = ROOT_PATH . "/php-actions";
 const INCLUDES_PATH = ACTIONS_PATH . "/includes";
+const USERS_PATH = ACTIONS_PATH . "/users";
 const ADMINS_PATH = ACTIONS_PATH . "/admins";
 const CLASS_PATH = ACTIONS_PATH . "/classes";
 
+// Actions URL
 const ROOT_URL = "/front-project";
 const ACTIONS_URL = ROOT_URL . "/php-actions";
 const ACTION_USER_URL = ACTIONS_URL . "/users";
 const ACTION_ADMINS_URL = ACTIONS_URL . "/admins";
 
-// Public
+// Public Path
 const PUBLIC_PATH = ROOT_PATH . "/public";
 const ASSETS_PATH = PUBLIC_PATH . "/assets";
 const IMAGE_PATH = ASSETS_PATH . "/img";
 const UPLOAD_PATH = IMAGE_PATH . "/upload";
 const COMP_PATH = ASSETS_PATH . "/components";
 
+// Public URL
 const PUBLIC_URL = ROOT_URL . "/public";
 const USER_URL = PUBLIC_URL . "/users";
 const ADMIN_URL = PUBLIC_URL . "/admins";
@@ -43,4 +46,3 @@ spl_autoload_register(function ($class) {
     }
     require($classPath);
 });
-?>
