@@ -34,8 +34,14 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
             <?php
             foreach ($productsList as $product) {
                 echo("<div class='swiper-slide'>");
-                $card = new card($product[3], $product[5], "card-filled");
+                $card = new card(CARD_FILLED, $product[0]);
+                $card->title($product[3]);
+                $card->price($product[4]);
+                $card->description($product[5]);
                 $card->picture($product[6]);
+                $card->buy_button("خرید", 5, CARD_BTN_OUTLINED, "fas fa-shopping-cart");
+                $card->action(CARD_ACTION_LIKE);
+                $card->action(CARD_ACTION_BOOKMARK);
                 $card->add();
                 echo("</div>");
             }
