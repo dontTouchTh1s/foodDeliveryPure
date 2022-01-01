@@ -7,7 +7,7 @@ include(INCLUDES_PATH . "/setting.php");
 $connectType = isset($_SERVER["CONTENT_TYPE"]);
 if ($connectType == "application/json") {
     $data = json_decode(file_get_contents("php://input"), true);
-    $resultData = ["liked" => null, "isLogeIn" => null];
+    $resultData = ["toggled" => null, "isLogeIn" => null];
     if (isset($data["id"])) {
         $pid = $data['id'];
         $uid = Authentication::get_id();
@@ -38,12 +38,12 @@ $sth->bind_param('ii', $uid, $pid);
 if ($sth->execute()) {
     $result = $sth->get_result();
     if ($result->num_rows > 0) {
-        // Product liked before
-        $resultData["liked"] = true;
+        // Product bookmarked before
+        $resultData["toggled"] = true;
         $query = "DELETE FROM bookmarkedproducts WHERE user_id = ? AND product_id = ?";
     } else {
-        // Product doesn't like before
-        $resultData["liked"] = false;
+        // Product doesn't bookmarked before
+        $resultData["toggled"] = false;
         $query = "INSERT INTO bookmarkedproducts (user_id, product_id)
         VALUES (?, ?)";
 
@@ -54,7 +54,7 @@ if ($sth->execute()) {
         $sth->bind_param('ii', $uid, $pid);
         if ($sth->execute())
             // If executing query success, set new data
-            $resultData["liked"] = !$resultData["liked"];
+            $resultData["toggled"] = !$resultData["toggled"];
     }// If request is for selecting data, or executing query failed, we won't change data
     // Return data
     echo json_encode($resultData);
