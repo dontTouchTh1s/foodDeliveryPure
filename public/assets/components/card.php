@@ -13,7 +13,6 @@ class card
     public array $cardBody = [];
     public array $cardFooter = [];
     public string $cardTitle = "";
-    public bool $haveFooter = false;
 
     public function __construct($type, $id = "0")
     {
@@ -22,7 +21,7 @@ class card
         <div class='body-surface'></div>
         <div class='card-body'>"];
         $this->cardBody["title"] = ["<div class='card-title'>", "text" => "", "</div>"];
-        $this->cardBody["subhead"] = ["<div class='card-subhead'>", "text" => "", "</div>"];
+        $this->cardBody["price"] = ["<div class='card-subhead'>", "text" => "", "</div>"];
         $this->cardBody["description"] = ["<p>", "text" => "", "</p>"];
         $this->cardBody[] = ["</div >"];
         $this->cardPicture = ["<div class='card-picture'>", "</div>"];
@@ -41,9 +40,9 @@ class card
         $this->cardTitle = $title;
     }
 
-    public function subhead($subhead)
+    public function price($price)
     {
-        $this->cardBody["subhead"]["text"] = $subhead;
+        $this->cardBody["price"]["text"] = $price;
     }
 
     public function picture($imageURL)
@@ -55,14 +54,42 @@ class card
         array_splice($this->cardPicture, 1, 0, $picture);
     }
 
-    public function button($text, $type = CARD_BTN_FILLED)
+    public function buy_button(string $text, int $qty, string $type = CARD_BTN_FILLED, string $icon = ""): void
     {
-
-        $button = "<button type='button' class='btn $type' ><span> $text</span></button> ";
+        $i = "";
+        if (!$icon == "")
+            $i = "<i class='$icon' aria-hidden='true'></i>";
+        $button = "
+        <button type='button' class='btn $type buy-button' >
+            <span> $text</span>
+            $i
+        </button>
+        <div class='qty'>
+        <button type='button' class='btn btn-icon increase' >
+            <i class='fas fa-plus'></i>
+        </button>
+        <span class='qty-count'>$qty</span>
+        <button type='button' class='btn btn-icon decrease' >
+            <i class='fas fa-minus'></i>
+        </button>
+        </div>";
         array_splice($this->cardButton, 1, 0, $button);
     }
 
-    public function action($type)
+    public function button(string $text, string $type = CARD_BTN_FILLED, string $icon = ""): void
+    {
+        $i = "";
+        if (!$icon == "")
+            $i = "<i class='$icon' aria-hidden='true'></i>";
+        $button = "
+        <button type='button' class='btn $type' >
+            <span> $text</span>
+            $i
+        </button> ";
+        array_splice($this->cardButton, 1, 0, $button);
+    }
+
+    public function action(string $type): void
     {
         $action = "
             <div class='card-action' click-event='55'>
