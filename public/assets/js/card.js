@@ -3,22 +3,43 @@ let cardList = document.querySelectorAll(".card");
 for (let card of cardList) {
     let id = card.getAttribute('product-id');
     let picture = card.querySelector(".card-picture");
+    let qty = card.querySelector(".qty");
+    let qtySpan;
+    if (qty !== null) {
+        qtySpan = qty.querySelector("span");
+        let decrease = qty.querySelector(".decrease");
+        let increase = qty.querySelector(".increase");
+        increase.addEventListener("click", () => change_qty(event, id, 1));
+        decrease.addEventListener("click", () => change_qty(event, id, -1));
+        (async function () {
+            let postData = JSON.stringify({id: id, select: ""})
+            let result = await AJAX_request(ACTION_USER_URL + "/products/addTo-productBasket-action.php", "POST", postData);
+            if (result["value"] !== 0) {
+                qty.style.display = "grid";
+                qtySpan.textContent = result["value"];
+                toggle_buy_button(addToBasketButton, "حذف");
+            } else
+                qty.style.display = "none";
+        })();
+    }
     let addToBasketButton = card.querySelector(".card-button button");
     let likeButton = card.querySelector(".fa-heart");
     let bookMarkButton = card.querySelector(".fa-bookmark");
-    addToBasketButton.addEventListener("click", () => toggle_action(event, id, "addTo-productBasket-action.php"));
-    likeButton.addEventListener("click", () => toggle_action(event, id, "like-product-action.php"));
-    bookMarkButton.addEventListener("click", () => toggle_action(event, id, "bookmark-product-action.php"));
-
+    if (addToBasketButton !== null)
+        addToBasketButton.addEventListener("click", () => change_qty(event, id, 0));
+    if (likeButton !== null)
+        likeButton.addEventListener("click", () => toggle_action(event, id, "like-product-action.php"));
+    if (bookMarkButton !== null)
+        bookMarkButton.addEventListener("click", () => toggle_action(event, id, "bookmark-product-action.php"));
     (async function () {
         let postData = JSON.stringify({id: id, select: ""});
         let result = await AJAX_request(ACTION_USER_URL + "/products/like-product-action.php", "POST", postData);
-        if (result["liked"]) {
-            // Product liked before
+        if (result["toggled"]) {
+            // Product toggled before
             likeButton.classList.remove("far");
             likeButton.classList.add("fas");
-        } else if (result["liked"] === false) {
-            // Product doesn't like before
+        } else if (result["toggled"] === false) {
+            // Product doesn't toggled before
             likeButton.classList.remove("fas");
             likeButton.classList.add("far");
         }
@@ -26,15 +47,36 @@ for (let card of cardList) {
     (async function () {
         let postData = JSON.stringify({id: id, select: ""});
         let result = await AJAX_request(ACTION_USER_URL + "/products/bookmark-product-action.php", "POST", postData);
-        if (result["liked"]) {
+        if (result["toggled"]) {
             bookMarkButton.classList.remove("far");
             bookMarkButton.classList.add("fas");
-        } else if (result["liked"] === false) {
+        } else if (result["toggled"] === false) {
             bookMarkButton.classList.remove("fas");
             bookMarkButton.classList.add("far");
         }
     })();
+}
 
+async function change_qty(event, id, value) {
+    let button = event.currentTarget;
+    let cardButton = button.closest(".card-button");
+    let buyButton = cardButton.querySelector(".buy-button");
+    let qtyDiv = cardButton.querySelector(".qty")
+    let qtySpan = qtyDiv.querySelector(".qty-count");
+    let postData = JSON.stringify({id: id, value: value})
+    let result = await AJAX_request(ACTION_USER_URL + "/products/addTo-productBasket-action.php", "POST", postData)
+    let qty = result["value"];
+    console.log(qty);
+    if (qty !== null) {
+        if (qty === 0) {
+            qtyDiv.style.display = "none";
+            toggle_buy_button(buyButton, "خرید");
+        } else {
+            toggle_buy_button(buyButton, "حذف");
+            qtySpan.innerText = result["value"];
+            qtyDiv.style.display = "grid";
+        }
+    }
 }
 
 async function toggle_action(event, id, file) {
@@ -42,10 +84,10 @@ async function toggle_action(event, id, file) {
     const likeButton = event.currentTarget;
     let postData = JSON.stringify({id: id});
     let result = await AJAX_request(ACTION_USER_URL + "/products/" + file, "POST", postData);
-    if (result["liked"]) {
+    if (result["toggled"]) {
         likeButton.classList.remove("far");
         likeButton.classList.add("fas");
-    } else if (result["liked"] === false) {
+    } else if (result["toggled"] === false) {
         likeButton.classList.remove("fas");
         likeButton.classList.add("far");
     }
@@ -71,4 +113,14 @@ async function AJAX_request(url, method, body) {
             result = false;
         });
     return result;
+}
+
+function toggle_buy_button(button, text) {
+    let spanText = button.querySelector("span");
+    if (spanText.innerText !== text) {
+        spanText.innerText = text;
+        let icon = button.querySelector("i");
+        icon.classList.toggle("fa-shopping-cart");
+        icon.classList.toggle("fa-trash");
+    }
 }
