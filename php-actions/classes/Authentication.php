@@ -20,7 +20,7 @@ class Authentication
         session_write_close();
     }
 
-    static function get_id(): bool
+    static function get_id(): int
     {
         session_start();
         $session = $_SESSION['id'] ?? false;
