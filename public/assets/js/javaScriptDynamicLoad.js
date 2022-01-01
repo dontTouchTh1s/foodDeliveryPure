@@ -3,10 +3,11 @@ let swiper = document.querySelector(".swiper");
 let navigationDrawer = document.querySelector(".nav-drawer");
 let card = document.querySelector(".card");
 
-const JS_URL = "/front-project/public/assets/js";
+const ACTION_URL = "/front-project/php-actions";
+const PUBLIC_URL = "/front-project/public";
+const JS_URL = PUBLIC_URL + "/assets/js";
 const JS_FORM_URL = JS_URL + "/form";
-const ACTION_URL = "../php-action";
-const ACTION_USER_URL = "../php-actions/users";
+const ACTION_USER_URL = ACTION_URL + "/users";
 
 if (form !== null) {
     include(JS_FORM_URL, ["form-validate.js"], "module");
