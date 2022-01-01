@@ -2,7 +2,7 @@
 include("__PATH__.php");
 Authentication::check_login();
 $error = "";
-$productBasketList = [];
+$productBasketListInfo = $mbList = [];
 include(USERS_PATH . "/products/product-basket-action.php");
 ?>
 <!DOCTYPE html>
@@ -28,23 +28,20 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
     </div>
 </aside>
 <div class="container">
-    <div class="content content-products">
-        <div class="card-container">
+    <div class="content content-product-basket">
+        <div class="product-basket-container">
             <?php
-            foreach ($productBasketList as $product) {
-                $card = new card(CARD_FILLED, $product[0]);
-                $card->title($product[3]);
-                $card->subhead("subhead");
-                $card->description($product[5]);
-                $card->picture($product[6]);
-                $card->button("سفارش دهید", CARD_BTN_OUTLINED);
-                $card->action(CARD_ACTION_LIKE);
-                $card->action(CARD_ACTION_BOOKMARK);
-                $card->add();
+            foreach ($productBasketListInfo as $product) {
+                include ASSETS_PATH . "/template/product-basket-product.php";
             }
+
             ?>
         </div>
     </div>
+    <?php
+    foreach ($mbList as $ms)
+        $ms->add();
+    ?>
 </div>
 <?php include(PUBLIC_PATH . '/footer.php'); ?>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>

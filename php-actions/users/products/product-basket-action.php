@@ -20,14 +20,20 @@ if ($sth->execute()) {
     $result = $sth->get_result();
     if ($result->num_rows > 0) {
         $productBasketList = $result->fetch_all();
-        $query = "";
         foreach ($productBasketList as $product) {
-            $query .= "SELECT * FROM products WHERE id = $product[1];";
+            $query = "SELECT * FROM products WHERE id = ?";
+            $sth = $mysql->prepare($query);
+            $sth->bind_param('i', $product[1]);
+            $sth->execute();
+            $result = $sth->get_result();
+            $productBasketListInfo[] = $result->fetch_row();
         }
-        $result = $mysql->query($query);
-        if ($mysql->query($query))
-            $productBasketList = $result->fetch_all();
-    } else return;
+    } else {
+        $error = "عدم اتصال";
+        $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+        $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+        return;
+    }
 } else {
     $error = "عدم اتصال";
     $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
