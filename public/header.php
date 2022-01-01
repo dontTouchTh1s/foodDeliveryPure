@@ -29,7 +29,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
         <?php
         if ($logeIn == "true") {
             echo("
-        <a id='product-basket' href='' class='btn btn-outlined'>        
+        <a id='product-basket' href=" . USER_URL . "/product-basket.php" . " class='btn btn-outlined'>        
         <span>سبد خرید</span>
         <i class='fas fa-shopping-basket'></i>
         </a>
