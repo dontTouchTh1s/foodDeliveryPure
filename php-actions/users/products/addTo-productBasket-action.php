@@ -8,9 +8,12 @@ include(INCLUDES_PATH . "/setting.php");
 $connectType = isset($_SERVER["CONTENT_TYPE"]);
 if ($connectType == "application/json") {
     $data = json_decode(file_get_contents("php://input"), true);
-    $resultData = ["liked" => null, "isLogeIn" => null];
+    $resultData = ["value" => null];
     if (isset($data["id"])) {
         $pid = $data['id'];
+        $value = null;
+        if (isset($data['value']))
+            $value = intval($data['value']);
         $uid = Authentication::get_id();
         if (!$uid) {
             $resultData["isLogeIn"] = false;
@@ -35,25 +38,36 @@ if ($mysql->connect_errno) {
 $query = "SELECT * FROM productsbasket WHERE user_id = ? AND product_id = ?";
 $sth = $mysql->prepare($query);
 $sth->bind_param('ii', $uid, $pid);
-
+$qty = 0;
+$newQty = 0;
 if ($sth->execute()) {
     $result = $sth->get_result();
     if ($result->num_rows > 0) {
-        // Product liked before, unlike that
-        $query = "DELETE FROM productsbasket WHERE user_id = ? AND product_id = ?";
-        $resultData["liked"] = false;
+        $row = $result->fetch_array();
+        $qty = $row["QTY"];
+        $newQty = $qty;
+        // Product added before, so we now will increase, decrease or set 0 QTY
+        $newQty += $value;
+        $query = "UPDATE productsbasket set QTY = '$newQty' WHERE user_id = ? AND product_id = ?";
+
+        // If value = 0, we should remove product from basketList;
+        if (($value === 0) or ($newQty === 0)) {
+            $query = "DELETE FROM productsBasket WHERE user_id = ? AND product_id = ?";
+            $newQty = 0;
+        }
     } else {
-        $query = "INSERT INTO productsbasket (user_id, product_id)
-        VALUES (?, ?)";
-        $resultData["liked"] = true;
+        // Product is not in productBasket, we will add that
+        $newQty = 1;
+        $query = "INSERT INTO productsbasket (user_id, product_id, QTY)
+        VALUES (?, ?, '$newQty')";
     }
     $sth = $mysql->prepare($query);
     $sth->bind_param('ii', $uid, $pid);
     if (!isset($data["select"])) {
-        if (!$sth->execute())
-            $resultData["liked"] = null;
+        if ($sth->execute())
+            $resultData["value"] = $newQty;
     } else {
-        $resultData["liked"] = !$resultData["liked"];
+        $resultData["value"] = $qty;
     }
     echo json_encode($resultData);
 } else {
@@ -62,8 +76,3 @@ if ($sth->execute()) {
     $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
     end($mbList)->description($errorDes);
 }
-
-
-
-
-
