@@ -62,13 +62,11 @@ include(ACTIONS_PATH . "/users/login-action.php");
                 </div>
             </form>
         </div>
-
-        <?php
-        foreach ($mbList as $ms)
-            $ms->add();
-        ?>
-
     </div>
+    <?php
+    foreach ($mbList as $ms)
+        $ms->add();
+    ?>
 </div>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
