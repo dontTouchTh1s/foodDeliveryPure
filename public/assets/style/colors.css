@@ -5,7 +5,6 @@
     --lightPrimaryColor12: rgba(155, 70, 0, 0.12);
     --lightPrimaryOnColor: rgb(255, 255, 255);
 
-
     /* Light primary container color */
     --lightPrimaryContainerColor: #ffdbc6;
     --lightPrimaryContainerOnColor: #331200;
@@ -23,8 +22,8 @@
     /* Light surface colors */
     --lightSurfaceColor: #fcfcfc;
     --lightSurfaceOnColor: #201a17;
-    --lightSurfaceOnColor38: rgba(23, 23, 22, 0.38);
-    --lightSurfaceOnColor12: rgba(23, 23, 22, 0.12);
+    --lightSurfaceOnColor38: rgba(32, 26, 23, 0.32);
+    --lightSurfaceOnColor12: rgba(32, 26, 23, 0.12);
 
     --lightSurfaceVariantColor: #f4ded3;
     --lightSurfaceVariantOnColor: #52443c;
