@@ -35,10 +35,10 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
             foreach ($productsList as $product) {
                 $card = new card(CARD_FILLED, $product[0]);
                 $card->title($product[3]);
-                $card->subhead("subhead");
+                $card->price($product[4]);
                 $card->description($product[5]);
                 $card->picture($product[6]);
-                $card->button("سفارش دهید", CARD_BTN_OUTLINED);
+                $card->buy_button("خرید", 5, CARD_BTN_OUTLINED, "fas fa-shopping-cart");
                 $card->action(CARD_ACTION_LIKE);
                 $card->action(CARD_ACTION_BOOKMARK);
                 $card->add();
@@ -46,6 +46,10 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
             ?>
         </div>
     </div>
+    <?php
+    foreach ($mbList as $ms)
+        $ms->add();
+    ?>
 </div>
 <?php include(PUBLIC_PATH . '/footer.php'); ?>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
