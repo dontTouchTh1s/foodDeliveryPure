@@ -122,7 +122,7 @@ a[class*="btn"] {
     padding: 0 24px;
     color: var(--lightPrimaryColor);
     border: 1px solid var(--lightOutlineColor);
-    background-color: rgba(0, 0, 0, 0%);
+    background-color: transparent;
 }
 
 .btn-outlined:disabled {
@@ -183,6 +183,26 @@ a[class*="btn"] {
     /* Not specified in M3 */
 }
 
+.btn-icon {
+    color: var(--lightPrimaryColor);
+    width: 40px;
+    min-width: 40px;
+    justify-content: center;
+    margin: 0;
+}
+
+.btn-icon i {
+    display: block;
+    margin: 0;
+}
+
+.btn-icon i:last-child {
+    margin: 0;
+}
+
+.btn-icon i:first-child {
+    margin: 0;
+}
 
 span.ripple {
     filter: brightness(150%);
