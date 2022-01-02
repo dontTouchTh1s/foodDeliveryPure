@@ -99,10 +99,12 @@
     z-index: 10;
 }
 
-.card-button .qty {
-    padding-left: 8px;
+.qty {
+    height: 40px;
+    margin-left: 8px;
     justify-self: left;
-    grid-column: 2 / 3;
+    border: 1px solid var(--lightOutlineColor);
+    border-radius: 3em;
     display: grid;
     grid-gap: 4px;
     grid-template-columns: auto auto auto;

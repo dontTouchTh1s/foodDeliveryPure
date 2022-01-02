@@ -8,6 +8,7 @@ a[class*="btn"] {
 
 .btn {
     resize: none;
+    justify-content: center;
     font-size: 0.9rem;
     display: flex;
     align-items: center;
@@ -185,6 +186,7 @@ a[class*="btn"] {
 
 .btn-icon {
     color: var(--lightPrimaryColor);
+    background-color: transparent;
     width: 40px;
     min-width: 40px;
     justify-content: center;
