@@ -26,18 +26,17 @@ if ($sth->execute()) {
             $sth->bind_param('i', $product[1]);
             $sth->execute();
             $result = $sth->get_result();
-            $productBasketListInfo[] = $result->fetch_row();
+            $productBasketListInfo[] = $result->fetch_assoc();
         }
     } else {
-        $error = "عدم اتصال";
-        $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
-        $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+        $emptyBasket = true;
         return;
     }
 } else {
     $error = "عدم اتصال";
     $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
     $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+    end($mbList)->description($errorDes);
     return;
 }
 

@@ -2,6 +2,7 @@
 include("__PATH__.php");
 Authentication::check_login();
 $productBasketListInfo = $productBasketList = $mbList = [];
+/** @var int $totalPrice */
 include(USERS_PATH . "/products/product-basket-action.php");
 ?>
 <!DOCTYPE html>
@@ -23,17 +24,18 @@ include(PUBLIC_PATH . '/header.php');
 include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
 ?>
 <div class="container container-buying">
-    <div class="content content-product-basket">
-        <div class="product-container">
-            <?php
-            $totalPrice = 0;
-            foreach ($productBasketListInfo as $product) {
-                $itemPrice = $productBasketList[array_search($product, $productBasketListInfo)][3];
-                $totalPrice += $itemPrice;
-                include ASSETS_PATH . "/template/product-basket-product.php";
-
-            }
-            ?>
+    <div class="content content-pay">
+        <div class="payMethod-content">
+            <p>انتخاب روش پرداخت</p>
+            <div class="payMethods">
+            </div>
+        </div>
+        <div class="discount-content">
+            <p>کد تخفیف</p>
+            <p class="address"></p>
+            <p>گیرنده:
+                <span class="receiver-name"></span>
+            </p>
         </div>
     </div>
     <div class="content content-aside">
@@ -41,17 +43,15 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
             <ul class="prices">
                 <li>
                     <span>جمع کالا ها:</span>
-                    <span class="order-total-price"><?= $totalPrice ?>
-                        <span>تومان</span></span>
+                    <span><?= $totalPrice ?></span>
                 </li>
                 <li>
                     <span>جمع سبد خرید:</span>
-                    <span class="order-total-price-discount"><?= $totalPrice ?>
-                        <span>تومان</span></span>
+                    <span><?= $totalPrice ?></span>
                 </li>
             </ul>
             <p>هزینه ارسال در ادامه فرایند خرید، بر اساس نحوه ارسال و زمان ارسال محاسبه خواهد شد.</p>
-            <button type="button" class="btn btn-filled flex-100 goto-shipping">
+            <button type="button" class="btn btn-filled flex-100 goto_pay">
                 ادامه فرایند خرید
             </button>
         </div>

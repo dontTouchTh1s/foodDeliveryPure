@@ -1,7 +1,7 @@
-.product-basket-container {
+.product-container {
     display: grid;
     width: 100%;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
     grid-row-gap: 16px;
 }
 
@@ -9,11 +9,43 @@
     display: grid;
     grid-template-columns: 185px auto;
     background-color: var(--lightSurfaceColor);
-    box-shadow: 0 2px 2px #2c2c2c;
+    border: 1px solid var(--lightOutlineColor);
+    border-radius: 1rem;
 }
 
 .product-information {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
     padding: .9rem;
+}
+
+.product-information .footer {
+    display: grid;
+    grid-template-columns: 200px auto auto auto;
+    grid-column: 1 / 2;
+}
+
+.footer .product-qty {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.product-qty .qty {
+    background-color: var(--lightSurfaceColor);
+    justify-self: right;
+    grid-column: auto;
+}
+
+.product-qty .remove-from-basket {
+    background-color: transparent;
+    border: 1px solid var(--lightOutlineColor);
+    border-radius: 3em;
+    margin-left: -34px;
+}
+
+.item-total-price {
+    justify-self: left;
+    grid-column-end: none;
 }
 
 .product-title {
