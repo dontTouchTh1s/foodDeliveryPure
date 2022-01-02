@@ -41,15 +41,6 @@ input, select, textarea, button {
     padding: 0;
 }
 
-.container {
-    width: 100%;
-    min-height: 800px;
-    margin: 0;
-    display: flex;
-    position: relative;
-    align-items: center;
-}
-
 .right-pizza {
     position: absolute;
     right: 0;
@@ -62,14 +53,6 @@ input, select, textarea, button {
     max-width: 35%;
     height: 100%;
 
-}
-
-.content {
-    padding: 24px;
-    background-color: inherit;
-    color: var(--lightPrimaryContainerOnColor);
-    width: 100%;
-    height: 100%;
 }
 
 .form-container {
