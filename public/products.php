@@ -3,7 +3,7 @@
 session_start();
 include("__PATH__.php");
 $error = "";
-$productsList = [];
+$productsList = $mbList = [];
 include(ACTIONS_PATH . "/view-action.php");
 ?>
 <!DOCTYPE html>
