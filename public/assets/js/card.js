@@ -3,6 +3,15 @@ let cardList = document.querySelectorAll(".card");
 for (let card of cardList) {
     let id = card.getAttribute('product-id');
     let picture = card.querySelector(".card-picture");
+    let addToBasketButton = card.querySelector(".card-button button");
+    let likeButton = card.querySelector(".fa-heart");
+    let bookMarkButton = card.querySelector(".fa-bookmark");
+    if (addToBasketButton !== null)
+        addToBasketButton.addEventListener("click", () => change_qty(event, id, 0));
+    if (likeButton !== null)
+        likeButton.addEventListener("click", () => toggle_action(event, id, "like-product-action.php"));
+    if (bookMarkButton !== null)
+        bookMarkButton.addEventListener("click", () => toggle_action(event, id, "bookmark-product-action.php"));
     let qty = card.querySelector(".qty");
     let qtySpan;
     if (qty !== null) {
@@ -22,15 +31,7 @@ for (let card of cardList) {
                 qty.style.display = "none";
         })();
     }
-    let addToBasketButton = card.querySelector(".card-button button");
-    let likeButton = card.querySelector(".fa-heart");
-    let bookMarkButton = card.querySelector(".fa-bookmark");
-    if (addToBasketButton !== null)
-        addToBasketButton.addEventListener("click", () => change_qty(event, id, 0));
-    if (likeButton !== null)
-        likeButton.addEventListener("click", () => toggle_action(event, id, "like-product-action.php"));
-    if (bookMarkButton !== null)
-        bookMarkButton.addEventListener("click", () => toggle_action(event, id, "bookmark-product-action.php"));
+
     (async function () {
         let postData = JSON.stringify({id: id, select: ""});
         let result = await AJAX_request(ACTION_USER_URL + "/products/like-product-action.php", "POST", postData);
@@ -66,7 +67,6 @@ async function change_qty(event, id, value) {
     let postData = JSON.stringify({id: id, value: value})
     let result = await AJAX_request(ACTION_USER_URL + "/products/addTo-productBasket-action.php", "POST", postData)
     let qty = result["value"];
-    console.log(qty);
     if (qty !== null) {
         if (qty === 0) {
             qtyDiv.style.display = "none";
@@ -116,9 +116,9 @@ async function AJAX_request(url, method, body) {
 }
 
 function toggle_buy_button(button, text) {
-    let spanText = button.querySelector("span");
-    if (spanText.innerText !== text) {
-        spanText.innerText = text;
+    let spanText = button.querySelector(".buy-button-text");
+    if (spanText.textContent !== text) {
+        spanText.textContent = text;
         let icon = button.querySelector("i");
         icon.classList.toggle("fa-shopping-cart");
         icon.classList.toggle("fa-trash");

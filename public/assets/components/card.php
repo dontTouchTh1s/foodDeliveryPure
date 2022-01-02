@@ -61,8 +61,8 @@ class card
             $i = "<i class='$icon' aria-hidden='true'></i>";
         $button = "
         <button type='button' class='btn $type buy-button' >
-            <span> $text</span>
             $i
+            <span class='buy-button-text'> $text</span>
         </button>
         <div class='qty'>
         <button type='button' class='btn btn-icon increase' >
