@@ -34,7 +34,11 @@ if ($mysql->connect_errno) {
     $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
     return;
 }
-
+$query = "SELECT price FROM products WHERE id = ?";
+$sth = $mysql->prepare($query);
+$sth->bind_param('i', $pid);
+$sth->execute();
+$price = $sth->get_result()->fetch_assoc()["price"];
 $query = "SELECT * FROM productsbasket WHERE user_id = ? AND product_id = ?";
 $sth = $mysql->prepare($query);
 $sth->bind_param('ii', $uid, $pid);
@@ -48,7 +52,8 @@ if ($sth->execute()) {
         $newQty = $qty;
         // Product added before, so we now will increase, decrease or set 0 QTY
         $newQty += $value;
-        $query = "UPDATE productsbasket set QTY = '$newQty' WHERE user_id = ? AND product_id = ?";
+        $totalPrice = $newQty * $price;
+        $query = "UPDATE productsbasket set QTY = '$newQty', total_price = '$totalPrice' WHERE user_id = ? AND product_id = ?";
 
         // If value = 0, we should remove product from basketList;
         if (($value === 0) or ($newQty === 0)) {
@@ -58,8 +63,9 @@ if ($sth->execute()) {
     } else {
         // Product is not in productBasket, we will add that
         $newQty = 1;
-        $query = "INSERT INTO productsbasket (user_id, product_id, QTY)
-        VALUES (?, ?, '$newQty')";
+        $totalPrice = $newQty * $price;
+        $query = "INSERT INTO productsbasket (user_id, product_id, QTY, total_price)
+        VALUES (?, ?, '$newQty', '$totalPrice')";
     }
     $sth = $mysql->prepare($query);
     $sth->bind_param('ii', $uid, $pid);
@@ -69,6 +75,7 @@ if ($sth->execute()) {
     } else {
         $resultData["value"] = $qty;
     }
+    $resultData["itemPrice"] = $totalPrice;
     echo json_encode($resultData);
 } else {
     $error = "عدم اتصال";
