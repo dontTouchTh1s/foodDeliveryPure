@@ -2,9 +2,13 @@ let form = document.querySelector("form");
 let swiper = document.querySelector(".swiper");
 let navigationDrawer = document.querySelector(".nav-drawer");
 let card = document.querySelector(".card");
+let product = document.querySelector(".product");
+let shippingBtn = document.querySelector(".content-shipping");
+
 
 const ACTION_URL = "/front-project/php-actions";
 const PUBLIC_URL = "/front-project/public";
+const USERS_URL = PUBLIC_URL + "/users"
 const JS_URL = PUBLIC_URL + "/assets/js";
 const JS_FORM_URL = JS_URL + "/form";
 const ACTION_USER_URL = ACTION_URL + "/users";
@@ -23,6 +27,14 @@ if (swiper !== null) {
 
 if (navigationDrawer !== null) {
     include(JS_URL, ["navigation-drawer.js"]);
+}
+
+if (product !== null) {
+    include(JS_URL, ["product-basket.js"]);
+}
+
+if (shippingBtn !== null) {
+    include(JS_URL, ["shipping.js"]);
 }
 
 if (card !== null) {
