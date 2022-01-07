@@ -105,17 +105,19 @@ header ul li {
 .user-manage {
     transition: 120ms;
     pointer-events: none;
-    padding: 8px;
     z-index: 12;
     flex-wrap: wrap;
     text-align: center;
     align-items: center;
-    width: 200px;
+    width: 220px;
     height: 250px;
     position: absolute;
     display: flex;
+    justify-items: center;
+    justify-content: center;
     top: 50px;
     left: 40px;
+    padding: 12px;
     background-color: var(--darkSecondaryContainerColor);
     color: var(--darkSecondaryContainerOnColor);
     border-radius: 12px;
@@ -133,6 +135,11 @@ header ul li {
     box-shadow: 0 0 5px black;
     transform: translateY(2px);
     pointer-events: auto;
+}
+
+.user-manage .a {
+    margin-right: auto;
+    justify-self: center;
 }
 
 @keyframes user-manage {

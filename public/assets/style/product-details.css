@@ -1,0 +1,67 @@
+.product-details-content {
+    display: grid;
+    grid-template-columns: 35% auto;
+    background-color: var(--lightSurfaceColor);
+    color: var(--lightSurfaceOnColor);
+    grid-gap: 1.8rem;
+}
+
+.right-aside {
+}
+
+.product-picture {
+    height: fit-content;
+}
+
+.product-picture img {
+    display: block;
+    width: 100%;
+}
+
+.product-info {
+    display: grid;
+    grid-template-columns: auto 45px;
+    grid-template-rows: 1fr auto;
+}
+
+.product-info .info {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.info .product-price {
+    justify-self: left;
+    font-size: 1.2rem;
+    font-weight: 650;
+    grid-row-start: -1;
+}
+
+.product-info .product-actions {
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
+    align-content: flex-start;
+    margin-bottom: 8px;
+    font-size: 2rem;
+}
+
+.product-info .product-actions i {
+    cursor: pointer;
+    display: block;
+}
+
+.product-info .product-actions .fa-heart {
+    color: var(--lightErrorOnColor)
+}
+
+.product-info .product-actions .fa-bookmark {
+    color: var(--lightPrimaryContainerOnColor);
+}
+
+.product-buy {
+    padding-bottom: 12px;
+    justify-self: left;
+    grid-row-start: -1;
+}

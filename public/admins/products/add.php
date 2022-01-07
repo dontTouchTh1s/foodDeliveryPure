@@ -19,9 +19,8 @@ include(ACTIONS_PATH . "/admins/products/add-action.php");
 <body>
 <?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
-    <div class="right-pizza"></div>
     <div class="content">
-        <div class="form-container">
+        <div class="form-container form-admin">
             <h1>اضافه کردن محصول</h1>
             <p>برای اضافه کردن محصول جدید، مشخصات آن را وارد و روی دکمه ثبت کلیک کنید.</p>
             <form class="form-vertical" method="post" action='<?= $_SERVER["PHP_SELF"] ?>'

@@ -2,6 +2,10 @@ let cardList = document.querySelectorAll(".card");
 
 for (let card of cardList) {
     let id = card.getAttribute('product-id');
+    card.addEventListener("click", (function (d) {
+            window.location.href = PUBLIC_URL + "/product-details.php?product=" + id;
+        }
+    ))
     let picture = card.querySelector(".card-picture");
     let addToBasketButton = card.querySelector(".card-button button");
     let likeButton = card.querySelector(".fa-heart");
@@ -23,12 +27,13 @@ for (let card of cardList) {
         (async function () {
             let postData = JSON.stringify({id: id, select: ""})
             let result = await AJAX_request(ACTION_USER_URL + "/products/addTo-productBasket-action.php", "POST", postData);
-            if (result["value"] !== 0) {
+            if ((result["value"] === 0) || (result["value"] === null)) {
+                qty.style.display = "none";
+            } else {
                 qty.style.display = "grid";
                 qtySpan.textContent = result["value"];
                 toggle_buy_button(addToBasketButton, "حذف");
-            } else
-                qty.style.display = "none";
+            }
         })();
     }
 
@@ -76,6 +81,8 @@ async function change_qty(event, id, value) {
             qtySpan.innerText = result["value"];
             qtyDiv.style.display = "grid";
         }
+    } else {
+        window.location.href = USERS_URL + "/login.php";
     }
 }
 
@@ -90,29 +97,9 @@ async function toggle_action(event, id, file) {
     } else if (result["toggled"] === false) {
         likeButton.classList.remove("fas");
         likeButton.classList.add("far");
+    } else if (result["toggled"] === null) {
+        Element
     }
-}
-
-async function AJAX_request(url, method, body) {
-    let result;
-    await fetch(url, {
-        method: method,
-        headers: {"Content-Type": "application/json"},
-        body: body
-    })
-        .then(
-            function (response) {
-                return response.json();
-            }
-        )
-        .then(function (data) {
-            result = data
-        })
-        .catch(error => {
-            console.log(error);
-            result = false;
-        });
-    return result;
 }
 
 function toggle_buy_button(button, text) {

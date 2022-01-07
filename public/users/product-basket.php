@@ -20,6 +20,7 @@ include(USERS_PATH . "/products/product-basket-action.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 include(PUBLIC_PATH . '/header.php');
+$onFocus = "none";
 include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
 ?>
 <div class="container container-buying">
@@ -31,7 +32,6 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
                 $itemPrice = $productBasketList[array_search($product, $productBasketListInfo)][3];
                 $totalPrice += $itemPrice;
                 include ASSETS_PATH . "/template/product-basket-product.php";
-
             }
             ?>
         </div>

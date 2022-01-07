@@ -33,7 +33,7 @@ if ($mysql->connect_errno) {
 
 $query = "SELECT total_price FROM productsbasket WHERE user_id = ?";
 $sth = $mysql->prepare($query);
-$sth->bind_param('ii', $uid, $pid);
+$sth->bind_param('i', $uid);
 $totalPrice = 0;
 if ($sth->execute()) {
     $result = $sth->get_result();
@@ -46,6 +46,7 @@ if ($sth->execute()) {
         }
     }
     // Return data
+    $resultData["totalPrice"] = $totalPrice;
     echo json_encode($resultData);
 } else {
     $error = "عدم اتصال";

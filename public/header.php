@@ -44,9 +44,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
                 <p class="flex-100" id="user-name"><?= $name ?></p>
                 <p class="flex-100" id="user-email"><?= $email ?></p>
             </div>
-            <div class="flex-100">
-                <a href="<?= ACTIONS_URL . '/users/exit-action.php' ?>" class="btn btn-outlined flex-100">خروج</a>
-            </div>
+            <a href="<?= ACTIONS_URL . '/users/exit-action.php' ?>" class="btn btn-outlined">خروج</a>
         </div>
     </div>
 </header>

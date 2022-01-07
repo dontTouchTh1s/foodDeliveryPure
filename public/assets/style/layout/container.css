@@ -1,3 +1,5 @@
+@import "dashboard.css";
+
 .container {
     background-color: var(--lightBackgroundColor);
 }
@@ -16,6 +18,7 @@
     padding: 24px 16px 24px 16px;
     border: 1px solid var(--lightOutlineColor);
     border-radius: 24px;
+    background-color: var(--lightSurfaceColor);
 }
 
 .checkout-order p {

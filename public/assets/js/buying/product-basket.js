@@ -34,7 +34,7 @@ async function change_product_qty(event, id, value) {
             qtySpan.innerText = result["value"];
             itemPrice.innerText = result["itemPrice"] + " تومان"
             let postData = JSON.stringify({id: id})
-            let result = await AJAX_request(ACTION_USER_URL + "/products/calculate-price.php", "POST", postData)
+            result = await AJAX_request(ACTION_USER_URL + "/products/calculate-price.php", "POST", postData)
             totalPrice.innerText = result["totalPrice"] + " تومان"
         }
     }

@@ -27,4 +27,18 @@ class Authentication
         session_write_close();
         return $session;
     }
+
+    static function get_name(): string
+    {
+        $name = $_SESSION['name'] ?? false;
+        session_write_close();
+        return $name;
+    }
+
+    static function get_full_name(): string
+    {
+        $name = $_SESSION['full-name'] ?? false;
+        session_write_close();
+        return $name;
+    }
 }

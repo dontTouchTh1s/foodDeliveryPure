@@ -22,7 +22,7 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
 <?php include(PUBLIC_PATH . '/header.php'); ?>
 <div class="container">
     <div class="content">
-        <div class="form-container">
+        <div class="form-container form-admin">
             <h1 class="title">ویرایش محصول</h1>
             <p>مشخصات محصول را ویرایش و روی دکمه ثبت کلیک کنید.</p>
             <form class="form-vertical" method="post" action=<?= $_SERVER["PHP_SELF"] ?>>

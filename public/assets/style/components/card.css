@@ -130,6 +130,10 @@
     color: #9f0000;
 }
 
+.card-action .fa-bookmark {
+    color: var(--lightPrimaryContainerOnColor)
+}
+
 span.ripple {
     position: absolute;
     pointer-events: none;
@@ -187,7 +191,6 @@ span.ripple {
 
     .card-container {
         grid-gap: 8px;
-        grid-template-rows: auto;
         grid-template-columns: 100%;
         margin-right: 0;
         padding: 5px;
@@ -195,7 +198,7 @@ span.ripple {
     }
 
     .card {
-        grid-template-columns: 198px auto auto;
+        grid-template-columns: 198px auto auto 25px;
         grid-template-rows: 150px 48px;
     }
 
@@ -210,17 +213,40 @@ span.ripple {
 
     }
 
-    .card .btn {
-        margin: 0 0 8px 8px;
-        align-self: end;
-        justify-self: left;
+    .card .card-button {
         grid-column: 2 / 4;
         grid-row: 2 / 3;
+    }
+
+    .card .btn {
+        margin: 0 0 0 8px;
+        align-self: end;
+        justify-self: left;
+
+    }
+
+    .card .card-footer {
+        grid-column: 4 / 5;
+        padding-top: 16px;
+        align-self: start;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 8px;
+    }
+
+    .card .card-footer i {
+        display: block;
     }
 
     .card-body {
         grid-row: 1 / 2;
     }
+}
+
+.pError {
+    display: none;
+    position: absolute;
 }
 
 @keyframes ripple {

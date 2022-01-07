@@ -45,7 +45,7 @@
 
 .item-total-price {
     justify-self: left;
-    grid-column-end: none;
+    grid-column-start: -1;
 }
 
 .product-title {

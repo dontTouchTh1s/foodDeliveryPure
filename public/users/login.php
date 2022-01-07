@@ -19,7 +19,11 @@ include(ACTIONS_PATH . "/users/login-action.php");
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include("../header.php"); ?>
+<?php
+include("../header.php");
+$onFocus = "ورود";
+include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
+?>
 <div class="container">
 
     <div class="right-pizza"></div>

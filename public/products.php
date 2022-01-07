@@ -22,6 +22,7 @@ include(ACTIONS_PATH . "/view-action.php");
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 include(PUBLIC_PATH . '/header.php');
+$onFocus = "محصولات";
 include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
 ?>
 <aside>
@@ -45,6 +46,9 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
             }
             ?>
         </div>
+    </div>
+    <div class="pError">
+        <span></span>
     </div>
     <?php
     foreach ($mbList as $ms)

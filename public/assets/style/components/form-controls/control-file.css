@@ -98,7 +98,7 @@
 .control-filled.form-control-file:not([value=""]) .file-placeholder {
     font-size: 1rem;
     padding-top: 0;
-    background-color: var(--lightPrimaryContainerOnColor);
+    background-color: transparent;
     top: 20px;
 }
 

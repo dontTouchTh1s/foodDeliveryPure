@@ -32,6 +32,7 @@ const UPLOAD_URL = IMAGES_URL . "/upload";
 const JS_URL = ASSETS_URL . "/js";
 const JS_FORM_URL = JS_URL . "/form";
 const STYLE_URL = ASSETS_URL . "/style";
+const PRODUCTS_URL = ASSETS_URL . "/products";
 const FONTS_URL = ASSETS_URL . "/fonts";
 
 spl_autoload_register(function ($class) {

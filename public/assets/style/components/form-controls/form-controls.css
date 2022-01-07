@@ -183,6 +183,11 @@ input::-ms-reveal, input::-ms-clear {
     margin-top: 0;
 }
 
+.control-outlined ~ .error-message[error="true"], .control-outlined ~ .error-message[helper-text] {
+    height: 25px;
+}
+
+
 .error-message[error="true"] {
     color: var(--darkErrorOnColor);
 }
