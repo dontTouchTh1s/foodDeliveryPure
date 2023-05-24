@@ -1,14 +1,13 @@
 <?php
 include(INCLUDES_PATH . "/setting.php");
 // Connecting to database
-$mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
-if ($mysql->connect_errno) {
-    $error = "در هنگام اتصال به سرور مشکلی پیش آمده است. لظفا بعدا تلاش کنید.";
-    return ($mysql->connect_error);
+$mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
+try {
+    $query = "SELECT * from products";
+    $result = $mysql->query($query);
+} catch (mysqli_sql_exception $e) {
+    return $e;
 }
-
-$query = "SELECT * from products";
-$result = $mysql->query($query);
 if ($result) {
     if ($result->num_rows > 0) {
         $productsList = $result->fetch_all();

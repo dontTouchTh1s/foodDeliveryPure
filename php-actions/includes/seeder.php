@@ -1,16 +1,19 @@
 <?php
+
 include("setting.php");
+include("__PATH__.php");
 
-$mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
-if ($mysql->connect_errno) {
-    $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";
-    return;
-}
-$query = "INSERT INTO products (type, name, state, price, description, pictures)
-VALUES (1, 'test pizza', 1, 150000, 'test product', 'pizza.jpg');
-INSERT INTO users (name, full_name, email, password, gender)
-VALUES ('test', 'lastname', 'test@gmail.com', 'password123', 1);";
+$mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
+try {
 
+    $query = "INSERT INTO products (type, name, state, price, description, pictures) VALUES (?, ?, ?, ?, ?, ?)";
+    $mysql->query($query, [1, 'test pizza', 1, 150000, 'A nice peperoni pizza cooked with love, try it now!', 'pizza.jpg']);
 
-if ($mysql->multi_query($query))
+    $query = "INSERT INTO users (name, full_name, email, password, gender)
+VALUES (?, ?, ?, ?, ?);";
+    $mysql->query($query, ['test', 'test user', 'test@testmail.com', 'password', 1]);
     die("SEEDER RUN SUCCESSFULLY");
+} catch (mysqli_sql_exception $e) {
+    return $e;
+}
+
