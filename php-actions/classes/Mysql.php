@@ -2,8 +2,9 @@
 
 class Mysql
 {
-    public mysqli $mysql;
-    public string $connectError;
+    private mysqli $mysql;
+    private string $connectError;
+    private mysqli_result $result;
 
     public function __construct($host, $username, $password, $dataBase)
     {
@@ -13,6 +14,9 @@ class Mysql
             $driver->report_mode = MYSQLI_REPORT_STRICT | MYSQLI_REPORT_ERROR;
             $this->mysql = new mysqli();
             $this->mysql->connect($host, $username, $password);
+            if ($this->mysql->connect_errno) {
+                return ($this->mysql->connect_error);
+            }
             $this->mysql->select_db($dataBase);
 
         } catch (mysqli_sql_exception $e) {
@@ -37,7 +41,12 @@ class Mysql
             return true;
     }
 
-    public function query(string $query, array $params = null): bool|mysqli_result|string
+    public function query(string $query, array $params = null): Exception|mysqli_sql_exception|mysqli_stmt
+    {
+        return $this->prepare_query($query, $params);
+    }
+
+    private function prepare_query(string $query, array $params = null): mysqli_sql_exception|mysqli_stmt
     {
         try {
             $sth = $this->mysql->prepare($query);
@@ -58,11 +67,24 @@ class Mysql
                 }
                 $sth->bind_param($pType, ...$params);
             }
-            $sth->execute();
-            return $sth->get_result();
+            return $sth;
         } catch (mysqli_sql_exception $e) {
             return $e;
         }
+    }
+
+    public function query_and_execute(string $query, array $params = null): bool|mysqli_sql_exception
+    {
+        $sth = $this->prepare_query($query, $params);
+        return $sth->execute();
+    }
+
+    public function query_and_result(string $query, array $params = null): mysqli_result|mysqli_sql_exception
+    {
+        $sth = $this->prepare_query($query, $params);
+        $sth->execute();
+        return $sth->get_result();
 
     }
+
 }

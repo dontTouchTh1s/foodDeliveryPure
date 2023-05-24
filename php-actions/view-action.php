@@ -4,10 +4,12 @@ include(INCLUDES_PATH . "/setting.php");
 $mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
 try {
     $query = "SELECT * from products";
-    $result = $mysql->query($query);
+    $stmt = $mysql->query($query);
+    $stmt->execute();
 } catch (mysqli_sql_exception $e) {
     return $e;
 }
+$result = $stmt->get_result();
 if ($result) {
     if ($result->num_rows > 0) {
         $productsList = $result->fetch_all();

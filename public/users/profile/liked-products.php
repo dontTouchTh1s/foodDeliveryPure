@@ -32,17 +32,19 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
     <div class="content content-products">
         <div class="card-container">
             <?php
-            foreach ($productsList as $product) {
-                $card = new card(CARD_FILLED, $product[0]);
-                $card->title($product[3]);
-                $card->price($product[4]);
-                $card->description($product[5]);
-                $card->picture($product[6]);
-                $card->buy_button("خرید", 5, CARD_BTN_OUTLINED, "fas fa-shopping-cart");
-                $card->action(CARD_ACTION_LIKE);
-                $card->action(CARD_ACTION_BOOKMARK);
-                $card->add();
-            }
+            if ($productsList != []) {
+                foreach ($productsList as $product) {
+                    $card = new card(CARD_FILLED, $product[0]);
+                    $card->title($product[3]);
+                    $card->price($product[4]);
+                    $card->description($product[5]);
+                    $card->picture($product[6]);
+                    $card->buy_button("خرید", 5, CARD_BTN_OUTLINED, "fas fa-shopping-cart");
+                    $card->action(CARD_ACTION_LIKE);
+                    $card->action(CARD_ACTION_BOOKMARK);
+                    $card->add();
+                }
+            } else echo "<h1>محصولی برای نمایش وجود ندارد.</h1>"
             ?>
         </div>
     </div>

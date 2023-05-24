@@ -28,7 +28,7 @@ if ($result)
         $_SESSION['email'] = $row['email'];
         $_SESSION['gender'] = $row['gender'];
         $_SESSION['roll'] = 10;
-        redirect::request(USER_URL . "/edit-profile.php");
+        Redirect::request(USER_URL . "/edit-profile.php");
     } else {
         $error = "نام کاربری یا رمز عبور صحیح نیست.";
         $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);

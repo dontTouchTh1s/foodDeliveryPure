@@ -15,7 +15,7 @@ class Authentication
         session_start();
         if (!isset($_SESSION['id'])) {
             session_write_close();
-            redirect::request("/front-project/public/index.php");
+            Redirect::request("/front-project/public/user/login.php");
         }
         session_write_close();
     }

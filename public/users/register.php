@@ -1,5 +1,7 @@
 <?php
 include("__PATH__.php");
+if (Authentication::isLogeIn())
+    Redirect::request('profile/dashboard.php');
 $nameError = $fullNameError = $genderError = $emailError = $repPasswordError = $passwordError = $error = "";
 $mbList = [];
 include(ACTIONS_PATH . "/users/register-action.php");

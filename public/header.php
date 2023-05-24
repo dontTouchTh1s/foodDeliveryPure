@@ -1,11 +1,11 @@
 <?php
 $logeIn = "false";
 $email = "";
-$name = "";
+$headerName = "";
 if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
     $logeIn = "true";
     $id = $_SESSION['id'];
-    $name = $_SESSION['name'] . " " . $_SESSION['full-name'];
+    $headerName = $_SESSION['name'] . " " . $_SESSION['full-name'];
     $email = $_SESSION['email'];
 }
 ?>
@@ -36,12 +36,13 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
         ");
         }
         ?>
-        <a id="user-name" href="<?= PUBLIC_URL . '/users/edit-profile.php' ?>" class="user-register"><?= $name ?></a>
+        <a id="user-name" href="<?= PUBLIC_URL . '/users/edit-profile.php' ?>"
+           class="user-register"><?= $headerName ?></a>
         <a id="login" href="<?= PUBLIC_URL . '/users/login.php' ?>" class="user-register">ورود به حساب</a>
         <i class="user-logo" id="user-logo"></i>
         <div class="user-manage" aria-hidden="true" id="user-manage">
             <div class="flex-100">
-                <p class="flex-100" id="user-name"><?= $name ?></p>
+                <p class="flex-100" id="user-name"><?= $headerName ?></p>
                 <p class="flex-100" id="user-email"><?= $email ?></p>
             </div>
             <a href="<?= ACTIONS_URL . '/users/exit-action.php' ?>" class="btn btn-outlined">خروج</a>

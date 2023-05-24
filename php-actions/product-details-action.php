@@ -4,7 +4,7 @@ include(INCLUDES_PATH . "/setting.php");
 if (isset($_GET["product"]))
     $pid = $_GET["product"];
 else
-    redirect::request(PUBLIC_URL . "/products.php");
+    Redirect::request(PUBLIC_URL . "/products.php");
 
 // Connecting to database
 $mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);

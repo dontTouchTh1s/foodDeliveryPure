@@ -12,13 +12,13 @@ class Authorisation
         if (isset($_SESSION["id"])) {
             $user_roll = $_SESSION['roll'];
             if ($user_roll < $roll_required) {
-                redirect::request("/front-project/public/index.php");
+                Redirect::request("/front-project/public/index.php");
             }
         } else {
             if ($roll_required == ROLL_ADMIN)
-                redirect::request(ADMIN_URL . "/login.php");
+                Redirect::request(ADMIN_URL . "/login.php");
             else if ($roll_required == ROLL_USER)
-                redirect::request(USER_URL . "/login.php");
+                Redirect::request(USER_URL . "/login.php");
         }
     }
 }

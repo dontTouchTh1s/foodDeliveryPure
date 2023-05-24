@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("__PATH__.php");
 $titleError = $nameError = $emailError = $error = "";
 include("../php-actions/contact_action.php");

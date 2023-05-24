@@ -2,6 +2,7 @@
 include("__PATH__.php");
 Authentication::check_login();
 $name = $fullName = $gender = $email = $password = $rePassword = $error = "";
+$mbList = [];
 include(ACTIONS_PATH . "/users/edit-profile-action.php");
 ?>
 <!DOCTYPE html>
@@ -70,6 +71,10 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
         </div>
     </div>
 </div>
+<?php
+foreach ($mbList as $ms)
+    $ms->add();
+?>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

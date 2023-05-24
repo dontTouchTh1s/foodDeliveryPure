@@ -29,14 +29,12 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
 }
 
 // Connecting to database
-$mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
-if ($mysql->connect_errno) {
-    $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";
-    return ($mysql->connect_error);
-}
-$query = "SELECT email FROM users WHERE email = '$email'";
-$result = $mysql->query($query);
-if ($result) {
+$mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
+$query = "SELECT email FROM users WHERE email = ?";
+$stmt = $mysql->query($query, [$email]);
+
+if ($stmt->execute()) {
+    $result = $stmt->get_result();
     if ($result->num_rows > 0) {
         $error = "این ایمیل قبلا ثبت شده است.";
         $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);

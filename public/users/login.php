@@ -1,6 +1,7 @@
 <?php
-session_start();
 include("__PATH__.php");
+if (Authentication::isLogeIn())
+    Redirect::request('profile/dashboard.php');
 $emailError = $error = $errorDes = "";
 $mbList = [];
 global $mbList;

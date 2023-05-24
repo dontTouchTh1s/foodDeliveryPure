@@ -1,6 +1,6 @@
 <?php
 
-class redirect
+class Redirect
 {
     static public function request($dest)
     {

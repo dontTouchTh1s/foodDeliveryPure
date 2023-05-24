@@ -23,20 +23,11 @@ if ($connectType == "application/json") {
 } else
     return;
 // Connecting to database
-$mysql = new mysqli(HOST, USERNAME, PASSWORD, DB);
-if ($mysql->connect_errno) {
-    $error = "عدم اتصال";
-    $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
-    $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
-    return;
-}
-
+$mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
 $query = "SELECT * FROM bookmarkedproducts WHERE user_id = ? AND product_id = ?";
-$sth = $mysql->prepare($query);
-$sth->bind_param('ii', $uid, $pid);
 
-if ($sth->execute()) {
-    $result = $sth->get_result();
+try {
+    $result = $mysql->query_and_result($query, [$uid, $pid]);
     if ($result->num_rows > 0) {
         // Product bookmarked before
         $resultData["toggled"] = true;
@@ -50,17 +41,16 @@ if ($sth->execute()) {
     }
     // If request is not for selecting data, set new values and execute query
     if (!isset($data["select"])) {
-        $sth = $mysql->prepare($query);
-        $sth->bind_param('ii', $uid, $pid);
+        $sth = $mysql->query($query, [$uid, $pid]);
         if ($sth->execute())
             // If executing query success, set new data
             $resultData["toggled"] = !$resultData["toggled"];
     }// If request is for selecting data, or executing query failed, we won't change data
     // Return data
     echo json_encode($resultData);
-} else {
+} catch (Exception $exception) {
     $error = "عدم اتصال";
-    $errorDes = "در هنگام دریافت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+    $errorDes = $exception;
     $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
     end($mbList)->description($errorDes);
 }
