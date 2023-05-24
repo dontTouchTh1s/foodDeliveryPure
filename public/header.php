@@ -17,7 +17,7 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
     <nav>
         <ul>
             <li>
-                <a href="contact.php"> تماس با ما </a>
+                <a href="<?= PUBLIC_URL . '/contact.php' ?>"> تماس با ما </a>
             </li>
             <li>
                 <a href="/"> بلاگ </a>
