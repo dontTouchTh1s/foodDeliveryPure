@@ -50,6 +50,9 @@ if ($sth->execute()) {
         $row = $result->fetch_array();
         $qty = $row["QTY"];
         $newQty = $qty;
+        if ($newQty == 0) {
+            $query = "DELETE FROM productsBasket WHERE user_id = ? AND product_id = ?";
+        }
         // Product added before, so we now will increase, decrease or set 0 QTY
         $newQty += $value;
         $totalPrice = $newQty * $price;

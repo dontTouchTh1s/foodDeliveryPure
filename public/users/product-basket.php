@@ -31,6 +31,7 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
             $c = 0;
             foreach ($productBasketListInfo as $product) {
                 $itemPrice = $productBasketList[$c][4];
+                print_r($productBasketList[$c]);
                 $totalPrice += $itemPrice;
                 include ASSETS_PATH . "/template/product-basket-product.php";
                 $c++;

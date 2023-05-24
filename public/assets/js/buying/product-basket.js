@@ -6,7 +6,7 @@ let totalPrice = document.querySelector(".order-total-price");
 let totalPriceAfterDiscount = document.querySelector(".order-total-price-discount");
 for (let product of productList) {
     let id = product.getAttribute('product-id');
-    let removeItemButton = product.querySelector(".card-button button");
+    let removeItemButton = product.querySelector(".remove-from-basket");
     if (removeItemButton !== null)
         removeItemButton.addEventListener("click", () => change_product_qty(event, id, 0));
     let qty = product.querySelector(".qty");
@@ -16,7 +16,6 @@ for (let product of productList) {
         increase.addEventListener("click", () => change_product_qty(event, id, 1));
         decrease.addEventListener("click", () => change_product_qty(event, id, -1));
     }
-    let products = document.querySelectorAll(".product");
 
 }
 
@@ -32,15 +31,15 @@ async function change_product_qty(event, id, value) {
     let qty = result["value"];
     if (qty !== null) {
         if (qty === 0) {
-            console.log("removed")
-        } else {
-            qtySpan.innerText = result["value"];
-            itemPrice.innerText = result["itemPrice"] + " تومان"
-            let postData = JSON.stringify({id: id})
-            result = await AJAX_request(ACTION_USER_URL + "/products/calculate-price.php", "POST", postData)
-            totalPrice.innerText = result["totalPrice"] + " تومان"
-            totalPriceAfterDiscount.innerText = result["totalPrice"] + " تومان"
+            button.closest('.product').remove();
+            console.log('removed');
         }
+        qtySpan.innerText = result["value"];
+        itemPrice.innerText = result["itemPrice"] + " تومان"
+        let postData = JSON.stringify({id: id})
+        result = await AJAX_request(ACTION_USER_URL + "/products/calculate-price.php", "POST", postData)
+        totalPrice.innerText = result["totalPrice"] + " تومان"
+        totalPriceAfterDiscount.innerText = result["totalPrice"] + " تومان"
     }
 }
 

@@ -98,7 +98,7 @@ async function toggle_action(event, id, file) {
         likeButton.classList.remove("fas");
         likeButton.classList.add("far");
     } else if (result["toggled"] === null) {
-        Element
+
     }
 }
 

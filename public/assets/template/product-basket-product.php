@@ -6,7 +6,7 @@
 /** @var int $c */
 
 ?>
-<div class="product" product-id="<?= $product['id'] ?>">
+<div class="product" product-id="<?= $productBasketList[$c][2] ?>">
     <div class="product-card">
         <?php
         $card = new card(CARD_FILLED, $product['id']);

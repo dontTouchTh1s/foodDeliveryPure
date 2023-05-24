@@ -64,7 +64,7 @@ class card
             $i
             <span class='buy-button-text'> $text</span>
         </button>
-        <div class='qty'>
+        <div class='qty' style='display: none'>
         <button type='button' class='btn btn-icon increase' >
             <i class='fas fa-plus'></i>
         </button>
