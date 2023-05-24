@@ -3,6 +3,7 @@
 /** @var array $productBasketList */
 /** @var array $productBasketListInfo */
 /** @var int $itemPrice */
+/** @var int $c */
 
 ?>
 <div class="product" product-id="<?= $product['id'] ?>">
@@ -32,7 +33,7 @@
                     <button type='button' class='btn btn-icon increase'>
                         <i class='fas fa-plus'></i>
                     </button>
-                    <span class='qty-count'><?= $productBasketList[array_search($product, $productBasketListInfo)][2] ?></span>
+                    <span class='qty-count'><?= $productBasketList[$c][3] ?></span>
                     <button type='button' class='btn btn-icon decrease'>
                         <i class='fas fa-minus'></i>
                     </button>

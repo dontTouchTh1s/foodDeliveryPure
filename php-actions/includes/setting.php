@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS productsbasket (
       QTY INT,
        total_price VARCHAR(255),
        PRIMARY KEY (id)) ENGINE = InnoDB;
+    
 CREATE TABLE IF NOT EXISTS likedproducts (
     user_id INT,
     product_id INT) ENGINE = InnoDB;

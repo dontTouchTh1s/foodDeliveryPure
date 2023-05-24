@@ -26,7 +26,7 @@ if ($sth->execute()) {
             $sth->bind_param('i', $product[1]);
             $sth->execute();
             $result = $sth->get_result();
-            $productBasketListInfo[] = $result->fetch_assoc();
+            $productBasketListInfo[] = $result->fetch_array();
         }
     } else {
         $emptyBasket = true;

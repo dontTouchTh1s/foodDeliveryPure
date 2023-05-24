@@ -28,10 +28,12 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
         <div class="product-container">
             <?php
             $totalPrice = 0;
+            $c = 0;
             foreach ($productBasketListInfo as $product) {
-                $itemPrice = $productBasketList[array_search($product, $productBasketListInfo)][3];
+                $itemPrice = $productBasketList[$c][4];
                 $totalPrice += $itemPrice;
                 include ASSETS_PATH . "/template/product-basket-product.php";
+                $c++;
             }
             ?>
         </div>

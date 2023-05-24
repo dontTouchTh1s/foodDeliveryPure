@@ -3,6 +3,7 @@ shipping.addEventListener("click", goto_shipping);
 
 let productList = document.querySelectorAll(".product");
 let totalPrice = document.querySelector(".order-total-price");
+let totalPriceAfterDiscount = document.querySelector(".order-total-price-discount");
 for (let product of productList) {
     let id = product.getAttribute('product-id');
     let removeItemButton = product.querySelector(".card-button button");
@@ -15,6 +16,8 @@ for (let product of productList) {
         increase.addEventListener("click", () => change_product_qty(event, id, 1));
         decrease.addEventListener("click", () => change_product_qty(event, id, -1));
     }
+    let products = document.querySelectorAll(".product");
+
 }
 
 async function change_product_qty(event, id, value) {
@@ -36,6 +39,7 @@ async function change_product_qty(event, id, value) {
             let postData = JSON.stringify({id: id})
             result = await AJAX_request(ACTION_USER_URL + "/products/calculate-price.php", "POST", postData)
             totalPrice.innerText = result["totalPrice"] + " تومان"
+            totalPriceAfterDiscount.innerText = result["totalPrice"] + " تومان"
         }
     }
 }

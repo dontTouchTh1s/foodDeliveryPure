@@ -3,7 +3,7 @@ include("__PATH__.php");
 Authentication::check_login();
 $productBasketListInfo = $productBasketList = $mbList = [];
 /** @var array $productsList */
-include(USERS_PATH . "/products/dashboard/liked-products-action.php");
+include(USERS_PATH . "/products/dashboard/bookmarked-products-action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -14,14 +14,14 @@ include(USERS_PATH . "/products/dashboard/liked-products-action.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
-    <title>محصوات مورد علاقه</title>
+    <title>محصولات ذخیره شده</title>
 </head>
 <body class="layout">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <?php
 include(PUBLIC_PATH . '/header.php');
-$onFocus = "محصولات موردعلاقه";
+$onFocus = "محصولات ذخیره شده";
 include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
 ?>
 <aside>
