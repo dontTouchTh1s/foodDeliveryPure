@@ -34,7 +34,6 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
         <div class="card-container">
             <?php
             foreach ($productsList as $product) {
-                print_r($product);
                 $card = new card(CARD_FILLED, $product[0]);
                 $card->title($product[3]);
                 $card->price($product[4]);
