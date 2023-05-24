@@ -19,7 +19,7 @@ if (isset($_POST['type']) and isset($_POST['state']) and isset($_POST['name'])
 }
 $pictureNames = "";
 $uploads_path = ASSETS_PATH . '/img/upload/products';
-$uploads_url = IMAGES_URL . '/upload/products';
+$uploads_url = UPLOAD_URL . '/products';
 foreach ($_FILES['picture']['error'] as $key => $error) {
     if ($error == UPLOAD_ERR_OK) {
         $tmp_name = $_FILES['picture']["tmp_name"][$key];

@@ -89,7 +89,7 @@ input::-ms-reveal, input::-ms-clear {
     right: 0;
     width: 100%;
     height: 16px;
-    background-color: var(--lightSurfaceColor);
+    background-color: var(--lightPrimaryContainerColor);
 }
 
 .control-outlined ~ .textarea-hidden-overflow {

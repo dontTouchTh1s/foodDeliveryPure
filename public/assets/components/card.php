@@ -50,7 +50,7 @@ class card
         $filename = basename($imageURL);
         if (!file_exists(dirname($filename)))
             return;
-        $picture = "<img src = '$imageURL' alt = $this->cardTitle>";
+        $picture = "<img src = " . UPLOAD_URL . '/products/' . $imageURL . " alt = $this->cardTitle>";
         array_splice($this->cardPicture, 1, 0, $picture);
     }
 

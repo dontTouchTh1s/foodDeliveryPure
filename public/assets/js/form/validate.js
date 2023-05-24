@@ -183,7 +183,7 @@ export default class Validate {
     }
 
     #equal_with_validation(event, equalWith, errorText) {
-        if (this.control.value === equalWith.content) {
+        if (this.control.value === equalWith.value) {
             this.#set_validity(this.control, "false", errorType.EQUAL_WITH);
         } else {
             this.#set_validity(this.control, "true", errorType.EQUAL_WITH);

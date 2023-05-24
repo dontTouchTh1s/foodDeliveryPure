@@ -61,16 +61,19 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
                     </div>
                 </div>
 
-                <div class="form-group h-2 flex-100">
+                <a class="form-group h-2 flex-50">
                     <button type="button" class="btn btn-filled" id="submit-button"><span>ورود</span></button>
-                </div>
-            </form>
+                    <a href="register.php" class="btn btn-outlined"><span>ثبت نام</span>
+                    </a>
+                </a>
         </div>
+        </form>
     </div>
-    <?php
-    foreach ($mbList as $ms)
-        $ms->add();
-    ?>
+</div>
+<?php
+foreach ($mbList as $ms)
+    $ms->add();
+?>
 </div>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>

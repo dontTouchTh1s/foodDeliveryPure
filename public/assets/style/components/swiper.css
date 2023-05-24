@@ -1,8 +1,10 @@
 .swiper {
-    width: 600px;
+    margin-top: 120px;
+    width: 90%;
     height: 350px;
 }
 
 .swiper-slide .card {
-    height: 85%;
+    width: 100%;
+    height: 90%;
 }

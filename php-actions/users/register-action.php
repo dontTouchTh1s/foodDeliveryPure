@@ -34,15 +34,29 @@ if ($mysql->connect_errno) {
     $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";
     return ($mysql->connect_error);
 }
-
-$query = "INSERT INTO users (name, full_name, email, password, gender)
+$query = "SELECT email FROM users WHERE email = '$email'";
+$result = $mysql->query($query);
+if ($result) {
+    if ($result->num_rows > 0) {
+        $error = "این ایمیل قبلا ثبت شده است.";
+        $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+    } else {
+        $query = "INSERT INTO users (name, full_name, email, password, gender)
           VALUES ('$name', '$fullName', '$email', '$password', '$gender')";
-if ($mysql->query($query))
-    $error = "اکانت شما با موفقت ساخته شد";
-else {
-    $error = "در هنگام ساخت اکانت خطایی رخ داده است، لطفا بعدا تلاش کنید.";
-    echo($mysql->error);
+
+        if ($mysql->query($query)) {
+            $error = "اکانت با موفقیت ساخته شد.";
+            $mbList[] = new message_box(MESSAGEBOX_TYPE_SUCCESS, $error);
+        } else {
+            $error = "عدم اتصال";
+            $errorDes = "در هنگام ثبت اطلاعات مشکلی پیش آمده است، لطفا بعدا تلاش کنید.";
+            $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+            end($mbList)->description($errorDes);
+        }
+    }
 }
+
+
 
 
 

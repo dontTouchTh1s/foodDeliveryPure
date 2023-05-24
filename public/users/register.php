@@ -1,6 +1,7 @@
 <?php
 include("__PATH__.php");
 $nameError = $fullNameError = $genderError = $emailError = $repPasswordError = $passwordError = $error = "";
+$mbList = [];
 include(ACTIONS_PATH . "/users/register-action.php");
 ?>
 <!DOCTYPE html>
@@ -96,7 +97,7 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
                          helper-text="حداقل 8 کاراکتر"><?= $passwordError ?></div>
                 </div>
                 <div class="form-group m-1 h-auto flex-50">
-                    <input type="password" class="form-control form-control-input control-filled h-2" value=""
+                    <input type="text" class="form-control form-control-input control-filled h-2" value=""
                            name="re-password" id="re-password" aria-labelledby="re-password-placeholder" required>
                     <label class="placeholder" for="re-password" id="re-password-placeholder">تکرار رمز
                         عبور</label>
@@ -116,6 +117,10 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
         </div>
     </div>
 </div>
+<?php
+foreach ($mbList as $ms)
+    $ms->add();
+?>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

@@ -70,6 +70,8 @@ include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
         </div>
     </div>
 </div>
+<?php include(PUBLIC_PATH . '/footer.php'); ?>
+
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>
