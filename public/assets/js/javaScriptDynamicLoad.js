@@ -8,7 +8,7 @@ let dashboard = document.querySelector(".content-profile");
 let productDetails = document.querySelector(".content-product-details");
 
 
-const ACTION_URL = "/front-project/php-actions";
+const ACTION_URL = "/front-project/controllers";
 const PUBLIC_URL = "/front-project/public";
 const USERS_URL = PUBLIC_URL + "/users"
 const JS_URL = PUBLIC_URL + "/assets/js";

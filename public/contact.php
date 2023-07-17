@@ -2,7 +2,7 @@
 session_start();
 include("__PATH__.php");
 $titleError = $nameError = $emailError = $error = "";
-include("../php-actions/contact_action.php");
+include("../controllers/contact_action.php");
 ?>
 <!DOCTYPE html>
 <html lang="fa">

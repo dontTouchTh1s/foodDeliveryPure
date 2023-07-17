@@ -44,6 +44,7 @@ class Mysql
     public function query(string $query, array $params = null): Exception|mysqli_sql_exception|mysqli_stmt
     {
         return $this->prepare_query($query, $params);
+
     }
 
     private function prepare_query(string $query, array $params = null): mysqli_sql_exception|mysqli_stmt
