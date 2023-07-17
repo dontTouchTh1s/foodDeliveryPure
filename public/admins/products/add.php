@@ -17,7 +17,16 @@ include(ACTIONS_PATH . "/admins/products/add-action.php");
     <title>ایجاد حساب کاربری</title>
 </head>
 <body>
-<?php include(PUBLIC_PATH . '/header.php'); ?>
+<?php
+include(PUBLIC_PATH . '/header.php');
+if (Authorisation::get_roll() >= ROLL_ADMIN)
+    include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+else
+    if (Authorisation::get_roll() >= ROLL_ADMIN)
+        include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+    else
+        include(ASSETS_PATH . "/template/user-navigation-drawer.php");
+?>
 <div class="container">
     <div class="content">
         <div class="form-container form-admin">

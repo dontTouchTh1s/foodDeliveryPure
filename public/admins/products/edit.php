@@ -19,7 +19,16 @@ include(ACTIONS_PATH . "/admins/products/edit-action.php");
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<?php include(PUBLIC_PATH . '/header.php'); ?>
+<?php
+include(PUBLIC_PATH . '/header.php');
+if (Authorisation::get_roll() >= ROLL_ADMIN)
+    include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+else
+    if (Authorisation::get_roll() >= ROLL_ADMIN)
+        include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+    else
+        include(ASSETS_PATH . "/template/user-navigation-drawer.php");
+?>
 <div class="container">
     <div class="content">
         <div class="form-container form-admin">

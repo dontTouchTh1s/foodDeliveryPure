@@ -4,7 +4,14 @@ const ROLL_CUSTOMER = 0;
 const ROLL_USER = 1;
 class Authorisation
 {
-    public int $user_roll;
+    static function get_roll()
+    {
+        session_start();
+        $roll = $_SESSION['roll'];
+        session_write_close();
+        return $roll;
+
+    }
 
     static function check_roll($roll_required)
     {
@@ -20,5 +27,6 @@ class Authorisation
             else if ($roll_required == ROLL_USER)
                 Redirect::request(USER_URL . "/login.php");
         }
+        session_write_close();
     }
 }

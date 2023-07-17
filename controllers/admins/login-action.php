@@ -22,6 +22,7 @@ $result = $mysql->query($query);
 if ($result)
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        session_start();
         $_SESSION['id'] = $row['id'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['full-name'] = $row['full-name'];

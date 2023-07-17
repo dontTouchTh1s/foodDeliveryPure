@@ -18,10 +18,18 @@ include(ACTIONS_PATH . "/admins/users/show-action.php");
     <title>پیام های کاربران</title>
 </head>
 <body>
-<?php include(PUBLIC_PATH . "/header.php"); ?>
+<?php
+include(PUBLIC_PATH . "/header.php");
+if (Authorisation::get_roll() >= ROLL_ADMIN)
+include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+else if (Authentication::isLogeIn())
+include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
+else
+
+?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <div class="container">
-    <div class="content">
+    <div class="content-table">
         <div class="table-data">
             <?php
             $tableData = new data_table($productsList);

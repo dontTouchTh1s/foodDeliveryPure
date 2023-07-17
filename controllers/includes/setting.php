@@ -21,6 +21,14 @@ try {
 
 
 $query = "
+CREATE TABLE IF NOT EXISTS admins(    
+    id INT AUTO_INCREMENT,
+    name VARCHAR(255),
+     full_name VARCHAR(255),
+      email VARCHAR(255),
+       password VARCHAR(20),
+        gender VARCHAR(10),
+        PRIMARY KEY (id)) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS message (
     id INT AUTO_INCREMENT,
  title VARCHAR(255),

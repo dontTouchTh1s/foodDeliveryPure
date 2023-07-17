@@ -22,7 +22,13 @@ include(ACTIONS_PATH . "/users/register-action.php");
 <?php
 include("../header.php");
 $onFocus = "ایجاد حساب";
-include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
+if (Authorisation::get_roll() >= ROLL_ADMIN)
+    include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+else
+    if (Authorisation::get_roll() >= ROLL_ADMIN)
+        include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+    else
+        include(ASSETS_PATH . "/template/user-navigation-drawer.php");
 ?>
 <div class="container">
     <div class="right-pizza"></div>

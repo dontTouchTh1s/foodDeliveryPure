@@ -21,7 +21,13 @@ include(USERS_PATH . "/products/product-basket-action.php");
 <?php
 include(PUBLIC_PATH . '/header.php');
 $onFocus = "none";
-include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
+if (Authorisation::get_roll() >= ROLL_ADMIN)
+    include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+else
+    if (Authorisation::get_roll() >= ROLL_ADMIN)
+        include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+    else
+        include(ASSETS_PATH . "/template/user-navigation-drawer.php");
 ?>
 <div class="container container-buying">
     <div class="content content-product-basket">
