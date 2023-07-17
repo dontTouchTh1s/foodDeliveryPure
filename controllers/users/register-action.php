@@ -41,8 +41,8 @@ if ($stmt->execute()) {
     } else {
         $query = "INSERT INTO users (name, full_name, email, password, gender)
           VALUES ('$name', '$fullName', '$email', '$password', '$gender')";
-
-        if ($mysql->query($query)) {
+        $result = $mysql->query_and_execute($query);
+        if ($result) {
             $error = "اکانت با موفقیت ساخته شد.";
             $mbList[] = new message_box(MESSAGEBOX_TYPE_SUCCESS, $error);
         } else {
