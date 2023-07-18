@@ -7,7 +7,10 @@ class Authorisation
     static function get_roll()
     {
         session_start();
-        $roll = $_SESSION['roll'];
+        $roll = 0;
+        if (isset($_SESSION["roll"])) {
+            $roll = $_SESSION['roll'];
+        }
         session_write_close();
         return $roll;
 

@@ -5,6 +5,7 @@ $mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
 try {
     $query = "SELECT * from products";
     $stmt = $mysql->query($query);
+
     $stmt->execute();
 } catch (mysqli_sql_exception $e) {
     return $e;

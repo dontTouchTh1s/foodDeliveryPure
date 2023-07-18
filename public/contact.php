@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("__PATH__.php");
 $titleError = $nameError = $emailError = $error = "";
 include("../controllers/contact_action.php");
@@ -24,8 +23,8 @@ $onFocus = "none";
 if (Authorisation::get_roll() >= ROLL_ADMIN)
     include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
 else
-    if (Authorisation::get_roll() >= ROLL_ADMIN)
-        include(ASSETS_PATH . "/template/admin-navigation-drawer.php");
+    if (Authentication::isLogeIn())
+        include(ASSETS_PATH . "/template/customer-navigation-drawer.php");
     else
         include(ASSETS_PATH . "/template/user-navigation-drawer.php");
 ?>
