@@ -16,6 +16,15 @@ input::-ms-reveal, input::-ms-clear {
     z-index: 11;
 }
 
+.round {
+    margin-left: 20px !important;
+    border-radius: 35px !important;
+}
+
+.round:focus ~ .placeholder {
+    background-color: var(--lightPrimaryContainerColor) !important;
+}
+
 .form-control {
     text-align: right;
     transition: 250ms;

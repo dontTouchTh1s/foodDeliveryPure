@@ -11,9 +11,11 @@ for (const control of inputElements) {
     if (control.getAttribute("value") === "")
         control.value = "";
 
-    let formControl = control.parentElement;
-    let errorMessage = formControl.getElementsByClassName("error-message")[0];
-    errorMessage.innerText = errorMessage.getAttribute("helper-text");
+    if (control.id !== 'search') {
+        let formControl = control.parentElement;
+        let errorMessage = formControl.getElementsByClassName("error-message")[0];
+        errorMessage.innerText = errorMessage.getAttribute("helper-text");
+    }
 
     control.addEventListener("keyup", check_select);
     control.addEventListener("change", check_select);

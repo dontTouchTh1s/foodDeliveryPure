@@ -84,8 +84,9 @@
 
 .card-body p {
     margin-top: 0.5em;
+    text-align: justify;
     font-size: 1em;
-    line-height: 1em;
+    line-height: 1.6em;
 }
 
 .card-button {
@@ -113,7 +114,7 @@
 .card-footer {
     align-self: center;
     justify-self: left;
-    padding: 0 10px 0;
+    padding: 12px 10px 0;
 }
 
 .card-footer .card-action {
