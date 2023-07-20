@@ -42,7 +42,7 @@ class card
 
     public function price($price)
     {
-        $this->cardBody["price"]["text"] = $price;
+        $this->cardBody["price"]["text"] = $price . " تومان";
     }
 
     public function picture($imageURL)
