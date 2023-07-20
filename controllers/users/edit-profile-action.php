@@ -53,6 +53,7 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
             $_SESSION['name'] = $name;
             $_SESSION['full-name'] = $fullName;
             $_SESSION['email'] = $email;
+            session_write_close();
             $error = "اطلاعات با موفقیت بروزرسانی شد";
             $mbList[] = new message_box(MESSAGEBOX_TYPE_SUCCESS, $error);
         } else {
