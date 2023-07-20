@@ -23,9 +23,10 @@ $uploads_url = UPLOAD_URL . '/products';
 foreach ($_FILES['picture']['error'] as $key => $error) {
     if ($error == UPLOAD_ERR_OK) {
         $tmp_name = $_FILES['picture']["tmp_name"][$key];
-        $name = basename($_FILES['picture']["name"][$key]);
-        move_uploaded_file($tmp_name, "$uploads_path/$name");
-        $pictureNames .= "$uploads_url/$name" . ":";
+        $pName = basename($_FILES['picture']["name"][$key]);
+        $pName = str_replace(" ", "-", $pName);
+        move_uploaded_file($tmp_name, "$uploads_path/$pName");
+        $pictureNames .= "$pName";
     }
 }
 
