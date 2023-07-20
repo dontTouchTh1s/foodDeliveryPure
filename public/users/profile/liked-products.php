@@ -36,7 +36,9 @@ else
 </aside>
 <div class="container">
     <div class="content content-products">
+        در این بخش میتوانید محصولاتی که به لیست علاقه مندی خود اضافه کرده اید را مشاهده کنید.
         <div class="card-container">
+
             <?php
             if ($productsList != []) {
                 foreach ($productsList as $product) {

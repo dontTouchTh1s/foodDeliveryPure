@@ -36,6 +36,7 @@ else
 </aside>
 <div class="container">
     <div class="content content-products">
+        در این بخش میتوانید محصولاتی که قبلا آنها را ذخیره کرده اید را مشاهده کنید.
         <div class="card-container">
             <?php
             foreach ($productsList as $product) {
