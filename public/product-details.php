@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("__PATH__.php");
 $error = $pid = "";
 $product = $mbList = [];
@@ -39,7 +38,7 @@ else
         <div class="product-details-content" product-id="<?= $pid ?>">
             <div class="right-aside">
                 <div class="product-picture">
-                    <img src="<?= $product['pictures'] ?>" alt="<?= $product['name'] ?>">
+                    <img src="<?= UPLOAD_URL . '/products/' . $product['pictures'] ?>" alt="<?= $product['name'] ?>">
                 </div>
             </div>
             <div class="product-info">
