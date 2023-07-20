@@ -7,7 +7,8 @@ $mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
 try {
 
     $query = "INSERT INTO products (type, name, state, price, description, pictures) VALUES (?, ?, ?, ?, ?, ?)";
-    $mysql->query_and_execute($query, [1, 'test pizza', 1, 150000, 'A nice peperoni pizza cooked with love, try it now!', 'pizza.jpg']);
+    $mysql->query_and_execute($query, [1, 'پیتزا پپرونی', 1, 150000, 'پیتزای پپرونی مخصوص سرآشپز تهیه شده از با کیفیت ترین پپروتی و خمیر. این پیتزا مناسب افراد با سلیقه تند پسند است،از سس چیلی مخصوص هم استفاده شده است.', 'pizza.jpg']);
+    $mysql->query_and_execute($query, [1, 'پیتزا مخصوص', 1, 200000, 'پیتزای مخصوص سرآشپز از بهترین متریال ها و پروتئین ها تهیه شده است و برای تمام سلیقه هاست.', 'pizza.jpg']);
 
     $query = "INSERT INTO users (name, full_name, email, password, gender)
 VALUES (?, ?, ?, ?, ?);";
