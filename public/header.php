@@ -2,12 +2,14 @@
 $logeIn = "false";
 $email = "";
 $headerName = "";
+session_start();
 if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
     $logeIn = "true";
     $id = $_SESSION['id'];
     $headerName = $_SESSION['name'] . " " . $_SESSION['full-name'];
     $email = $_SESSION['email'];
 }
+session_write_close();
 ?>
 <header login="<?= $logeIn ?>">
     <div class="navigation-controller">
@@ -25,6 +27,13 @@ if (isset($_SESSION['id']) and isset($_SESSION['email'])) {
 
         </ul>
     </nav>
+    <div class="form-group m-1 h-auto flex-50 ">
+        <input type="text" class="form-control form-control-input control-outlined round h-2" value=""
+               name="name"
+               id="search" aria-labelledby="name-placeholder">
+        <label class="placeholder" for="search" id="search-placeholder">جست و جو</label>
+    </div>
+
     <div class="user-navigation">
         <?php
         if ($logeIn == "true") {
