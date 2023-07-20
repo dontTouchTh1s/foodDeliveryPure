@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("__PATH__.php");
 $emailError = $error = "";
 include(ACTIONS_PATH . "/admins/login-action.php");

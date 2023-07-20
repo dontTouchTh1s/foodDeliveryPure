@@ -1,6 +1,4 @@
 <?php
-
-session_start();
 include("__PATH__.php");
 $error = "";
 $productsList = $mbList = [];
