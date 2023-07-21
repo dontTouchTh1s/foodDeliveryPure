@@ -37,7 +37,7 @@ else
             $tableData->head(['ردیف', 'دسته بندی', 'وضعیت', 'نام', 'قیمت', 'توضیحات', 'تصویر']);
             $tableData->check("انتخاب");
             $tableData->action("حذف", TABLE_REMOVE, ACTION_ADMINS_URL . "/products/remove-action.php");
-            $tableData->action("ویرایش", TABLE_EDIT);
+            $tableData->action("ویرایش", TABLE_EDIT, ADMIN_URL . "/products/edit.php");
             $tableData->add();
             ?>
         </div>

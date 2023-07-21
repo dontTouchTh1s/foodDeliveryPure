@@ -2,6 +2,7 @@
 
 .container {
     background-color: var(--lightBackgroundColor);
+    overflow: hidden;
 }
 
 .container-buying {
@@ -12,6 +13,31 @@
 .content {
     margin: 24px 8px 24px 8px;
     background-color: var(--lightBackgroundColor);
+}
+
+.home-content {
+    width: 100%;
+    padding: 24px 12px;
+    height: 600px;
+    background: url("../../img/homeswiper3.jpg") fixed;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+}
+
+.home-content h1 {
+
+    text-align: center;
+    padding: 2px 16px;
+    color: var(--lightPrimaryOnColor);
+    background-color: var(--lightPrimaryColor);
+    border-radius: 50px;
+    margin-top: 120px;
+    height: fit-content;
+    width: fit-content;
+    font-size: 50px;
+
 }
 
 .content-table {

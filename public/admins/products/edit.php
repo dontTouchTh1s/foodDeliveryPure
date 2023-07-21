@@ -2,7 +2,15 @@
 include("__PATH__.php");
 Authorisation::check_roll(ROLL_ADMIN);
 $typeError = $stateError = $nameError = $priceError = $descriptionError = $pictureError = $error = "";
-$type = $state = $name = $price = $description = $pictures = $id = "";
+$mbList = [];
+$type = $state = $name = $price = $description = $pictures = $product_id = "";
+if (isset($_REQUEST['id']) and !empty($_REQUEST['id'])) {
+    $product_id = $_REQUEST['id'];
+} else {
+    if (isset($_SERVER['HTTP_REFERER']))
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    else Redirect::request('show.php');
+}
 include(ACTIONS_PATH . "/admins/products/edit-action.php");
 ?>
 <!DOCTYPE html>
@@ -34,8 +42,9 @@ else
         <div class="form-container form-admin">
             <h1 class="title">ویرایش محصول</h1>
             <p>مشخصات محصول را ویرایش و روی دکمه ثبت کلیک کنید.</p>
-            <form class="form-vertical" method="post" action=<?= $_SERVER["PHP_SELF"] ?>>
-
+            <form class="form-vertical" method="post" action="<?= $_SERVER["PHP_SELF"] ?>"
+                  enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $product_id ?>">
                 <div class="form-group m-1 h-auto flex-50">
                     <select class="form-control form-control-select control-outlined h-2" value="<?= $type ?>"
                             name="type" id="type" required>
@@ -73,7 +82,8 @@ else
                 </div>
 
                 <div class="form-group m-1 h-auto flex-100">
-                    <textarea class="form-control form-control-textarea control-outlined h-auto" value=""
+                    <textarea class="form-control form-control-textarea control-outlined h-auto"
+                              value="<?= $description ?>"
                               name="description" id="description"
                               aria-labelledby="description-placeholder"><?= $description ?></textarea>
                     <label class="placeholder" for="description" id="description-placeholder">توضیحات
@@ -83,9 +93,10 @@ else
                 </div>
 
                 <div class="form-group m-1 h-auto flex-100">
-                    <input type="file" style="display: none" value="" name="picture" multiple
-                           id="picture" aria-labelledby="picture-placeholder" required>
-                    <div class="form-control form-control-file control-outlined" value="<?= $pictures ?>"
+                    <input type="file" style="display: none" name="picture[]" multiple
+                           id="picture" aria-labelledby="picture-placeholder" required
+                    >
+                    <div class="form-control form-control-file control-outlined"
                          id="file-view">
                         <label class="file-label" for="picture" id="picture-placeholder"></label>
                         <button class="arrow" id="next-arrow" aria-disabled="true">
@@ -100,6 +111,7 @@ else
                         </div>
                         <div class="picture-preview">
                             <div class="background"></div>
+                            <img src="<?= UPLOAD_URL . '/products/' . $pictures ?>" alt="<?= $name ?>" class="picture">
                         </div>
                         <div class="file-description">
                             <span class="file-name" id="file-name">هیچ فایلی انتخاب نشده است</span>
@@ -119,6 +131,10 @@ else
         </div>
     </div>
 </div>
+<?php
+foreach ($mbList as $ms)
+    $ms->add();
+?>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 include("__PATH__.php");
 $titleError = $nameError = $emailError = $error = "";
+$mbList = [];
 include("../controllers/contact_action.php");
 ?>
 <!DOCTYPE html>
@@ -71,11 +72,14 @@ else
                 <div class="form-group h-2 flex-100">
                     <button type="button" class="btn btn-filled" id="submit-button">ارسال</button>
                 </div>
-                <div class="error-message"><?= $error ?></div>
             </form>
         </div>
     </div>
 </div>
+<?php
+foreach ($mbList as $ms)
+    $ms->add();
+?>
 <?php include(PUBLIC_PATH . '/footer.php'); ?>
 
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>

@@ -199,7 +199,7 @@ span.ripple {
     }
 
     .card {
-        grid-template-columns: 198px auto auto 25px;
+        grid-template-columns: 198px auto 25px;
         grid-template-rows: 150px 48px;
     }
 
@@ -227,7 +227,6 @@ span.ripple {
     }
 
     .card .card-footer {
-        grid-column: 4 / 5;
         padding-top: 16px;
         align-self: start;
         display: flex;
@@ -242,12 +241,33 @@ span.ripple {
 
     .card-body {
         grid-row: 1 / 2;
+        overflow-x: scroll;
+    }
+
+    .qty {
+        grid-template-columns: 36px auto 36px;
+    }
+
+    .qty {
+        grid-gap: 0;
+        margin-left: 8px;
+    }
+
+    .qty .btn {
+        margin: 0 0;
     }
 }
 
 .pError {
     display: none;
     position: absolute;
+}
+
+@media screen and (max-device-width: 460px) {
+    .card {
+        grid-template-columns: 150px auto 25px;
+        grid-template-rows: 102px 48px;
+    }
 }
 
 @keyframes ripple {

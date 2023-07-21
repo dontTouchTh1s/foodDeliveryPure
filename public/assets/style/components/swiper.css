@@ -1,14 +1,53 @@
+
 .swiper {
-    margin-top: 120px;
     width: 90%;
-    height: 350px;
+    height: 550px;
+    margin-top: 16px;
+}
+
+.products-swiper {
+    padding: 8px 10px;
+    position: relative;
+}
+
+.products-swiper h3 {
+    text-align: center;
+    font-size: 30px;
+    z-index: 1;
+    position: relative;
+}
+
+.products-swiper::before {
+    border-radius: 100%;
+    background-color: var(--lightBackgroundColor);
+    height: 150px;
+    content: "";
+    width: 103%;
+    top: -67px;
+    right: -10px;
+    position: absolute;
+}
+
+.home-products-content {
+    position: relative;
+
 }
 
 .swiper-slide {
-    min-width: 230px;
+    min-width: 300px;
 }
 
 .swiper-slide .card {
     width: 100%;
     height: 90%;
+}
+
+.home-swiper {
+    margin-top: 0;
+    width: 100%;
+    height: 500px;
+}
+
+.swiper-container {
+    display: flex;
 }

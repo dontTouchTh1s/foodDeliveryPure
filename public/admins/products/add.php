@@ -2,6 +2,7 @@
 include("__PATH__.php");
 Authorisation::check_roll(ROLL_ADMIN);
 $typeError = $stateError = $nameError = $priceError = $descriptionError = $pictureError = $error = "";
+$mbList = [];
 include(ACTIONS_PATH . "/admins/products/add-action.php");
 ?>
 <!DOCTYPE html>
@@ -115,6 +116,10 @@ else
         </div>
     </div>
 </div>
+<?php
+foreach ($mbList as $ms)
+    $ms->add();
+?>
 <script src="<?= JS_URL . '/javaScriptDynamicLoad.js' ?>" type="text/javascript"></script>
 </body>
 </html>

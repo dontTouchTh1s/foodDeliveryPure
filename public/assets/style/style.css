@@ -42,6 +42,14 @@ input, select, textarea, button {
     padding: 0;
 }
 
+.header-search {
+
+}
+
+.round {
+    width: 200px;
+}
+
 .right-pizza {
     position: absolute;
     right: 0;
@@ -114,4 +122,15 @@ input, select, textarea, button {
 .flex-25 {
     flex-basis: 23%;
     flex-grow: 2;
+}
+
+@media screen and (max-device-width: 599px) {
+    nav {
+        display: none;
+    }
+
+    .header-search {
+        margin-right: 20px !important;
+
+    }
 }

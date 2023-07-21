@@ -33,5 +33,6 @@ th {
 }
 
 td {
+    text-wrap: nowrap;
     padding: 16px;
 }

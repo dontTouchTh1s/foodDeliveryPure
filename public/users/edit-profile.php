@@ -70,7 +70,7 @@ else
                     <div class="error-message" id="password-error"></div>
                 </div>
                 <div class="form-group h-auto flex-100 h-2">
-                    <button type="button" class="btn btn-filled" id="submit-button">ارسال</button>
+                    <button type="button" class="btn btn-filled" id="submit-button">ویرایش پروفایل</button>
                 </div>
                 <span><?= $error ?></span>
             </form>

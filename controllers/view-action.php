@@ -15,8 +15,8 @@ if ($result) {
     if ($result->num_rows > 0) {
         $productsList = $result->fetch_all();
     } else {
-        $error = "عدم اتصال";
-        $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
+        $error = "کالایی برای نمایش وجود ندارد";
+        $mbList[] = new message_box(MESSAGEBOX_TYPE_ALERT, $error);
     }
 } else {
     $error = "عدم اتصال";

@@ -27,7 +27,7 @@ session_write_close();
 
         </ul>
     </nav>
-    <div class="form-group m-1 h-auto flex-50 ">
+    <div class="form-group m-1 h-auto flex-50 header-search">
         <input type="text" class="form-control form-control-input control-outlined round h-2" value=""
                name="name"
                id="search" aria-labelledby="name-placeholder">

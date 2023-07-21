@@ -40,9 +40,10 @@ if ($mysql->connect_errno) {
 
 $query = "INSERT INTO products (type, state, name, price, description, pictures)
           VALUES ('$type', '$state', '$name', '$price', '$description', '$pictureNames')";
-if ($mysql->query($query))
-    $error = "محصول با موفقیت اضافه شد";
-else $error = "در هنگام افزودن محصول خطایی رخ داده است.";
+if ($mysql->query($query)) {
+    $error = "محصول با موفقیت اضافه شد.";
+    $mbList[] = new message_box(MESSAGEBOX_TYPE_SUCCESS, $error);
+} else $error = "در هنگام افزودن محصول خطایی رخ داده است.";
 
 
 

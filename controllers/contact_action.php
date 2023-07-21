@@ -1,7 +1,7 @@
 <?php
 $title = $name = $email = $message = "";
 $emptyField = false;
-if (isset($_GET['message-title']) and isset($_GET['name']) and isset($_GET['email']) and isset($_GET['message']) ){
+if (isset($_GET['message-title']) and isset($_GET['name']) and isset($_GET['email']) and isset($_GET['message'])) {
     $title = $_GET['message-title'];
     $name = $_GET['name'];
     $email = $_GET['email'];
@@ -12,24 +12,22 @@ if (isset($_GET['message-title']) and isset($_GET['name']) and isset($_GET['emai
         $nameError = "لطفا یک نام واقعی وارد کنید.";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL))
         $emailError = "ایمیل وارد شده نا معتبر است.";
-    }
-else{
+} else {
     return;
 }
 
 
 //connecting to database
-$mysql = new mysqli("localhost", "root", "5454123", "front");
-if ($mysql -> connect_errno) {
-    $error = "در هنگام ثبت اطلاعات مشکلی پیش آمده لطفا بعدا دوباره تلاش کنید.";
-    return;
-}
+include(INCLUDES_PATH . "/setting.php");
+// Connecting to database
+$mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
 
 $query = "INSERT INTO message (title, name, email, message)
           VALUES ('$title', '$name', '$email', '$message')";
-if ($mysql -> query($query))
-    $error = "پیام شما با موفقیت ارسال شد";
-else $error = "در هنگام ارسال پیام خطایی رخ داده است.";
+if ($mysql->query_and_execute($query)) {
+    $error = "پیام شما با موفقیت ارسال شد.";
+    $mbList[] = new message_box(MESSAGEBOX_TYPE_SUCCESS, $error);
+} else $error = "در هنگام ارسال پیام خطایی رخ داده است.";
 
 
 

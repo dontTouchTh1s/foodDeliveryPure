@@ -28,7 +28,8 @@ CREATE TABLE IF NOT EXISTS admins(
       email VARCHAR(255),
        password VARCHAR(20),
         gender VARCHAR(10),
-        PRIMARY KEY (id)) ENGINE = InnoDB;
+        PRIMARY KEY (id),
+        UNIQUE KEY (email)) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS message (
     id INT AUTO_INCREMENT,
  title VARCHAR(255),
@@ -52,7 +53,8 @@ CREATE TABLE IF NOT EXISTS users (
       email VARCHAR(255),
        password VARCHAR(20),
         gender VARCHAR(10),
-        PRIMARY KEY (id)) ENGINE = InnoDB;
+        PRIMARY KEY (id),
+        UNIQUE KEY (email)) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS productsbasket (
     id INT AUTO_INCREMENT,
     user_id INT,
