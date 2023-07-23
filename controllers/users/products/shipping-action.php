@@ -30,7 +30,7 @@ if ($sth->execute()) {
             $sth->execute();
             $result = $sth->get_result();
             $productBasketListInfo[] = $result->fetch_assoc();
-            $totalPrice += $product[2];
+            $totalPrice += $product[4];
         }
     } else {
         $emptyBasket = true;

@@ -1,9 +1,14 @@
 <?php
 include(INCLUDES_PATH . "/setting.php");
+$condition = "";
+if (isset($_REQUEST['name']) and !empty($_REQUEST['name'])) {
+    $name = $_REQUEST['name'];
+    $condition = " WHERE name LIKE '%$name%' ";
+}
 // Connecting to database
 $mysql = new Mysql(HOST, USERNAME, PASSWORD, DB);
 try {
-    $query = "SELECT * from products";
+    $query = "SELECT * from products" . $condition;
     $stmt = $mysql->query($query);
 
     $stmt->execute();

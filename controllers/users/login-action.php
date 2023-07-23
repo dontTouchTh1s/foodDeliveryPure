@@ -28,7 +28,7 @@ if ($result)
         $_SESSION['full-name'] = $row['full-name'];
         $_SESSION['email'] = $row['email'];
         $_SESSION['gender'] = $row['gender'];
-        $_SESSION['roll'] = 0;
+        $_SESSION['roll'] = $row['roll'];
         header("location: " . USER_URL . "/edit-profile.php");
     } else {
         $error = "نام کاربری یا رمز عبور اشتباه است.";

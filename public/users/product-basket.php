@@ -35,11 +35,17 @@ else
             <?php
             $totalPrice = 0;
             $c = 0;
-            foreach ($productBasketListInfo as $product) {
-                $itemPrice = $productBasketList[$c][4];
-                $totalPrice += $itemPrice;
-                include ASSETS_PATH . "/template/product-basket-product.php";
-                $c++;
+            $empty = "";
+            if (count($productBasketListInfo) === 0) {
+                $empty = "disabled";
+                echo "سبد خرید شما خالی است.";
+            } else {
+                foreach ($productBasketListInfo as $product) {
+                    $itemPrice = $productBasketList[$c][4];
+                    $totalPrice += $itemPrice;
+                    include ASSETS_PATH . "/template/product-basket-product.php";
+                    $c++;
+                }
             }
             ?>
         </div>
@@ -59,7 +65,7 @@ else
                 </li>
             </ul>
             <p>هزینه ارسال در ادامه فرایند خرید، بر اساس نحوه ارسال و زمان ارسال محاسبه خواهد شد.</p>
-            <button type="button" class="btn btn-filled flex-100 goto-shipping">
+            <button type="button" class="btn btn-filled flex-100 goto-shipping" <?= $empty ?>>
                 ادامه فرایند خرید
             </button>
         </div>

@@ -33,6 +33,9 @@ th {
 }
 
 td {
+    max-width: 300px;
+    overflow-x: auto;
+    
     text-wrap: nowrap;
     padding: 16px;
 }

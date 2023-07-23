@@ -1,6 +1,7 @@
 <?php
 include("__PATH__.php");
 Authentication::check_login();
+$emailError = "";
 $productBasketListInfo = $productBasketList = $mbList = [];
 /** @var int $totalPrice */
 include(USERS_PATH . "/products/shipping-action.php");
@@ -33,11 +34,19 @@ else
 <div class="container container-buying">
     <div class="content content-shipping">
         <div class="address-content">
-            <p>آدرس تحویل سفارش</p>
+            <h3>نهایی کردن سفارش</h3>
             <p class="address"></p>
-            <p>گیرنده:
-                <span class="receiver-name"></span>
-            </p>
+            <p>کد محصول به صورت پیشفرض به ایمیلی که هنگام ثبت نام وارد کرده اید ارسال میشود. در صورت نیاز شما میتوانید
+                یک ایمیل دیگر را وارد کنید.</p>
+            <form class="form-vertical" method="post" action=<?= ACTION_USER_URL . '/products/submit-order.php' ?>>
+                <div class="form-group m-1 h-auto flex-50">
+                    <input type="email" class="form-control form-control-input control-outlined h-2" value=""
+                           name="email"
+                           id="email" aria-labelledby="email-placeholder">
+                    <label class="placeholder" for="email" id="email-placeholder">ایمیل</label>
+                    <div class="error-message" id="email-error"><?= $emailError ?></div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="content content-aside">
@@ -52,9 +61,9 @@ else
                     <span><?= $totalPrice ?></span>
                 </li>
             </ul>
-            <p>هزینه ارسال در ادامه فرایند خرید، بر اساس نحوه ارسال و زمان ارسال محاسبه خواهد شد.</p>
-            <button type="button" class="btn btn-filled flex-100 goto-pay">
-                ادامه فرایند خرید
+            <!--            <p>هزینه ارسال در ادامه فرایند خرید، بر اساس نحوه ارسال و زمان ارسال محاسبه خواهد شد.</p>-->
+            <button type="submit" class="btn btn-filled flex-100 goto-pay">
+                ثبت سفارش
             </button>
         </div>
     </div>

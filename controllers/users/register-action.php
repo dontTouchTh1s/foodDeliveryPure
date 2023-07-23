@@ -39,8 +39,8 @@ if ($stmt->execute()) {
         $error = "این ایمیل قبلا ثبت شده است.";
         $mbList[] = new message_box(MESSAGEBOX_TYPE_ERROR, $error);
     } else {
-        $query = "INSERT INTO users (name, full_name, email, password, gender)
-          VALUES ('$name', '$fullName', '$email', '$password', '$gender')";
+        $query = "INSERT INTO users (name, full_name, email, password, gender, roll)
+          VALUES ('$name', '$fullName', '$email', '$password', '$gender', 'user')";
         $result = $mysql->query_and_execute($query);
         if ($result) {
             $error = "اکانت با موفقیت ساخته شد.";

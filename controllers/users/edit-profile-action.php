@@ -1,8 +1,9 @@
 <?php
 //Include data base files
 include(INCLUDES_PATH . "/setting.php");
-
-if (isset($_SESSION['id'])) {
+if (isset($_REQUEST['id']) and !empty($_REQUEST['id']))
+    $id = $_REQUEST['id'];
+else if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
 } else
     return;
@@ -24,6 +25,10 @@ if ($stmt->execute()) {
         $email = $row['email'];
         $gender = $row['gender'];
         $password = $row['password'];
+        $roll = $row['roll'];
+        if (Authorisation::get_roll() == 20) {
+            $superAdmin = true;
+        }
     } else {
         $error = "نتیجه ای یافت نشد";
     }
@@ -38,6 +43,10 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
     $fullName = $_POST['full-name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    if (Authorisation::get_roll() == 20) {
+        $superAdmin = true;
+        $roll = $_POST['roll'];
+    }
     if (!preg_match("/^[\p{L} ]+$/u", $name))
         $nameError = "لطفا یک نام واقعی وارد کنید.";
     else if (!preg_match("/^[\p{L} ]+$/u", $name))
@@ -46,7 +55,7 @@ if (isset($_POST['name']) and isset($_POST['full-name']) and isset($_POST['email
         $emailError = "ایمیل وارد شده نا معتبر است.";
     else {
         $query = "UPDATE users
-          SET name='$name', full_name='$fullName', email='$email', password='$password'
+          SET name='$name', full_name='$fullName', email='$email', password='$password', roll='$roll'
           WHERE id=?";
         if ($mysql->query($query, [$id])) {
             session_start();

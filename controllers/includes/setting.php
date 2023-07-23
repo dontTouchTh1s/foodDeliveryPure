@@ -21,15 +21,6 @@ try {
 
 
 $query = "
-CREATE TABLE IF NOT EXISTS admins(    
-    id INT AUTO_INCREMENT,
-    name VARCHAR(255),
-     full_name VARCHAR(255),
-      email VARCHAR(255),
-       password VARCHAR(20),
-        gender VARCHAR(10),
-        PRIMARY KEY (id),
-        UNIQUE KEY (email)) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS message (
     id INT AUTO_INCREMENT,
  title VARCHAR(255),
@@ -53,6 +44,7 @@ CREATE TABLE IF NOT EXISTS users (
       email VARCHAR(255),
        password VARCHAR(20),
         gender VARCHAR(10),
+        roll INT NOT NULL,
         PRIMARY KEY (id),
         UNIQUE KEY (email)) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS productsbasket (
@@ -68,7 +60,29 @@ CREATE TABLE IF NOT EXISTS likedproducts (
     product_id INT) ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS bookmarkedproducts (
     user_id INT,
-     product_id INT);";
+     product_id INT);
+
+CREATE TABLE IF NOT EXISTS order_products(
+    id INT AUTO_INCREMENT,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    qty INT NOT NULL,
+    PRIMARY KEY (`id`),
+    INDEX order_id_foreign (order_id),
+    INDEX product_id_foreign (product_id),
+    CONSTRAINT `order_id_foreign` FOREIGN KEY (`order_id`) REFERENCES `orders`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+    CONSTRAINT `product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS orders(
+    id INT AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    date DATE NOT NULL ,
+    email VARCHAR(255) null,
+    primary key (id)
+) ENGINE = InnoDB;
+
+";
 
 if (!$mysql->multi_query($query))
     return "CREATING TABLE FAILED!";

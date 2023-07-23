@@ -36,6 +36,7 @@ else
 
     <div class="home-content">
         <h1>پیتزای با کیفیت را از ما بخواهید</h1>
+        <p class="header-subhead">بهترین متریال</p>
     </div>
     <div class="home-products-content">
         <div class="products-swiper">

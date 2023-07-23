@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="cd11ff3f-750b-4621-856f-d35c64256913" name="php" url="http://localhost:63342/front-project">
-        <fileTransfer mountedRoot="F:\university\front\front-project\public" accessType="MOUNT" port="0" />
+      <webServer id="cd11ff3f-750b-4621-856f-d35c64256913" name="php" url="http://localhost:8000/front-project">
+        <fileTransfer mountedRoot="C:\Users\ALIM\PhpstormProjects" accessType="MOUNT" port="0" />
       </webServer>
       <webServer id="385f29e1-2630-4a57-bb9a-94852836b997" name="php2" url="http://localhost:8000/front-project">
         <fileTransfer mountedRoot="F:\university\front" accessType="MOUNT" port="0" />

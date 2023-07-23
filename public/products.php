@@ -2,6 +2,7 @@
 include("__PATH__.php");
 $error = "";
 $productsList = $mbList = [];
+$name = "";
 include(ACTIONS_PATH . "/view-action.php");
 ?>
 <!DOCTYPE html>
@@ -35,6 +36,17 @@ else
 </aside>
 <div class="container">
     <div class="content content-products">
+        <?php
+        if ($name !== "") {
+            echo "<p>";
+            echo "جست و جو برای  ";
+            echo "'$name'";
+            if (count($productsList) === 0) {
+                echo "نتیجه ای نداشت.";
+                echo "<a href='products.php' class='btn btn-filled-tonal'>حذف فیلتر</a>";
+            }
+        }
+        ?>
         <div class="card-container">
             <?php
             foreach ($productsList as $product) {

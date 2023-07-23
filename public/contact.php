@@ -12,7 +12,7 @@ include("../controllers/contact_action.php");
     <meta name="author" content="AliM">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
+
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
     <title>ارتباط با ما</title>
 </head>

@@ -56,7 +56,6 @@ else
                     <span><?= $totalPrice ?></span>
                 </li>
             </ul>
-            <p>هزینه ارسال در ادامه فرایند خرید، بر اساس نحوه ارسال و زمان ارسال محاسبه خواهد شد.</p>
             <button type="button" class="btn btn-filled flex-100 goto_pay">
                 ادامه فرایند خرید
             </button>

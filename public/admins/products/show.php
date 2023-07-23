@@ -12,7 +12,7 @@ include(ACTIONS_PATH . "/admins/products/show-action.php");
     <meta name="author" content="AliM">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= STYLE_URL . '/style.css' ?>">
-    <link rel="stylesheet" href="<?= STYLE_URL . '/header.css' ?>">
+
     <link rel="stylesheet" href="<?= STYLE_URL . '/components/data-table.css' ?>">
     <script src="https://kit.fontawesome.com/f5a43cdea2.js" crossorigin="anonymous"></script>
     <title>کالا ها</title>

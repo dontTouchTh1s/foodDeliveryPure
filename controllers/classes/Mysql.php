@@ -41,6 +41,11 @@ class Mysql
             return true;
     }
 
+    public function last_insert_id()
+    {
+        return $this->mysql->insert_id;
+    }
+
     public function query(string $query, array $params = null): Exception|mysqli_sql_exception|mysqli_stmt
     {
         return $this->prepare_query($query, $params);

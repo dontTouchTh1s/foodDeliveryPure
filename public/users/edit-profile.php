@@ -1,7 +1,8 @@
 <?php
 include("__PATH__.php");
 Authentication::check_login();
-$name = $fullName = $gender = $email = $password = $rePassword = $error = "";
+$name = $fullName = $gender = $email = $password = $rePassword = $roll = $error = "";
+$superAdmin = false;
 $mbList = [];
 include(ACTIONS_PATH . "/users/edit-profile-action.php");
 ?>
@@ -34,7 +35,7 @@ else
     <div class="content">
         <div class="form-container form-user">
             <h1>ویرایش مشخصات</h1>
-            <p>برای ورود، مشخصات اکانت خود را وارد و روی دکمه ورود کلیک کنید.</p>
+            <p>برای ویرایش مشخصات مقادیر فیلد ها را تغییر دهید و رو دکمه ویرایش تغییرات کلیک کنید.</p>
             <form class="form-vertical" method="post" action="<?= $_SERVER["PHP_SELF"] ?>">
 
                 <div class="form-group m-1 h-auto flex-100">
@@ -58,8 +59,14 @@ else
                     <label class="placeholder" for="full-name" id="full-name-placeholder">نام خانادگی</label>
                     <div class="error-message" id="full-name-error"></div>
                 </div>
-
-                <div class="form-group m-1 h-auto flex-100">
+                <?php
+                $flex = 'flex-100';
+                session_write_close();
+                if ($superAdmin) {
+                    $flex = 'flex-50';
+                }
+                ?>
+                <div class="form-group m-1 h-auto <?= $flex ?>">
                     <input type="password" class="form-control form-control-input control-outlined h-2"
                            value="<?= $password ?>"
                            name="password" id="password" aria-labelledby="password-placeholder" required>
@@ -69,6 +76,19 @@ else
                     </div>
                     <div class="error-message" id="password-error"></div>
                 </div>
+
+                <?php
+                if ($flex == 'flex-50')
+                    echo "
+                    <div class='form-group m-1 h-auto <?=$flex?>'>
+                        <input type='text' class='form-control form-control-input control-outlined h-2'
+                               value=$roll
+                               name='roll' id='roll' aria-labelledby='roll-placeholder' required>
+                        <label class='placeholder' for='roll' id='roll-placeholder'>سطح دسترسی</label>
+                        <div class='error-message' id='password-error'></div>
+                    </div>
+                    "
+                ?>
                 <div class="form-group h-auto flex-100 h-2">
                     <button type="button" class="btn btn-filled" id="submit-button">ویرایش پروفایل</button>
                 </div>
