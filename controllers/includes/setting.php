@@ -62,6 +62,14 @@ CREATE TABLE IF NOT EXISTS bookmarkedproducts (
     user_id INT,
      product_id INT);
 
+CREATE TABLE IF NOT EXISTS orders(
+    id INT AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    date DATE NOT NULL ,
+    email VARCHAR(255) null,
+    primary key (id)
+) ENGINE = InnoDB;
+
 CREATE TABLE IF NOT EXISTS order_products(
     id INT AUTO_INCREMENT,
     order_id INT NOT NULL,
@@ -74,13 +82,7 @@ CREATE TABLE IF NOT EXISTS order_products(
     CONSTRAINT `product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB;
 
-CREATE TABLE IF NOT EXISTS orders(
-    id INT AUTO_INCREMENT,
-    user_id INT NOT NULL,
-    date DATE NOT NULL ,
-    email VARCHAR(255) null,
-    primary key (id)
-) ENGINE = InnoDB;
+
 
 ";
 
