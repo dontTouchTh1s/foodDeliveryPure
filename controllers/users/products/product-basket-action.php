@@ -23,7 +23,7 @@ if ($sth->execute()) {
         foreach ($productBasketList as $product) {
             $query = "SELECT * FROM products WHERE id = ?";
             $sth = $mysql->prepare($query);
-            $sth->bind_param('i', $product[1]);
+            $sth->bind_param('i', $product[2]);
             $sth->execute();
             $result = $sth->get_result();
             $productBasketListInfo[] = $result->fetch_array();

@@ -137,8 +137,7 @@ header ul li {
     pointer-events: auto;
 }
 
-.user-manage .a {
-    margin-right: auto;
+.user-manage a {
     justify-self: center;
 }
 
