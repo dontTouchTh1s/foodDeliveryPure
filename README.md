@@ -1,4 +1,4 @@
-# front-project
+# Food Delivery
 A student project for web design class in university.
 In this project, back-end created with raw php, like front-end using raw html, css and js.
 Database created using Mysql.
